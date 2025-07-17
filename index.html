@@ -97,6 +97,26 @@ header nav a:hover::after {
 
 
 @media (max-width: 768px) {
+  header span {
+    font-size: 1.4rem !important;
+  }
+
+  header img {
+    height: 40px !important;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .hero p {
+    font-size: 1.2rem !important;
+  }
+
+  .cta button {
+    font-size: 1.1rem !important;
+    padding: 12px 24px !important;
+  }
   header {
     flex-direction: column;
     align-items: flex-start;
@@ -205,7 +225,7 @@ header {
   </style>
 </head>
 <body>
-  <header>
+  <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px;">
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   <div style="display: flex; align-items: center; gap: 10px; animation: fadeInUp 1s ease-out;">
   <a href="#hero" style="display: flex; align-items: center; text-decoration: none;">
@@ -214,7 +234,7 @@ header {
   </a>
 </div>
   </div>
-  <nav id="mainNav">
+  <nav id="mainNav" style="display: flex; gap: 20px;">
     
     <a href="#about" style="color: #fff; text-decoration: none; font-size: 1rem; font-weight: 500;">About Us</a>
     <a href="#gallery" style="color: #fff; text-decoration: none; font-size: 1rem; font-weight: 500;">Gallery</a>
@@ -293,4 +313,3 @@ function toggleMenu() {
 </script>
 </body>
 </html>
-
