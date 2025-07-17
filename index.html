@@ -62,6 +62,7 @@ header nav a::after {
 header nav a:hover::after {
   width: 100%;
 }
+
 .cta button:hover {
   opacity: 0.9;
   transform: scale(1.05);
@@ -78,6 +79,7 @@ header nav a:hover::after {
 .cta button:last-child:hover {
   background: #1ebd5b;
 }
+
 .whatsapp-button {
   background: #25d366;
   color: #fff;
@@ -95,143 +97,6 @@ header nav a:hover::after {
   transform: scale(1.05);
 }
 
-
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px;
-  }
-
-  header span {
-    font-size: 1.6rem !important;
-  }
-
-  header img {
-    height: 48px !important;
-  }
-
-  header nav {
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-
-  .hero h1 {
-    font-size: 2rem !important;
-  }
-
-  .hero p {
-    font-size: 1.3rem !important;
-  }
-
-  .cta button {
-    font-size: 1.2rem !important;
-    padding: 14px 28px !important;
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .menu-button {
-    font-size: 1rem;
-    padding: 12px 20px;
-    width: 100%;
-    max-width: 300px;
-  }
-
-  #menu div {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 70px;
-    left: 0;
-  }
-
-  nav.active {
-    display: flex;
-  }
-
-  nav a {
-    padding: 10px 20px;
-    border-top: 1px solid #444;
-    width: 100%;
-    text-align: left;
-  }
-}
-
-  header img {
-    height: 40px !important;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem !important;
-  }
-
-  .hero p {
-    font-size: 1.2rem !important;
-  }
-
-  .cta button {
-    font-size: 1.1rem !important;
-    padding: 12px 24px !important;
-  }
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 20px;
-  }
-
-  header nav {
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .cta button {
-    width: 100%;
-    max-width: 280px;
-    font-size: 1rem;
-  }
-
-  .menu-button {
-    font-size: 0.9rem;
-    padding: 10px 16px;
-  }
-
-  #menu div {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* Sticky Header */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.85);
-}
-
-/* Collapsible Nav Styles */
 .menu-toggle {
   display: none;
   font-size: 1.5rem;
@@ -242,34 +107,31 @@ header {
 }
 
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
+  header {
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 10px;
   }
 
-  nav {
-    display: none;
+  header nav {
     flex-direction: column;
+    align-items: flex-start;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 10px;
+    display: none;
     position: absolute;
-    top: 70px;
+    top: 60px;
     left: 0;
+    z-index: 999;
   }
 
   nav.active {
     display: flex;
   }
 
-  nav a {
-    padding: 10px 20px;
-    border-top: 1px solid #444;
-    width: 100%;
-    text-align: left;
-  }
-
-  .cta button {
-    width: 100%;
-    max-width: 100%;
+  .menu-toggle {
+    display: block;
   }
 
   .hero h1 {
@@ -280,106 +142,35 @@ header {
     font-size: 1.1rem;
   }
 
-  .menu-button {
-    font-size: 1rem;
-    padding: 10px 20px;
+  .cta button {
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
+    font-size: 1.1rem;
+    padding: 12px 20px;
   }
+
+  .menu-button {
+    font-size: 0.95rem;
+    padding: 10px 18px;
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
 }
 </style>
 
-
-    
-  </style>
-</head>
-<body>
-  <header style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px;">
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <div style="display: flex; align-items: center; gap: 10px; animation: fadeInUp 1s ease-out;">
-  <a href="#hero" style="display: flex; align-items: center; text-decoration: none;">
-    <img src="logo.png" alt="Golden Flames Logo" style="height: 50px;" />
-    <span style="font-family: Arial, sans-serif; color: #b8860b; font-size: 1.5rem; font-weight: bold; margin-left: 8px; display: flex; align-items: center;">GOLDEN FLAMES</span>
-  </a>
-</div>
-  </div>
-  <nav id="mainNav" style="display: flex; gap: 20px;">
-    
-    <a href="#about" style="color: #fff; text-decoration: none; font-size: 1rem; font-weight: 500;">About Us</a>
-    <a href="#gallery" style="color: #fff; text-decoration: none; font-size: 1rem; font-weight: 500;">Gallery</a>
-    <a href="#reviews" style="color: #fff; text-decoration: none; font-size: 1rem; font-weight: 500;">Reviews</a>
-    <a href="#contact" style="color: #fff; text-decoration: none; font-size: 1rem; font-weight: 500;">Contact</a>
-  </nav>
-</header>
-
-  <section class="hero" style="background: url('herobg.png') no-repeat center center; background-size: cover; background-attachment: fixed; width: 100%; height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; margin: 0; padding: 0; overflow: hidden; box-sizing: border-box;">
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1;"></div>
-  <div class="fade-up" style="z-index: 2; width: 100%; text-align: center; padding: 0 20px; max-width: 960px; box-sizing: border-box; bottom: 15%;">
-    <h1 style="font-size: 2.2rem; font-weight: bold; color: #ffffff; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); ">Exceptional Catering for Every Occasion</h1>
-    <p style="font-size: 1.25rem; color: #fff8dc; font-weight: 500; max-width: 700px; margin: 10px auto 20px; line-height: 1.6; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); ">
-      Creating unforgettable culinary experiences with passion, precision, and the finest ingredients. From intimate gatherings to grand celebrations, we bring the golden touch to your special moments.
-    </p>
-    <div class="cta">
-  <button style="background: #8B0000; color: #fff; font-weight: bold; margin: 5px; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;" onclick="window.location.href='#menu'">Customize Your Menu</button>
-  <button style="background: #4e2a1e; color: #fff; font-weight: bold; margin: 5px; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;" onclick="window.location.href='#menu'">Explore Our Menu</button>
-</div>
-  </div>
-  <div style="position: absolute; bottom: 20px; width: 100%; text-align: center; z-index: 3;">
-    <a href="#about" style="font-size: 1.5rem; color: #fff; text-decoration: none; animation: bounce 1.5s infinite;">↓</a>
-  </div>
-</section>
-
-  <section id="about" class="fade-section" style="padding: 60px 20px; background: #fff3e0; text-align: center;">
-    <div style="max-width: 900px; margin: 0 auto;">
-      <h2 style="color: #d35400; font-size: 2rem; margin-bottom: 10px;">About Us</h2>
-      <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;">
-        Golden Flames is a premier catering service delivering unforgettable culinary experiences for weddings, events, and celebrations. With our rich flavors, impeccable presentation, and passion for hospitality, we make your special moments deliciously memorable.
-      </p>
-    </div>
-  </section>
-
-<section id="menu" class="fade-section" style="padding: 60px 20px; background: #fff8f0; text-align: center;">
-  <div style="max-width: 960px; margin: 0 auto;">
-    <h2 style="color: #4e2a1e; font-size: 2rem; margin-bottom: 10px;">Explore Our Menu</h2>
-    <p style="font-size: 1.1rem; line-height: 1.6; color: #333; max-width: 700px; margin: 0 auto 20px;">
-      Discover our diverse range of mouthwatering dishes and signature offerings crafted to delight every palate.
-    </p>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
-      <button class="menu-button">Welcome Drink</button>
-      <button class="menu-button">Soup</button>
-      <button class="menu-button">Chat Counter</button>
-      <button class="menu-button">Counter Dressing</button>
-      <button class="menu-button">Starters (Veg.)</button>
-      <button class="menu-button">Starters (Non Veg.)</button>
-      <button class="menu-button">Main Courses</button>
-      <button class="menu-button">Assorted Indian Chutney</button>
-      <button class="menu-button">Cuisines in Veg.</button>
-      <button class="menu-button">Cuisines in Non Veg.</button>
-      <button class="menu-button">Desert</button>
-      <button class="menu-button">Bakery</button>
-      <button class="menu-button">Pan</button>
-    </div>
-  </div>
-</section>
-
-<footer style="background: #2c2c2c; color: #fff; text-align: center; padding: 20px 10px;">
-  <p style="margin: 0;">&copy; 2025 Golden Flames Catering. All rights reserved.</p>
-  <p style="margin: 5px 0 0; font-size: 0.9rem;">Designed with care to serve with flavor.</p>
-</footer>
-
-
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    requestAnimationFrame(() => {
-      document.querySelectorAll('.fade-up').forEach(el => {
-        el.classList.add('visible');
-      });
-    });
-  });
 function toggleMenu() {
   document.getElementById('mainNav').classList.toggle('active');
 }
 </script>
-</body>
-</html>
 
