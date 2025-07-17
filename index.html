@@ -97,9 +97,78 @@ header nav a:hover::after {
 
 
 @media (max-width: 768px) {
-  header span {
-    font-size: 1.4rem !important;
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
   }
+
+  header span {
+    font-size: 1.6rem !important;
+  }
+
+  header img {
+    height: 48px !important;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem !important;
+  }
+
+  .hero p {
+    font-size: 1.3rem !important;
+  }
+
+  .cta button {
+    font-size: 1.2rem !important;
+    padding: 14px 28px !important;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .menu-button {
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  #menu div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 70px;
+    left: 0;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    padding: 10px 20px;
+    border-top: 1px solid #444;
+    width: 100%;
+    text-align: left;
+  }
+}
 
   header img {
     height: 40px !important;
@@ -313,3 +382,4 @@ function toggleMenu() {
 </script>
 </body>
 </html>
+
