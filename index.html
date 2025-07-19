@@ -1,174 +1,215 @@
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloned Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; line-height: 1.6; }
 
-body::-webkit-scrollbar {
-  display: none;
-}
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    header h1 { color: #333; font-weight: 600; }
 
-.menu-button {
-  background: #ff6600;
-  color: white;
-  font-weight: bold;
-  padding: 12px 20px;
-  border-radius: 10px;
-  border: none;
-  font-size: 1rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
 
-.fade-up {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 40px);
-  opacity: 0;
-  transition: opacity 1s ease, transform 1s ease;
-}
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-.fade-up.visible {
-  opacity: 1;
-  transform: translate(-50%, 0);
-}
+    nav a:hover { color: #ff7a00; }
 
-header nav a {
-  position: relative;
-}
+    .hero {
+      background: url('herobg.png') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
 
-header nav a::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #ff6600;
-  transition: width 0.3s ease;
-}
+    .hero h2 { font-size: 3rem; background-color: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; }
 
-header nav a:hover::after {
-  width: 100%;
-}
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-.cta button:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
-}
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+      text-align: center;
+    }
 
-.cta button:first-child:hover {
-  background-color: #e65c00;
-}
+    .services, .about, .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
 
-.cta button:last-child {
-  background: #25d366;
-}
+    .card {
+      background: #f9f9f9;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
 
-.cta button:last-child:hover {
-  background: #1ebd5b;
-}
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
 
-.whatsapp-button {
-  background: #25d366;
-  color: #fff;
-  font-weight: bold;
-  margin: 5px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
 
-.whatsapp-button:hover {
-  background: #1ebd5b;
-  transform: scale(1.05);
-}
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+      margin: 0 auto;
+    }
 
-.menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
+    form input, form textarea {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+    }
 
-@media (max-width: 768px) {
-  header {
-    flex-wrap: wrap;
-    padding: 10px;
-    gap: 10px;
-  }
+    form button {
+      background: #ff7a00;
+      color: #fff;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
-  header nav {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    padding: 10px;
-    display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    z-index: 999;
-  }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 0.75rem 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
 
-  nav.active {
-    display: flex;
-  }
+    .whatsapp-button:hover {
+      background-color: #128C7E;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Golden Flames</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  .menu-toggle {
-    display: block;
-  }
+  <section class="hero">
+    <h2>Welcome to Golden Flames Catering</h2>
+  </section>
 
-  .hero h1 {
-    font-size: 1.8rem;
-  }
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="Service 1">
+        <h3>Wedding Catering</h3>
+        <p>Elegant and customized menus for your special day.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="Service 2">
+        <h3>Corporate Events</h3>
+        <p>Professional catering service for all corporate occasions.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="Service 3">
+        <h3>Birthday Parties</h3>
+        <p>Delicious food and fun themes for all ages.</p>
+      </div>
+    </div>
+  </section>
 
-  .hero p {
-    font-size: 1.1rem;
-  }
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about">
+      <div class="card">
+        <p>Golden Flames has over a decade of experience delivering premium catering services for weddings, corporate events, and celebrations. Our team is committed to excellence, using the freshest ingredients to create unforgettable culinary experiences.</p>
+      </div>
+    </div>
+  </section>
 
-  .cta button {
-    width: 100%;
-    max-width: 320px;
-    font-size: 1.1rem;
-    padding: 12px 20px;
-  }
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Gallery 1"></div>
+      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Gallery 2"></div>
+      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Gallery 3"></div>
+    </div>
+  </section>
 
-  .menu-button {
-    font-size: 0.95rem;
-    padding: 10px 18px;
-  }
-}
+  <footer id="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/mnqeppnv" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="margin-top: 2rem;">&copy; 2025 Golden Flames. All rights reserved.</p>
+  </footer>
 
-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.85);
-}
-</style>
+  <a href="https://wa.me/918249115729" class="whatsapp-button" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" height="20" alt="WhatsApp" />
+    Chat with us
+  </a>
+</body>
+</html>
 
-<script>
 function toggleMenu() {
   document.getElementById('mainNav').classList.toggle('active');
 }
