@@ -1,217 +1,693 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloned Website</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Golden Flames</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; line-height: 1.6; }
-
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff8f2;
+      scroll-behavior: smooth;
+    }
     header {
-      position: sticky;
+      background: rgba(0, 0, 0, 0.4);
+      position: fixed;
       top: 0;
-      background: #fff;
+      left: 0;
+      width: 100%;
       padding: 1rem 2rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
     }
-
-    header h1 { color: #333; font-weight: 600; }
-
-    nav ul {
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .brand-text {
+      color: #c69736;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #000;
+    }
+    .nav-links {
       display: flex;
       gap: 1rem;
-      list-style: none;
     }
-
-    nav a {
+    .nav-links a {
+      color: white;
       text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: 0.3s;
+      padding: 0.5rem 1rem;
     }
-
-    nav a:hover { color: #ff7a00; }
-
-    .hero {
-      background: url('herobg.png') no-repeat center center/cover;
-      height: 90vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
       color: white;
     }
-
-    .hero h2 { font-size: 3rem; background-color: rgba(0,0,0,0.4); padding: 1rem; border-radius: 10px; }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #333;
-      text-align: center;
-    }
-
-    .services, .about, .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: #f9f9f9;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      background: #333;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    form {
+    .hero {
+      min-height: 100svh;
+      min-height: 100vh;
+      background-image: url('herobg.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      animation: zoomHero 20s ease-in-out infinite;
+      position: relative;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    form input, form textarea {
-      padding: 0.75rem;
-      border-radius: 8px;
-      border: none;
-    }
-
-    form button {
-      background: #ff7a00;
-      color: #fff;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 8px;
+      justify-content: center;
+      align-items: center;
+      padding-top: 100px;
+      text-align: center;
       cursor: pointer;
     }
-
-    .whatsapp-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      padding: 0.75rem 1rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      z-index: 999;
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
     }
-
-    .whatsapp-button:hover {
-      background-color: #128C7E;
+    .hero-content {
+      z-index: 2;
+      color: white;
+      max-width: 900px;
+      padding: 1rem;
+      animation: fadeIn 1s ease forwards;
+    }
+    .hero-content h1 {
+      font-size: 2.8rem;
+      line-height: 1.5;
+    }
+    .hero-content h1 .highlight {
+      color: #d4af37;
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      color: #fefefe;
+      margin: 1rem 0;
+      line-height: 1.8;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-buttons a {
+      padding: 0.8rem 1.2rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .btn-plan {
+      background: linear-gradient(to right, yellow, red);
+      color: #000;
+    }
+    .btn-view {
+      background-color: #800000;
+      color: #fff8f0;
+    }
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: white;
+      animation: bounce 2s infinite;
+      z-index: 2;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes zoomHero {
+      0%, 100% { background-size: 100%; }
+      50% { background-size: 110%; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 10px); }
+    }
+    .services-icon {
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .services-icon:hover {
+      transform: scale(1.2);
+      color: #d4af37;
+    }
+    .menu-buttons button:hover {
+      background-color: #a9711a !important;
+      transform: scale(1.05);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    footer {
+      background-color: #222;
+      color: #ccc;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    footer p {
+      margin: 0.5rem 0;
+      font-size: 0.95rem;
+    }
+    footer .socials i {
+      margin: 0 10px;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+    footer .socials i:hover {
+      color: #d4af37;
+    }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 1rem 0;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+   emailjs.init("RYyHxYvrLhTDUZHJN");
+
+  })();
+</script>
+
 </head>
 <body>
   <header>
-    <h1>Golden Flames</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+    <span class="brand-text">GOLDEN FLAMES</span>
+  </div>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
 
-  <section class="hero">
-    <h2>Welcome to Golden Flames Catering</h2>
-  </section>
+  <section id="home" class="hero" onclick="unlockScrollAndScroll()">
+  <div class="hero-content">
+    <h1><span class="highlight">Culinary Excellence</span> That Ignites Every Moment</h1>
+    <p>From intimate gatherings to grand celebrations, Golden Flames delivers extraordinary culinary experiences that transform your events into unforgettable memories.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-plan">Start Planning Your Event →</a>
+      <a href="#services" class="btn-view">View Our Services</a>
+    </div>
+  </div>
+  <div class="scroll-down">↓</div>
+</section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Service 1">
-        <h3>Wedding Catering</h3>
-        <p>Elegant and customized menus for your special day.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Service 2">
-        <h3>Corporate Events</h3>
-        <p>Professional catering service for all corporate occasions.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x200" alt="Service 3">
-        <h3>Birthday Parties</h3>
-        <p>Delicious food and fun themes for all ages.</p>
+  <!-- About Section -->
+  <section id="about" style="background-color: #fff4e6; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; padding: 4rem 2rem;">
+    <div style="flex: 1; min-width: 300px; max-width: 350px;">
+      <img id="carousel-img" src="aboutus1.jpg" alt="About Carousel" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); max-height: 360px; transition: opacity 0.4s ease-in-out;"/>
+    </div>
+    <div style="flex: 1; min-width: 300px; max-width: 600px; text-align: justify;">
+      <h2 style="font-size: 2.4rem; color: #a0522d; margin-bottom: 1rem;">About Us</h2>
+      <p style="font-size: 1.3rem; line-height: 1.9; color: #333; margin-bottom: 3rem;">
+        At <strong>Golden Flames</strong>, we believe that every meal is an opportunity to celebrate. With over a decade of experience, our passionate team of <strong>15+ expert chefs</strong> has curated exceptional culinary experiences for more than <strong>500 events</strong>. Whether it's an intimate gathering or a grand celebration, we transform your vision into flavorful reality.
+      </p>
+      <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap; margin-top: 2rem;">
+        <div style="text-align: center;">
+          <h3 style="font-size: 1.8rem; color: #d4af37;">500+</h3>
+          <p style="font-size: 1.1rem; font-weight: bold; color: #444;">Events</p>
+        </div>
+        <div style="text-align: center;">
+          <h3 style="font-size: 1.8rem; color: #d4af37;">15+</h3>
+          <p style="font-size: 1.1rem; font-weight: bold; color: #444;">Expert Chefs</p>
+        </div>
+        <div style="text-align: center;">
+          <h3 style="font-size: 1.8rem; color: #d4af37;">10+</h3>
+          <p style="font-size: 1.1rem; font-weight: bold; color: #444;">Years Experience</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <div class="about">
-      <div class="card">
-        <p>Golden Flames has over a decade of experience delivering premium catering services for weddings, corporate events, and celebrations. Our team is committed to excellence, using the freshest ingredients to create unforgettable culinary experiences.</p>
+  <!-- Services Section -->
+  <section id="services" style="background-color: #fffaf0; padding: 4rem 2rem; text-align: center;">
+    <h2 style="font-size: 2.4rem; color: #8b4513; margin-bottom: 2rem;">Our Services</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
+      <div style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-ring"></i></div>
+        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Wedding Catering</h3>
+        <p style="color: #555; font-size: 1rem; line-height: 1.6;">From traditional to contemporary, we create memorable wedding feasts tailored to your celebration.</p>
+      </div>
+      <div style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-building"></i></div>
+        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Corporate Events</h3>
+        <p style="color: #555; font-size: 1rem; line-height: 1.6;">Professional catering for meetings, conferences, and business functions with customized menus.</p>
+      </div>
+      <div style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-champagne-glasses"></i></div>
+        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Private Parties</h3>
+        <p style="color: #555; font-size: 1rem; line-height: 1.6;">Celebrate birthdays, anniversaries, and milestones with bespoke dishes and attentive service.</p>
       </div>
     </div>
   </section>
 
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Gallery 1"></div>
-      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Gallery 2"></div>
-      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Gallery 3"></div>
+  <!-- Menu Section -->
+  <section id="menu" style="background-color: #fff8f0; padding: 4rem 2rem; text-align: center;">
+    <h2 style="font-size: 2.4rem; margin-bottom: 2rem;"><span style="color: black;">Golden Flames</span> <span style="color: red;">Signature</span> <span style="color: black;">Menu</span></h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
+      <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h3 style="color: #a0522d; margin-bottom: 1rem;">Live Counters</h3>
+        <p style="color: #555; font-size: 1rem; line-height: 1.6;">Interactive stations featuring chaat, dosa, pasta, and more — prepared fresh before your eyes.</p>
+      </div>
+      <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h3 style="color: #a0522d; margin-bottom: 1rem;">Signature Main Course</h3>
+        <p style="color: #555; font-size: 1rem; line-height: 1.6;">A rich selection of Indian and fusion dishes, featuring seasonal ingredients and regional favorites.</p>
+      </div>
+      <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h3 style="color: #a0522d; margin-bottom: 1rem;">Exquisite Desserts</h3>
+        <p style="color: #555; font-size: 1rem; line-height: 1.6;">From traditional Indian sweets to global confections — end on a note of indulgence.</p>
+      </div>
+    </div>
+    <div class="menu-buttons" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem;">
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Welcome Drink</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Soup</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Chat Counter</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Plate Counter</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Starters(Veg.)</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Starters(Non Veg.)</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Main Courses</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Cuisines in Veg.</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Cuisines in Non Veg.</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Assorted Indian Chutney</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Desert</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Bakery</button>
+      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
+color: white;
+padding: 0.8rem 1.2rem;
+font-size: 1.1rem;
+border: none;
+border-radius: 6px;
+box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+transition: all 0.3s ease;">Pan</button>
     </div>
   </section>
 
-  <footer id="contact">
-    <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/mnqeppnv" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+  <!-- Menu Items Section -->
+  <section id="menu-items" style="background-color: #fffaf0; padding: 2rem; display: none;">
+    <h2 id="menu-category-title" style="text-align: center; font-size: 2rem; color: #8a5c16; margin-bottom: 1.5rem;"></h2>
+    <div id="menu-items-list" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;"></div>
+  </section>
+
+<!-- Selected Items Summary Section -->
+<section id="menu-summary" style="background-color: #fff4e6; padding: 2rem; display: none;">
+  <h2 style="text-align: center; font-size: 2rem; color: #8a5c16; margin-bottom: 1.5rem;">Your Selected Items</h2>
+  <ul id="selected-items-list" style="list-style: none; padding: 0; max-width: 800px; margin: 0 auto; text-align: left;"></ul>
+  <div style="text-align: center; margin-top: 2rem;">
+    <button id="clear-selection" style="background-color: #999; color: white; padding: 0.6rem 1.2rem; margin-right: 1rem; border: none; border-radius: 5px; cursor: pointer;">Clear All</button>
+    <button id="proceed-selection" style="background-color: #8a5c16; color: white; padding: 0.6rem 1.2rem; border: none; border-radius: 5px; cursor: pointer;">Get My Quote →</button>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Golden Flames. All rights reserved.</p>
+  <p>Follow us:</p>
+  <div class="socials">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+  </div>
+</footer>
+
+<!-- Quote Form Modal -->
+<div id="quote-form-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:2rem; border-radius:8px; width:90%; max-width:500px; position:relative;">
+    <h2 style="text-align:center; color:#8a5c16; margin-bottom:1rem;">Request a Quote</h2>
+    <form id="quote-form">
+      <div style="margin-bottom:1rem;">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="contact">Contact No *</label>
+        <input type="tel" id="contact" name="contact" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="plate">Plate Count *</label>
+        <input type="number" id="plate" name="plate" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label for="date">Date of Event *</label>
+        <input type="date" id="date" name="date" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
+      </div>
+      <div style="margin-bottom:1.5rem;">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;"></textarea>
+      </div>
+      <div style="text-align:center;">
+        <button type="button" onclick="document.getElementById('quote-form-modal').style.display='none'" style="background:#ccc; color:#000; padding:0.5rem 1rem; margin-right:1rem; border:none; border-radius:4px;">Back</button>
+        <button type="submit" style="background:#8a5c16; color:#fff; padding:0.5rem 1.5rem; border:none; border-radius:4px;">Submit</button>
+      </div>
     </form>
-    <p style="margin-top: 2rem;">&copy; 2025 Golden Flames. All rights reserved.</p>
-  </footer>
+  </div>
+</div>
 
-  <a href="https://wa.me/918249115729" class="whatsapp-button" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" height="20" alt="WhatsApp" />
-    Chat with us
-  </a>
+  <script>
+    function toggleMenu() {
+  const nav = document.getElementById('navLinks');
+  nav.classList.toggle('active');
+  document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : 'auto';
+
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    function unlockScrollAndScroll() {
+      document.documentElement.classList.remove('lock-scroll');
+      document.body.classList.remove('lock-scroll');
+      const aboutSection = document.querySelector('#about');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    const images = ['aboutus1.jpg', 'aboutus2.jpg', 'aboutus3.jpg'];
+    let index = 0;
+    const carouselImg = document.getElementById('carousel-img');
+    if (carouselImg) {
+      setInterval(() => {
+        index = (index + 1) % images.length;
+        carouselImg.style.opacity = 0;
+        setTimeout(() => {
+          carouselImg.src = images[index];
+          carouselImg.style.opacity = 1;
+        }, 400);
+      }, 6000);
+    }
+  
+    const menuItemsData = {
+      "Welcome Drink": ["Lemonade", "Mint Mojito", "Fruit Punch"],
+      "Soup": ["Tomato Soup", "Sweet Corn Soup", "Manchow Soup"],
+      "Chat Counter": ["Pani Puri", "Bhel Puri", "Dahi Puri"],
+      "Plate Counter": ["Veg Biryani", "Paneer Tikka Masala", "Butter Naan"],
+      "Starters(Veg.)": ["Spring Rolls", "Veg Cutlet", "Cheese Balls"],
+      "Starters(Non Veg.)": ["Chicken Lollipop", "Fish Fingers", "Mutton Seekh Kebab"],
+      "Main Courses": ["Paneer Butter Masala", "Dal Makhani", "Jeera Rice"],
+      "Cuisines in Veg.": ["North Indian", "South Indian", "Chinese Veg"],
+      "Cuisines in Non Veg.": ["Mughlai", "Tandoori Chicken", "Fish Curry"],
+      "Assorted Indian Chutney": ["Mint Chutney", "Imli Chutney", "Coconut Chutney"],
+      "Desert": ["Gulab Jamun", "Rasgulla", "Ice Cream"],
+      "Bakery": ["Brownies", "Cupcakes", "Pastries"],
+      "Pan": ["Meetha Pan", "Sada Pan"]
+    };
+
+    document.querySelectorAll('.menu-buttons button').forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.innerText;
+        const itemList = menuItemsData[category] || [];
+        const menuTitle = document.getElementById('menu-category-title');
+        const menuList = document.getElementById('menu-items-list');
+        const itemSection = document.getElementById('menu-items');
+
+        menuTitle.textContent = category;
+        menuList.innerHTML = itemList.map(item => `
+  <label style="display: flex; align-items: center; gap: 0.5rem; background: white; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-size: 1rem; color: #444;">
+    <input type="checkbox" name="menu-item" value="${item}" style="transform: scale(1.2);">
+    <span>${item}</span>
+  </label>`).join('');
+        itemSection.style.display = 'block';
+        itemSection.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  const selectedItems = new Set();
+
+function updateSelectedItems() {
+  const selectedList = document.getElementById('selected-items-list');
+  const checkboxes = document.querySelectorAll('#menu-items-list input[type="checkbox"]');
+  checkboxes.forEach(cb => {
+    if (cb.checked) {
+      selectedItems.add(cb.value);
+    } else {
+      selectedItems.delete(cb.value);
+    }
+  });
+  selectedList.innerHTML = '';
+  const groupedItems = {};
+  selectedItems.forEach(item => {
+    for (const [category, items] of Object.entries(menuItemsData)) {
+      if (items.includes(item)) {
+        if (!groupedItems[category]) groupedItems[category] = [];
+        groupedItems[category].push(item);
+        break;
+      }
+    }
+  });
+
+  Object.entries(groupedItems).forEach(([category, items]) => {
+    const catTitle = document.createElement('h3');
+    catTitle.textContent = category;
+    catTitle.style.marginTop = '1.5rem';
+    catTitle.style.color = '#8a5c16';
+    catTitle.style.textAlign = 'center';
+    selectedList.appendChild(catTitle);
+
+        const ul = document.createElement('ul');
+    ul.style.listStyle = 'disc';
+    ul.style.paddingLeft = '2rem';
+    ul.style.marginBottom = '1rem';
+    ul.style.fontSize = '1rem';
+    ul.style.color = '#444';
+    items.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      ul.appendChild(li);
+    });
+    selectedList.appendChild(ul);
+  });
+  const summarySection = document.getElementById('menu-summary');
+  summarySection.style.display = selectedItems.size > 0 ? 'block' : 'none';
+}
+
+document.addEventListener('change', function (e) {
+  if (e.target.name === 'menu-item') {
+    updateSelectedItems();
+  }
+});
+
+document.getElementById('clear-selection').addEventListener('click', () => {
+  selectedItems.clear();
+  document.querySelectorAll('input[name="menu-item"]').forEach(cb => cb.checked = false);
+  updateSelectedItems();
+});
+
+document.getElementById('proceed-selection').addEventListener('click', () => {
+  if (selectedItems.size > 0) {
+    document.getElementById('quote-form-modal').style.display = 'flex';
+  } else {
+    alert('Please select at least one item to get a quote.');
+  }
+});
+document.getElementById('quote-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const contact = document.getElementById('contact').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const plate = document.getElementById('plate').value.trim();
+  const date = document.getElementById('date').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !contact || !email || !plate || !date) {
+    alert('Please fill all required fields.');
+    return;
+  }
+
+  const selected = Array.from(selectedItems).join(', ');
+
+  const doc = new jsPDF();
+  doc.setFontSize(16);
+  doc.text("Golden Flames - Quote Summary", 20, 20);
+  doc.setFontSize(12);
+  doc.text(`Name: ${name}`, 20, 35);
+  doc.text(`Contact: ${contact}`, 20, 45);
+  doc.text(`Email: ${email}`, 20, 55);
+  doc.text(`Plate Count: ${plate}`, 20, 65);
+  doc.text(`Event Date: ${date}`, 20, 75);
+  doc.text(`Message: ${message}`, 20, 85);
+  doc.text("Selected Menu Items:", 20, 100);
+
+  let y = 110;
+  selectedItems.forEach(item => {
+    doc.text(`• ${item}`, 25, y);
+    y += 8;
+  });
+
+  const pdfData = doc.output("datauristring");
+
+  alert('Attempting to send...');
+emailjs.send("service_7d1s41r", "template_6l6f5is", {
+    to_email: "prasantengg@gmail.com",
+    from_name: name,
+    message: message,
+    attachment: pdfData
+  }).then(function(response) {
+    alert("Quote sent successfully via email!");
+  }, function(error) {
+    alert("Failed to send quote. Please try again.");
+    console.error(error);
+  });
+
+  document.getElementById('quote-form-modal').style.display = 'none';
+  document.getElementById('quote-form').reset();
+  selectedItems.clear();
+  document.querySelectorAll('input[name="menu-item"]').forEach(cb => cb.checked = false);
+  updateSelectedItems();
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+});
+
+document.querySelectorAll('.menu-buttons button').forEach(btn => {
+  btn.addEventListener('mouseover', () => {
+    btn.style.boxShadow = 'inset 0 1px 0 #fff1b8, 0 3px 8px rgba(0,0,0,0.4)';
+    btn.style.transform = 'scale(1.05)';
+  });
+  btn.addEventListener('mouseout', () => {
+    btn.style.boxShadow = 'inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3)';
+    btn.style.transform = 'scale(1.0)';
+  });
+});
+</script>
 </body>
 </html>
-
-function toggleMenu() {
-  document.getElementById('mainNav').classList.toggle('active');
-}
-</script>
-
