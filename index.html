@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Golden Flames</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Golden Flames</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
     * {
       margin: 0;
       padding: 0;
@@ -255,205 +256,218 @@
     font-size: 0.9rem;
   }
 }
+
+
+nav .menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  nav .menu-toggle {
+    display: block;
+  }
+
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #222;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  nav .nav-links.active {
+    display: flex;
+  }
+}
 </style>
 </head>
 <body>
-  <header>
-  <div class="logo">
-    <img src="logo.png" alt="Logo">
-    <span class="brand-text">GOLDEN FLAMES</span>
-  </div>
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <div class="nav-links" id="navLinks">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#menu">Menu</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
+<header>
+<nav>
+<div class="logo">Golden Flames</div>
+<div class="menu-toggle" id="mobile-menu">☰</div>
+<ul class="nav-links" id="nav-links">
+<li><a href="#">Home</a></li>
+<li><a href="#">Menu</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
 </header>
-
-  <section id="home" class="hero" onclick="unlockScrollAndScroll()">
-  <div class="hero-content">
-    <h1><span class="highlight">Culinary Excellence</span> That Ignites Every Moment</h1>
-    <p>From intimate gatherings to grand celebrations, Golden Flames delivers extraordinary culinary experiences that transform your events into unforgettable memories.</p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn-plan">Start Planning Your Event →</a>
-      <a href="#services" class="btn-view">View Our Services</a>
-    </div>
-  </div>
-  <div class="scroll-down">↓</div>
+<section class="hero" id="home" onclick="unlockScrollAndScroll()">
+<div class="hero-content">
+<h1><span class="highlight">Culinary Excellence</span> That Ignites Every Moment</h1>
+<p>From intimate gatherings to grand celebrations, Golden Flames delivers extraordinary culinary experiences that transform your events into unforgettable memories.</p>
+<div class="hero-buttons">
+<a class="btn-plan" href="#contact">Start Planning Your Event →</a>
+<a class="btn-view" href="#services">View Our Services</a>
+</div>
+</div>
+<div class="scroll-down">↓</div>
 </section>
-
-  <!-- About Section -->
-  <section id="about" style="background-color: #fff4e6; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; padding: 4rem 2rem;">
-    <div style="flex: 1; min-width: 300px; max-width: 350px;">
-      <img id="carousel-img" src="aboutus1.jpg" alt="About Carousel" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); max-height: 360px; transition: opacity 0.4s ease-in-out;"/>
-    </div>
-    <div style="flex: 1; min-width: 300px; max-width: 600px; text-align: justify;">
-      <h2 style="font-size: 2.4rem; color: #a0522d; margin-bottom: 1rem;">About Us</h2>
-      <p style="font-size: 1.3rem; line-height: 1.9; color: #333; margin-bottom: 3rem;">
+<!-- About Section -->
+<section id="about" style="background-color: #fff4e6; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; padding: 4rem 2rem;">
+<div style="flex: 1; min-width: 300px; max-width: 350px;">
+<img alt="About Carousel" id="carousel-img" src="aboutus1.jpg" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); max-height: 360px; transition: opacity 0.4s ease-in-out;">
+</img></div>
+<div style="flex: 1; min-width: 300px; max-width: 600px; text-align: justify;">
+<h2 style="font-size: 2.4rem; color: #a0522d; margin-bottom: 1rem;">About Us</h2>
+<p style="font-size: 1.3rem; line-height: 1.9; color: #333; margin-bottom: 3rem;">
         At <strong>Golden Flames</strong>, we believe that every meal is an opportunity to celebrate. With over a decade of experience, our passionate team of <strong>15+ expert chefs</strong> has curated exceptional culinary experiences for more than <strong>500 events</strong>. Whether it's an intimate gathering or a grand celebration, we transform your vision into flavorful reality.
       </p>
-      <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap; margin-top: 2rem;">
-        <div style="text-align: center;">
-          <h3 style="font-size: 1.8rem; color: #d4af37;">500+</h3>
-          <p style="font-size: 1.1rem; font-weight: bold; color: #444;">Events</p>
-        </div>
-        <div style="text-align: center;">
-          <h3 style="font-size: 1.8rem; color: #d4af37;">15+</h3>
-          <p style="font-size: 1.1rem; font-weight: bold; color: #444;">Expert Chefs</p>
-        </div>
-        <div style="text-align: center;">
-          <h3 style="font-size: 1.8rem; color: #d4af37;">10+</h3>
-          <p style="font-size: 1.1rem; font-weight: bold; color: #444;">Years Experience</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" style="background-color: #fffaf0; padding: 4rem 2rem; text-align: center;">
-    <h2 style="font-size: 2.4rem; color: #8b4513; margin-bottom: 2rem;">Our Services</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
-      <div style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-ring"></i></div>
-        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Wedding Catering</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">From traditional to contemporary, we create memorable wedding feasts tailored to your celebration.</p>
-      </div>
-      <div style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-building"></i></div>
-        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Corporate Events</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">Professional catering for meetings, conferences, and business functions with customized menus.</p>
-      </div>
-      <div style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-champagne-glasses"></i></div>
-        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Private Parties</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">Celebrate birthdays, anniversaries, and milestones with bespoke dishes and attentive service.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Menu Section -->
-<section id="menu" style="background-color: #fff8f0; padding: 4rem 2rem; text-align: center;">
-  <h2 style="font-size: 2.4rem; margin-bottom: 2rem;"><span style="color: black;">Golden Flames</span> <span style="color: red;">Signature</span> <span style="color: black;">Menu</span></h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
-    <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #a0522d; margin-bottom: 1rem;">Live Counters</h3>
-      <p style="color: #555; font-size: 1rem; line-height: 1.6;">Interactive stations featuring chaat, dosa, pasta, and more — prepared fresh before your eyes.</p>
-    </div>
-    <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #a0522d; margin-bottom: 1rem;">Signature Main Course</h3>
-      <p style="color: #555; font-size: 1rem; line-height: 1.6;">A curated selection of traditional Indian, Chinese, and fusion mains — from fragrant biryanis to rich curries and sizzling stir-fry dishes.</p>
-    </div>
-    <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #a0522d; margin-bottom: 1rem;">Exquisite Desserts</h3>
-      <p style="color: #555; font-size: 1rem; line-height: 1.6;">Finish on a sweet note with handcrafted Indian desserts, international favorites, and delightful confections to please every palate.</p>
-    </div>
-  </div>
+<div style="display: flex; justify-content: space-evenly; flex-wrap: wrap; margin-top: 2rem;">
+<div style="text-align: center;">
+<h3 style="font-size: 1.8rem; color: #d4af37;">500+</h3>
+<p style="font-size: 1.1rem; font-weight: bold; color: #444;">Events</p>
+</div>
+<div style="text-align: center;">
+<h3 style="font-size: 1.8rem; color: #d4af37;">15+</h3>
+<p style="font-size: 1.1rem; font-weight: bold; color: #444;">Expert Chefs</p>
+</div>
+<div style="text-align: center;">
+<h3 style="font-size: 1.8rem; color: #d4af37;">10+</h3>
+<p style="font-size: 1.1rem; font-weight: bold; color: #444;">Years Experience</p>
+</div>
+</div>
+</div>
 </section>
-
+<!-- Services Section -->
+<section id="services" style="background-color: #fffaf0; padding: 4rem 2rem; text-align: center;">
+<h2 style="font-size: 2.4rem; color: #8b4513; margin-bottom: 2rem;">Our Services</h2>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
+<div style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-ring"></i></div>
+<h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Wedding Catering</h3>
+<p style="color: #555; font-size: 1rem; line-height: 1.6;">From traditional to contemporary, we create memorable wedding feasts tailored to your celebration.</p>
+</div>
+<div style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-building"></i></div>
+<h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Corporate Events</h3>
+<p style="color: #555; font-size: 1rem; line-height: 1.6;">Professional catering for meetings, conferences, and business functions with customized menus.</p>
+</div>
+<div style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-champagne-glasses"></i></div>
+<h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Private Parties</h3>
+<p style="color: #555; font-size: 1rem; line-height: 1.6;">Celebrate birthdays, anniversaries, and milestones with bespoke dishes and attentive service.</p>
+</div>
+</div>
+</section>
+<!-- Menu Section -->
+<section id="menu" style="background-color: #fff8f0; padding: 4rem 2rem; text-align: center;">
+<h2 style="font-size: 2.4rem; margin-bottom: 2rem;"><span style="color: black;">Golden Flames</span> <span style="color: red;">Signature</span> <span style="color: black;">Menu</span></h2>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
+<div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<h3 style="color: #a0522d; margin-bottom: 1rem;">Live Counters</h3>
+<p style="color: #555; font-size: 1rem; line-height: 1.6;">Interactive stations featuring chaat, dosa, pasta, and more — prepared fresh before your eyes.</p>
+</div>
+<div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<h3 style="color: #a0522d; margin-bottom: 1rem;">Signature Main Course</h3>
+<p style="color: #555; font-size: 1rem; line-height: 1.6;">A curated selection of traditional Indian, Chinese, and fusion mains — from fragrant biryanis to rich curries and sizzling stir-fry dishes.</p>
+</div>
+<div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<h3 style="color: #a0522d; margin-bottom: 1rem;">Exquisite Desserts</h3>
+<p style="color: #555; font-size: 1rem; line-height: 1.6;">Finish on a sweet note with handcrafted Indian desserts, international favorites, and delightful confections to please every palate.</p>
+</div>
+</div>
+</section>
 <!-- Menu Buttons -->
 <div class="menu-buttons" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem;">
-  <button class="golden-button">Welcome Drink</button>
-  <button class="golden-button">Soup (Veg.)</button>
-  <button class="golden-button">Soup (Non-Veg)</button>
-  <button class="golden-button">Chat Counter</button>
-  <button class="golden-button">Plate Counter</button>
-  <button class="golden-button">Starters(Veg.)</button>
-  <button class="golden-button">Starter-Paneer</button>
-  <button class="golden-button">Starter-Mushroom</button>
+<button class="golden-button">Welcome Drink</button>
+<button class="golden-button">Soup (Veg.)</button>
+<button class="golden-button">Soup (Non-Veg)</button>
+<button class="golden-button">Chat Counter</button>
+<button class="golden-button">Plate Counter</button>
+<button class="golden-button">Starters(Veg.)</button>
+<button class="golden-button">Starter-Paneer</button>
+<button class="golden-button">Starter-Mushroom</button>
 <button class="golden-button">Assorted Indian Chutney</button>
-  <button class="golden-button">Starter-Chicken</button>
-  <button class="golden-button">Starter-Fish</button>
-  <button class="golden-button">Starter-Prawn</button>
-  <button class="golden-button">Starter-Egg</button>
-  <button class="golden-button">Starter-Mutton</button>
-  <button class="golden-button">Rice & Pulao</button>
-  <button class="golden-button">Indian Breads & Chillas</button>
-  <button class="golden-button">Noodles</button>
-  <button class="golden-button">Dal</button>
-  <button class="golden-button">Paneer Recipes</button>
-  <button class="golden-button">Mushroom Recipes</button>
-  <button class="golden-button">Chicken Cuisines</button>
-  <button class="golden-button">Fish Flavor</button>
-  <button class="golden-button">Prawn & Crabs</button>
-  <button class="golden-button">Mutton Moreish</button>
-  <button class="golden-button">Egg Peng</button>
-
+<button class="golden-button">Starter-Chicken</button>
+<button class="golden-button">Starter-Fish</button>
+<button class="golden-button">Starter-Prawn</button>
+<button class="golden-button">Starter-Egg</button>
+<button class="golden-button">Starter-Mutton</button>
+<button class="golden-button">Rice &amp; Pulao</button>
+<button class="golden-button">Indian Breads &amp; Chillas</button>
+<button class="golden-button">Noodles</button>
+<button class="golden-button">Dal</button>
+<button class="golden-button">Paneer Recipes</button>
+<button class="golden-button">Mushroom Recipes</button>
+<button class="golden-button">Chicken Cuisines</button>
+<button class="golden-button">Fish Flavor</button>
+<button class="golden-button">Prawn &amp; Crabs</button>
+<button class="golden-button">Mutton Moreish</button>
+<button class="golden-button">Egg Peng</button>
 <button class="golden-button">Ice Cream</button>
 <button class="golden-button">Desert</button>
 <button class="golden-button">Bakery</button>
 <button class="golden-button">Pan</button>
-
-
-
-
 </div>
-
 <section id="menu-items" style="background-color: #fffaf0; padding: 2rem; display: none;">
-    <h2 id="menu-category-title" style="text-align: center; font-size: 2rem; color: #8a5c16; margin-bottom: 1.5rem;"></h2>
-    <div id="menu-items-list" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;"></div>
-  </section>
-
+<h2 id="menu-category-title" style="text-align: center; font-size: 2rem; color: #8a5c16; margin-bottom: 1.5rem;"></h2>
+<div id="menu-items-list" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;"></div>
+</section>
 <!-- Selected Items Summary Section -->
 <section id="menu-summary" style="background-color: #fff4e6; padding: 2rem; display: none;">
-  <h2 style="text-align: center; font-size: 2rem; color: #8a5c16; margin-bottom: 1.5rem;">Your Selected Items</h2>
-  <ul id="selected-items-list" style="list-style: none; padding: 0; max-width: 800px; margin: 0 auto; text-align: left;"></ul>
-  <div style="text-align: center; margin-top: 2rem;">
-    <button id="clear-selection" style="background-color: #999; color: white; padding: 0.6rem 1.2rem; margin-right: 1rem; border: none; border-radius: 5px; cursor: pointer;">Clear All</button>
-    <button id="proceed-selection" style="background-color: #8a5c16; color: white; padding: 0.6rem 1.2rem; border: none; border-radius: 5px; cursor: pointer;">Get My Quote →</button>
-  </div>
+<h2 style="text-align: center; font-size: 2rem; color: #8a5c16; margin-bottom: 1.5rem;">Your Selected Items</h2>
+<ul id="selected-items-list" style="list-style: none; padding: 0; max-width: 800px; margin: 0 auto; text-align: left;"></ul>
+<div style="text-align: center; margin-top: 2rem;">
+<button id="clear-selection" style="background-color: #999; color: white; padding: 0.6rem 1.2rem; margin-right: 1rem; border: none; border-radius: 5px; cursor: pointer;">Clear All</button>
+<button id="proceed-selection" style="background-color: #8a5c16; color: white; padding: 0.6rem 1.2rem; border: none; border-radius: 5px; cursor: pointer;">Get My Quote →</button>
+</div>
 </section>
-
 <footer>
-  <p>&copy; 2025 Golden Flames. All rights reserved.</p>
-  <p>Follow us:</p>
-  <div class="socials">
-    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-  </div>
+<p>© 2025 Golden Flames. All rights reserved.</p>
+<p>Follow us:</p>
+<div class="socials">
+<a aria-label="Facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+<a aria-label="Instagram" href="#"><i class="fab fa-instagram"></i></a>
+<a aria-label="Twitter" href="#"><i class="fab fa-twitter"></i></a>
+</div>
 </footer>
-
 <!-- Quote Form Modal -->
 <div id="quote-form-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
-  <div style="background:#fff; padding:2rem; border-radius:8px; width:90%; max-width:500px; position:relative;">
-    <h2 style="text-align:center; color:#8a5c16; margin-bottom:1rem;">Request a Quote</h2>
-    <form id="quote-form">
-      <div style="margin-bottom:1rem;">
-        <label for="name">Name *</label>
-        <input type="text" id="name" name="name" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="contact">Contact No *</label>
-        <input type="tel" id="contact" name="contact" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="plate">Plate Count *</label>
-        <input type="number" id="plate" name="plate" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="date">Date of Event *</label>
-        <input type="date" id="date" name="date" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
-      </div>
-      <div style="margin-bottom:1.5rem;">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;"></textarea>
-      </div>
-      <div style="text-align:center;">
-        <button type="button" onclick="document.getElementById('quote-form-modal').style.display='none'" style="background:#ccc; color:#000; padding:0.5rem 1rem; margin-right:1rem; border:none; border-radius:4px;">Back</button>
-        <button type="submit" style="background:#8a5c16; color:#fff; padding:0.5rem 1.5rem; border:none; border-radius:4px;">Submit</button>
-      </div>
-    </form>
-  </div>
+<div style="background:#fff; padding:2rem; border-radius:8px; width:90%; max-width:500px; position:relative;">
+<h2 style="text-align:center; color:#8a5c16; margin-bottom:1rem;">Request a Quote</h2>
+<form id="quote-form">
+<div style="margin-bottom:1rem;">
+<label for="name">Name *</label>
+<input id="name" name="name" required="" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;" type="text"/>
 </div>
-
-  <script>
+<div style="margin-bottom:1rem;">
+<label for="contact">Contact No *</label>
+<input id="contact" name="contact" required="" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;" type="tel"/>
+</div>
+<div style="margin-bottom:1rem;">
+<label for="email">Email *</label>
+<input id="email" name="email" required="" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;" type="email"/>
+</div>
+<div style="margin-bottom:1rem;">
+<label for="plate">Plate Count *</label>
+<input id="plate" name="plate" required="" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;" type="number"/>
+</div>
+<div style="margin-bottom:1rem;">
+<label for="date">Date of Event *</label>
+<input id="date" name="date" required="" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;" type="date"/>
+</div>
+<div style="margin-bottom:1.5rem;">
+<label for="message">Message</label>
+<textarea id="message" name="message" rows="4" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;"></textarea>
+</div>
+<div style="text-align:center;">
+<button onclick="document.getElementById('quote-form-modal').style.display='none'" style="background:#ccc; color:#000; padding:0.5rem 1rem; margin-right:1rem; border:none; border-radius:4px;" type="button">Back</button>
+<button style="background:#8a5c16; color:#fff; padding:0.5rem 1.5rem; border:none; border-radius:4px;" type="submit">Submit</button>
+</div>
+</form>
+</div>
+</div>
+<script>
     function toggleMenu() {
   const nav = document.getElementById('navLinks');
   nav.classList.toggle('active');
@@ -1339,5 +1353,15 @@ document.querySelectorAll('.menu-buttons button').forEach(btn => {
 });
 
 </script>
-</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuBtn = document.getElementById("mobile-menu");
+  const nav = document.getElementById("nav-links");
+  if (menuBtn && nav) {
+    menuBtn.addEventListener("click", function () {
+      nav.classList.toggle("active");
+    });
+  }
+});
+</script></body>
 </html>
