@@ -203,17 +203,59 @@
         align-items: center;
       }
     }
-  </style>
+  .golden-button {
+  background: linear-gradient(145deg, #a57c1b, #704c0e);
+  color: white;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.golden-button:hover {
+  background-color: #a9711a;
+  transform: scale(1.05);
+}
+@media (max-width: 600px) {
+  .menu-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
 
-<script src="https://cdn.jsdelivr.net/npm/jspdf"></script>
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-   emailjs.init("RYyHxYvrLhTDUZHJN");
+  .menu-buttons button {
+    width: 90%;
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
 
-  })();
-</script>
+  #menu-items-list label {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
 
+  #quote-form-modal > div {
+    width: 95% !important;
+    padding: 1.2rem !important;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}
+</style>
 </head>
 <body>
   <header>
@@ -293,132 +335,63 @@
   </section>
 
   <!-- Menu Section -->
-  <section id="menu" style="background-color: #fff8f0; padding: 4rem 2rem; text-align: center;">
-    <h2 style="font-size: 2.4rem; margin-bottom: 2rem;"><span style="color: black;">Golden Flames</span> <span style="color: red;">Signature</span> <span style="color: black;">Menu</span></h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
-      <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <h3 style="color: #a0522d; margin-bottom: 1rem;">Live Counters</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">Interactive stations featuring chaat, dosa, pasta, and more — prepared fresh before your eyes.</p>
-      </div>
-      <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <h3 style="color: #a0522d; margin-bottom: 1rem;">Signature Main Course</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">A rich selection of Indian and fusion dishes, featuring seasonal ingredients and regional favorites.</p>
-      </div>
-      <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <h3 style="color: #a0522d; margin-bottom: 1rem;">Exquisite Desserts</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">From traditional Indian sweets to global confections — end on a note of indulgence.</p>
-      </div>
+<section id="menu" style="background-color: #fff8f0; padding: 4rem 2rem; text-align: center;">
+  <h2 style="font-size: 2.4rem; margin-bottom: 2rem;"><span style="color: black;">Golden Flames</span> <span style="color: red;">Signature</span> <span style="color: black;">Menu</span></h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
+    <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <h3 style="color: #a0522d; margin-bottom: 1rem;">Live Counters</h3>
+      <p style="color: #555; font-size: 1rem; line-height: 1.6;">Interactive stations featuring chaat, dosa, pasta, and more — prepared fresh before your eyes.</p>
     </div>
-    <div class="menu-buttons" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2rem;">
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Welcome Drink</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Soup</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Chat Counter</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Plate Counter</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Starters(Veg.)</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Starters(Non Veg.)</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Main Courses</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Cuisines in Veg.</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Cuisines in Non Veg.</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Assorted Indian Chutney</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Desert</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Bakery</button>
-      <button style="background: linear-gradient(145deg, #a57c1b, #704c0e);
-color: white;
-padding: 0.8rem 1.2rem;
-font-size: 1.1rem;
-border: none;
-border-radius: 6px;
-box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-transition: all 0.3s ease;">Pan</button>
+    <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <h3 style="color: #a0522d; margin-bottom: 1rem;">Signature Main Course</h3>
+      <p style="color: #555; font-size: 1rem; line-height: 1.6;">A curated selection of traditional Indian, Chinese, and fusion mains — from fragrant biryanis to rich curries and sizzling stir-fry dishes.</p>
     </div>
-  </section>
+    <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <h3 style="color: #a0522d; margin-bottom: 1rem;">Exquisite Desserts</h3>
+      <p style="color: #555; font-size: 1rem; line-height: 1.6;">Finish on a sweet note with handcrafted Indian desserts, international favorites, and delightful confections to please every palate.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Menu Items Section -->
-  <section id="menu-items" style="background-color: #fffaf0; padding: 2rem; display: none;">
+<!-- Menu Buttons -->
+<div class="menu-buttons" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem;">
+  <button class="golden-button">Welcome Drink</button>
+  <button class="golden-button">Soup (Veg.)</button>
+  <button class="golden-button">Soup (Non-Veg)</button>
+  <button class="golden-button">Chat Counter</button>
+  <button class="golden-button">Plate Counter</button>
+  <button class="golden-button">Starters(Veg.)</button>
+  <button class="golden-button">Starter-Paneer</button>
+  <button class="golden-button">Starter-Mushroom</button>
+<button class="golden-button">Assorted Indian Chutney</button>
+  <button class="golden-button">Starter-Chicken</button>
+  <button class="golden-button">Starter-Fish</button>
+  <button class="golden-button">Starter-Prawn</button>
+  <button class="golden-button">Starter-Egg</button>
+  <button class="golden-button">Starter-Mutton</button>
+  <button class="golden-button">Rice & Pulao</button>
+  <button class="golden-button">Indian Breads & Chillas</button>
+  <button class="golden-button">Noodles</button>
+  <button class="golden-button">Dal</button>
+  <button class="golden-button">Paneer Recipes</button>
+  <button class="golden-button">Mushroom Recipes</button>
+  <button class="golden-button">Chicken Cuisines</button>
+  <button class="golden-button">Fish Flavor</button>
+  <button class="golden-button">Prawn & Crabs</button>
+  <button class="golden-button">Mutton Moreish</button>
+  <button class="golden-button">Egg Peng</button>
+
+<button class="golden-button">Ice Cream</button>
+<button class="golden-button">Desert</button>
+<button class="golden-button">Bakery</button>
+<button class="golden-button">Pan</button>
+
+
+
+
+</div>
+
+<section id="menu-items" style="background-color: #fffaf0; padding: 2rem; display: none;">
     <h2 id="menu-category-title" style="text-align: center; font-size: 2rem; color: #8a5c16; margin-bottom: 1.5rem;"></h2>
     <div id="menu-items-list" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;"></div>
   </section>
@@ -513,35 +486,739 @@ transition: all 0.3s ease;">Pan</button>
     }
   
     const menuItemsData = {
-      "Welcome Drink": ["Lemonade", "Mint Mojito", "Fruit Punch"],
-      "Soup": ["Tomato Soup", "Sweet Corn Soup", "Manchow Soup"],
-      "Chat Counter": ["Pani Puri", "Bhel Puri", "Dahi Puri"],
-      "Plate Counter": ["Veg Biryani", "Paneer Tikka Masala", "Butter Naan"],
-      "Starters(Veg.)": ["Spring Rolls", "Veg Cutlet", "Cheese Balls"],
-      "Starters(Non Veg.)": ["Chicken Lollipop", "Fish Fingers", "Mutton Seekh Kebab"],
-      "Main Courses": ["Paneer Butter Masala", "Dal Makhani", "Jeera Rice"],
+  "Fish Flavor": [
+    "Fish Masala",
+    "Fish Kalia",
+    "Fish Besara",
+    "Fish Kadhaai",
+    "Fish Dopyaza",
+    "Tawa Fish",
+    "Dahi Fish",
+    "Amritsari Fish",
+    "Mughlai Fish",
+    "Salmon Curry",
+    "Goan Fish Curry",
+    "Indian Fish Curry with Coconut Milk",
+    "Chilly Fish",
+    "Lemon Honey Fish",
+    "Andhra Fish Curry",
+    "Hariyaali Machi",
+    "Paturi Maach",
+    "Bhapa Maach",
+    "Fish Patrani",
+    "Garlic Fish",
+    "Chuna Fish Curry",
+    "Masala Fried Fish"
+  ],
+  "Chicken Cuisines": ["Chicken Kassa","Desi Chicken Kassa/ Masala",
+"Chicken Butter Masala","Chicken Tikka Butter Masala","Chicken Punjabi",
+"Chicken Amritsari Masala","Chicken Hyderabadi","Chicken Kerala Roast",
+"Chicken Chettinad","Tangy Spicy Kadhai Chicken","Dahi Chicken","Mustard Chicken",
+"Chicken Khubani Masala","Chicken Lababdar","Chicken Rezala","Methi Murg",
+"Murg Malaiwala","Chicken Dopyaza","Chicken Bhunaa Masala","Hariyaali Chicken",
+"Chicken Makhani","Bengali Chicken Curry with Potato.","Chicken Korma",
+"Chicken Vindaloo","Palak Chicken","Chicken Kolhapuri","Achari Chicken",
+"Chicken Bharta","Chicken Mughlai","Chilly Chicken","Lemon Chicken",
+"Chicken Manchurian","Schezwan Chicken","Andhra Chilli Chicken",
+"Lemon & Honey Chicken","Sweet & Sour Chicken","Diced Chicken In Black Bean Sauce",
+"Stir Fried Chilly Chicken","Ginger Garlic Chicken","Chinese Chicken with Bracolli",
+"Garlic Chicken","Dragon Chicken","Sesame Chicken","Chicken Kadai Masala","Chicken 65",
+"Chicken Tangdi Masala","Chicken Shish Taouk","Soy Glazed Chicken",
+"Dukkah Crusted Chicken","Tawa Chicken Kassa","Murg Kali Mirch","Murg Sahi Korma"],
+
+
+
+  "Mushroom Recipes": [
+    "Mushroom Mustard",
+    "Mushroom Masala",
+    "Mushroom Rai",
+    "Mushroom Dopiaza",
+    "Mushroom Kadai",
+    "Mushroom Mutter",
+    "Mushroom Chettinad",
+    "Mushroom 65",
+    "Mushroom Hyderabadi",
+    "Mushroom Punjabi",
+    "Mushroom Capsicum",
+    "Mushroom Takatak",
+    "Mushroom Chilly",
+    "Mushroom Garlic",
+    "Mushroom Lababdar",
+    "Mushroom Rijhiala"
+  ],
+  "Paneer Recipes": ["Mutter Paneer","Paneer Butter Masala",
+"Paneer Dopyaza","Paneer Kadai","Paneer Punjabi","Paneer Tikka Butter Masala",
+"Paneer Hyderabadi","Paneer Lababdar","Paneer Rijhuala","Paneer Darbar",
+"Paneer Takatak","Paneer Chatpati","Paneer Pasinda","Paneer Korma","Paneer Kofta",
+"Paneer 65","Paneer Jhalfrezi","Sahi Paneer","Paneer Mughlai","Paneer Latpat",
+"Paneer Makhani","Chilly Paneer","Garlic Paneer","Paneer Manchurian","Paneer Palak",
+"Paneer Kali Mirch","Paneer Bhurji","Paneer Tawa Masala","Methi Paneer","Achari Paneer",
+"Paneer Kolhapuri","Paneer Handi","Schezwan Paneer","Stir Fried Paneer",
+"Paneer Lacha Masala"],
+
+
+  "Dal": [
+    "Yellow Dal",
+    "Yellow Dal Fry",
+    "Black Dal",
+    "Mix Dal Tadka",
+    "Dal Butter Fry",
+    "Sahi Butter Dal",
+    "Dal Maharani",
+    "Dal Makhani",
+    "Palak Dal",
+    "Rajma Dal",
+    "Moong Dal",
+    "Dal Panch Rangi",
+    "Dal Panch Kula",
+    "Punjabi Dal",
+    "Gujrati Dal",
+    "Dal Bukhara",
+    "Mitha Dal",
+    "Makhani Moong Dal",
+    "Sambar",
+    "Charu",
+    "Rasam",
+    "Dalma",
+    "Amti Dal"
+  ],
+  "Noodles (Veg)": [
+    "Veg Noodles",
+    "Veg Hakka Noodles",
+    "Chilli Garlic Noodles",
+    "Schezwan Noodles",
+    "Mix Veg Noodles"
+  ],
+  "Noodles (Non-Veg)": [
+    "Egg Noodles",
+    "Chicken Noodles",
+    "Prawn Garlic Noodles",
+    "Mix Hakka Noodles",
+    "Mix Schezwan Noodles",
+    "Pan Fried Noodles",
+    "Hong Kong Noodles",
+    "American Chopsuey",
+    "Chinese Chopsuey"
+  ],
+  "Indian Breads & Chillas": [
+    "Tawa Roti",
+    "Phulka",
+    "Missi Roti",
+    "Makai Ka Roti",
+    "Rumali Roti",
+    "Tandoor Roti",
+    "Paratha",
+    "Masala Paratha",
+    "Aloo Paratha",
+    "Paneer Paratha",
+    "Muli Paratha",
+    "Laccha Paratha",
+    "Puri",
+    "Masala Puri",
+    "Methi Puri",
+    "Palak Puri",
+    "Pudina Puri",
+    "Naan",
+    "Masala Naan",
+    "Butter Nan",
+    "Garlic Naan",
+    "Pudina Naan",
+    "Chilly Cheese Naan",
+    "Stuffed Naan",
+    "Kashmiri Naan",
+    "Baby Naan",
+    "Rajasthani Nan",
+    "Kulcha",
+    "Masala Kulcha",
+    "Chur Chur Naan",
+    "Butter Garlic Kulcha",
+    "Moog Dal Chilla",
+    "Besan Chilla"
+  ],
+  "Soup (Non-Veg)": [
+    "Chicken Clear Soup",
+    "Cream of Chicken Soup",
+    "Chicken Man chow Soup",
+    "Slice Chicken Soup",
+    "Chicken Hot & Sour Soup",
+    "Chicken Burnt Garlic Soup",
+    "Chicken Sweet Corn Soup",
+    "Chicken Thai Soup",
+    "Chicken Singapore Soup",
+    "Chicken Wonton Soup",
+    "Chicken Hot Pot Soup",
+    "Chicken Lung Fung Soup",
+    "Murg Shorba",
+    "Mutton Sorba",
+    "Mutton Paya Soup",
+    "Seafood Soup",
+    "Prawn Soup",
+    "Crab Burnt Garlic Soup"
+  ],
+      "Welcome Drink": ["Badam Shake","Mango Shake","Badam Milk","Oreo Shake",
+"Fruit Shake","Cold Coffee","Soda Beverages","Pudina Jaljeera","Lassi",
+"Chhaas/Butter Milk","Pink Panther","Strawberry Imperial","Pineapple Surprise",
+"Mango Blossom","Apple Blossom","Pineapple Blossom","Virgin Mojito",
+"Mint Mojito","Pinacolada","Jaljeera","Soda beverages","Mocktail","Aam Panna",
+"Ginger Peach Soda","Cucumber Cooler","Chilly Guava","Watermelon Cooler","Shikanji",
+"Wild Cat Cooler","Pineapple Cobbler","Coffee Bar","Tea Bar","Kesar Tea","Tea","Coffee",
+"Hot Kesar Milk","Hot Badam Milk","Orange Squash","Orange Blossom","Blue Heaven",
+"Falooda Sarbat","Virgin Paloma","Fresh Juice Soda","Green River","Masala Cold Drinks",
+"Cucumber Grape","Spicy Watermelon Mint Aqua Fresh","Pineapple Ginger Beer",
+"Raspberry Bee's Knees","Rooh Afza","Rickey Tikki Tavi","Tender Coconut Water",
+"Masala Chaach","Nimbu Pani","Thandai","Glorious Special Juice"
+],
+
+
+
+      "Soup": [
+  // Veg Soups
+  "Veg Clear Soup",
+  "Veg Manchow Soup",
+  "Veg Hot & Sour Soup",
+  "Veg Lemon Coriander Soup",
+  "Veg Burnt Garlic Soup",
+  "Veg Sweet Corn Soup",
+  "Veg Seven Seas Soup",
+  "Veg Thai Soup",
+  "Veg Singapore Soup",
+  "Veg Noodle Soup",
+  "Tomato Soup",
+  "Cream of Tomato Soup",
+  "Cream of Mushroom Soup",
+  "Cream of Broccoli Soup",
+  "Cream of Vegetable Soup",
+  "Tomato Dhania Sorba",
+  "Palak Sorba",
+  "Spicy Tomato Soup",
+  "Jhat-Pat Soup",
+  "Cantonese Soup",
+  "Veg Lung Fung Soup",
+],
+
+
+      "Chat Counter": [
+  "Basket Chat",
+  "Papdi Chat",
+  "Aloo Tikki Chat",
+  "Khasta Kachori Chat",
+  "Dahi Samosa Chat",
+  "Raj Kachori Chat",
+  "Dahi Samosa Chole Chat",
+  "Dahi Tikki Chole Chat",
+  "Palak Chat",
+  "Ragada Chat",
+  "Dahi Valla",
+  "Barbecue Potato Chat",
+  "Matar Chat",
+  "Dahi Vada & Aloo Dum",
+  "Dhokla",
+  "Pao Bhaji",
+  "Chhole Bature",
+  "Panipuri ( imli water / pudina water/ dahi garlic water/ dahi)",
+  "Sev Puri",
+  "Dahi Sev Puri"
+],
+      "Plate Counter": [
+  // Veg Items
+  "Green Salad",
+  "Dahi Bada",
+  "Stuffed Dahi Bada",
+  "Papad( fried/ roasted)",
+  "Coin Papad",
+  "Rasi Papad",
+  "Special Papad",
+  "Pickle",
+  "Assorted Pickle",
+  "Masala Papad",
+  "Rainbow Salad",
+  "Corn Salad",
+  "Russian Salad",
+  "Classic Macaroni Salad",
+  "Italian Chopped Salad",
+  "Chinese Cabbage Sesame Salad",
+  "Greek Salad",
+  "Crispy Noodle Salad",
+  "Pasta Salad",
+  "Sprout Salad",
+  "Mexican Salad",
+  "Fruit Salad",
+  "Veg Peanut Sesame Salad",
+  "Pindi Chana Salad",
+  "Veg Caesar Salad",
+  "Pineapple Cucumber Salad",
+  "Barbecue Potato Salad",
+  "Thai Salad",
+  "Sprouted Beans",
+  "Pindi Chole Salad",
+  "Lachha Salad",
+  "Spicy South Indian Salad",
+  "Indian Lentil Salad",
+
+  // Non-Veg Items
+  "Chicken Russian Salad",
+  "Chicken Caesar Salad",
+  "Chicken Greek Salad",
+  "Egg Salad",
+  "Non-Veg Mexican Salad",
+  "Chicken Thai Salad",
+  "Seafood Salad",
+  "Prawn Thai Salad",
+  "Crab Thai Salad"
+],
+      "Starters(Veg.)": [
+    "Veg Cutlet",
+    "Veg Seasoning Pakoda",
+    "Veg Manchurian",
+    "Veg Gold Coin",
+    "Veg Cheese Ball",
+    "Veg Nuggets",
+    "Veg Hara Bhara Kebab",
+    "Veg Dahi Kebab",
+    "Veg Cheese Cigars",
+    "Veg Spring Roll",
+    "Veg Lollypop",
+    "Veg Shaslik",
+    "Veg Sheekh Kebab",
+    "Veg Tangri Kebab",
+    "Veg Cheese Poppers",
+    "Veg Mexican Roll",
+    "Veg Dragon Roll",
+    "Veg Sandwich",
+    "Veg Grilled Sandwich",
+    "Veg Pasta ( Red Sauce)",
+    "Veg Pasta ( White Sauce)",
+    "Veg 65",
+    "Tandoori Vegetable",
+    "Veg Popcorn",
+    "Steam Corn",
+    "Corn Chat ( boiled)",
+    "Crispy Corn",
+    "Crispy Corn Salt & Pepper",
+    "Corn Cheese Nuggets",
+    "Corn Cutlet",
+    "Corn Cheese Cigar",
+    "Crispy Baby Corn",
+    "Crispy Chilly Baby Corn",
+    "Baby Corn Salt & Pepper",
+    "Baby Corn Lollypop",
+    "Tandoori Baby Corn",
+    "Sanghai Baby Corn",
+    "Golden Fried Baby Corn",
+    "Gobi Pakoda",
+    "Gobi Manchurian",
+    "Tandoori Gobi",
+    "Malai Broccoli",
+    "Onion Ring",
+    "Tandoori Broccoli",
+    "Tandoori Pineapple"
+  ],
+      "Starters(Non Veg.)": [],
+  "Starter-Chicken": [
+    "Chicken Tikka",
+    "Chicken Malai Tikka",
+    "Chicken Hariyali Tikka",
+    "Chicken Pahadi Tikka",
+    "Chicken Reshmi Tikka",
+    "Chicken Makhmali Tikka",
+    "Chicken Cheesy Tikka",
+    "Chicken Afgani Tikka",
+    "Chicken Rasuni Tikka",
+    "Chicken Kasturi Tikka",
+    "Chicken Tandoori",
+    "Chicken Tangri",
+    "Chicken Kathi Kebab",
+    "Chicken Grilled",
+    "Chicken Galauti Kebab",
+    "Chicken Stick Kebab",
+    "Chicken BBQ",
+    "Chicken Sami Kebab",
+    "Chicken Gillafi Kebab",
+    "Chicken Pakoda",
+    "Chicken 65",
+    "Chicken Lollipop",
+    "Chicken Drums of Heaven",
+    "Chicken Majestic",
+    "Lemon Honey Chicken",
+    "Lemon Chicken",
+    "Chicken Drumstick",
+    "Chicken Satey",
+    "Crispy Chicken",
+    "Crispy Chicken Wings",
+    "Chicken Salt & Pepper",
+    "Chicken Dragon",
+    "Chicken Chilly",
+    "Chicken Popcorn",
+    "Chicken Cheese Ball",
+    "Garlic Chicken",
+    "Smokey Chicken",
+    "Honey Glazed Chicken",
+    "Crunchy Fried Chicken",
+    "Chicken Manchurian Dry",
+    "Chicken Sweet & Sour",
+    "Garlic Sesame Chicken",
+    "Star Fried Chilly Chicken",
+    "Chicken Nuggets",
+    "Chicken Wings",
+    "Chicken Meat Cutlet",
+    "Chicken Masala Ball",
+    "Chicken Cram Fry",
+    "Bamboo Chicken"
+  ],
+
+  "Starter-Fish": [
+    "Fish Finger",
+    "Peripei Fish Finger",
+    "Fish Cutlet",
+    "Fish Salt & Pepper",
+    "Fish Dragon",
+    "Chilly Fish",
+    "Fish Cheese Ball",
+    "Fish Pakoda",
+    "Fish Kabiraji",
+    "Ajwaini Fish",
+    "Fish Colliwada",
+    "Fish Amritshari",
+    "Tandoori Fish (Basa / Jalanga / Vekti)",
+    "Tandoori Pomfret",
+    "Pomfret Tawa Fry",
+    "Pomfret Fry",
+    "Fish Patudi"
+  ],
+  "Starter-Prawn": [
+    "Prawn Gold Coin",
+    "Golden Fried Prawn",
+    "Barley Prawn",
+    "Prawn Salt & Pepper",
+    "Mustard Prawn",
+    "Garlic Prawn",
+    "Chilly Garlic Prawn",
+    "Chilly Prawn",
+    "Srimp Cocktail",
+    "Tawa Prawn",
+    "Prawn Cutlet",
+    "Chilly Honey Prawn",
+    "Prawn Streer Fry",
+    "Prawn Pakoda",
+    "Grilled Prawn",
+    "Grilled Prawn with Oyster Sause",
+    "Prawn Tikka",
+    "Prawn Ajwani",
+    "Prawn Hariyali",
+    "Prawn Patrapoda"
+  ],
+  "Starter-Egg": [
+    "Egg Pakoda",
+    "Egg Chop",
+    "Egg Scotch",
+    "Egg Devil",
+    "Egg 65",
+    "Egg Omlet",
+    "Boiled Egg",
+    "Live Egg Counter"
+  ],
+  "Starter-Mutton": [
+    "Mutton Chop",
+    "Mutton Chap",
+    "Mutton Sheekh Kebab",
+    "Mutton Galouti Kebab",
+    "Mutton Tawa Fry",
+    "Mutton 65",
+    "Mutton Liver Fry",
+    "Mutton Meat Ball",
+    "Mutton Pakoda",
+    "Mutton Shami Kebab",
+    "Mutton Pathri Kebab",
+    "Mutton Kalmi Kebab",
+    "Mutton Raan",
+    "Bamboo Mutton"
+  ],
+  "Starter-Paneer": ["Paneer Tikka","Paneer Malai Tikka","Paneer Hariyali Tikka",
+"Paneer Achari Tikka","Paneer Afgani Tikka","Paneer Kali Mirch","Paneer papdi Kebab",
+"Paneer Lollipop","Paneer 65","Paneer Tilwala","Paneer Singapori Stick","Paneer Saslik",
+"Paneer Pakoda","Paneer Cheese Ball","Paneer Stick","Paneer Manchurian Dry",
+"Paneer Popcorn","Paneer Nuggets","Paneer Chilly Ciggarsh","Paneer Fritters",
+"Paneer Salt & Pepper","Paneer Tawa","Paneer Chilly","Paneer Schezwan Stick",
+"Paneer Schezwan finger","Paneer Finger","Paneer Hot Pan","Paneer Papad Fritters",
+"Paneer Satey","Paneer Cutlet","Paneer Crispy Cheese Byte","Paneer Amritsari",
+"Paneer Barley","Paneer Cocktail","Paneer Palak Byte","Paneer Thread","Paneer Crunchy",
+"Paneer Sweet and Sour","Paneer bhapa","Paneer Chilly Bomb","Paneer Shwarma Wrap",
+"Paneer Gold Coin","Paneer Lemon Honey","Paneer Dragon","Paneer Chatpata","Paneer Potli",
+"Paneer Dahi Kebab"],
+
+
+  "Starter-Mushroom": [
+    "Mushroom Duplex",
+    "Mushroom Coliwada",
+    "Mushroom 65",
+    "Mushroom Salt & Pepper",
+    "Mushroom Cutlet",
+    "Mushroom Manchurian",
+    "Mushroom Steer Fry",
+    "Mushroom Pakoda",
+    "Mushroom Kurkure",
+    "Tandoori Mushroom",
+    "Stuffed Mushroom",
+    "Cheese Stuffed Mushroom",
+    "Garlic Mushroom",
+    "Cheese Garlic Mushroom",
+    "Creamy Garlic Mushroom",
+    "Chilly Mushroom",
+    "Chilly Garlic Mushroom",
+    "Stuffed Dhaniya & Pepper Mushroom"
+  ],
+      "Rice & Pulao (Veg)": [
+    "Steam Rice",
+    "Steam Rice ( long grain)",
+    "Jeera Rice",
+    "Lemon Rice",
+    "Ghee Rice",
+    "Tamarind Rice",
+    "Curd Rice",
+    "Peas Rice",
+    "Butter Corn Rice",
+    "Onion Fried Rice",
+    "Chilly Garlic Fried Rice",
+    "Schezwan Fried Rice",
+    "Mix Veg Fried Rice",
+    "Peas Pulao",
+    "Veg Pulao",
+    "Kaju Pulao",
+    "Tomato Pulao",
+    "Navaratna Pulao",
+    "Kashmiri Pulao",
+    "Dry Nuts Pulao",
+    "Jafrani Pulao",
+    "Saffron Pulao",
+    "Veg Fried Rice",
+    "Veg Biriyani",
+    "Paneer Biriyani",
+    "Mix Veg Biriyani",
+    "Kanika",
+    "Khichdi",
+    "Pulihora",
+    "Mint Rice",
+    "Coconut Rice",
+    "Jayrani Pulao",
+    "Kaju Pulao",
+    "Tamarind Rice"
+  ],
+  "Rice & Pulao (Non-Veg)": [
+    "Egg Fried Rice",
+    "Chicken Fried Rice",
+    "Prawn Fried Rice",
+    "Egg Chicken Fried Rice",
+    "Mix Non-veg Fried Rice",
+    "Chicken Pulao",
+    "Mutton Pulao",
+    "Egg Biriyani",
+    "Chicken Biriyani",
+    "Mutton Biriyani",
+    "Prawn Biriyani"
+  ],
+
+
+"Prawn & Crabs": [
+  "Prawn Curry",
+  "Prawn Masala",
+  "Prawn Malai Curry",
+  "Prawn Dopyaza",
+  "Prawn Kadhaai",
+  "Prawn Lababdar",
+  "Prawn Butter Masala",
+  "Prawn Gungun",
+  "Prawn Kaju Masala",
+  "Chilly Prawn",
+  "Garlic Prawn",
+  "Mustard Prawn",
+  "Crab Masala",
+  "Mustard Crab",
+  "Coconut Crab",
+  "Kankada Kassa",
+  "Tandoori Crab"
+],
+
+
+"Mutton Moreish": [
+  "Mutton Home Style",
+  "Mutton Curry Home Style with Potato",
+  "Mutton Rogan Josh",
+  "Mutton Kassa",
+  "Mutton Liver Keema Fry",
+  "Rajasthani Lal Maas",
+  "Mutton Ghee Roast",
+  "Kerala Style Mutton Pepper",
+  "Mutton Vindaloo",
+  "Mutton Chaap",
+  "Bhunaa Gosht",
+  "Nihari Gosht",
+  "Dhaba Mutton",
+  "Mutton Rasa",
+  "Mutton Banjara",
+  "Bengali Style Mangsher Jhol",
+  "Paya Curry",
+  "Mutton Handi",
+  "Mutton Rezala",
+  "Mutton Aloo Korma",
+  "Achari Mutton",
+  "Mutton Mughlai",
+  "Grilled Mutton Chops",
+  "Caribbean Grilled Mutton"
+],
+
+"Egg Peng": [
+  "Egg Curry",
+  "Egg Curry Bengali Style with Potatoes",
+  "Egg Masala",
+  "Egg Korma",
+  "Egg Bhurji",
+  "Egg Kassa",
+  "Egg Omlet Curry Bengali Style",
+  "Egg Omlet",
+  "Egg Pepper Masala",
+  "Spicy Butter Masala Egg",
+  "Live Egg Counter"
+],
+
+"Assorted Indian Chutney": [
+  "Green Chutney",
+  "Tamarind Chutney",
+  "Garlic Chutney",
+  "Mint Yogurt Chutney",
+  "Mango Chutney",
+  "Coconut Chutney",
+  "Tomato Chutney",
+  "Kacha Aam Chutney",
+  "Red Chilli Chutney",
+  "Coriander Chutney",
+  "Onion Chutney",
+  "Mixed Pickle",
+  "Sweet Chutney",
+  "Ginger Chutney"
+],
+"Desert": [
+  "Gulab Jamun",
+  "Rasgulla",
+  "Rasmalai",
+  "Gajar Halwa",
+  "Moong Dal Halwa",
+  "Jalebi",
+  "Malpua",
+  "Rabri",
+  "Kheer",
+  "Payasam",
+  "Shahi Tukda",
+  "Chocolate Brownie",
+  "Ice Cream (Vanilla / Chocolate / Strawberry)",
+  "Falooda",
+  "Fruit Custard",
+  "Phirni",
+  "Baked Rosogolla",
+  "Kesari Bath"
+],
+"Bakery": [
+  "Chocolate Truffle Cake",
+  "Pineapple Cake",
+  "Black Forest Cake",
+  "White Forest Cake",
+  "Red Velvet Cake",
+  "Cupcakes (Assorted)",
+  "Brownie (Fudge / Walnut)",
+  "Pastries",
+  "Tea Cake",
+  "Cookies (Choco Chip / Butter / Jeera)",
+  "Doughnuts",
+  "Muffins"
+],
+"Pan": [
+  "Meetha Pan",
+  "Sada Pan",
+  "Fire Pan",
+  "Chocolate Pan",
+  "Ice Pan",
+  "Silver Coated Pan",
+  "Gulab Pan",
+  "Dry Fruit Pan",
+  "Mint Pan",
+  "Kesar Pan",
+  "Special Flavored Pan"
+],
+
+"Ice Cream": [
+  "Premium Ice Cream (Amul / Vadilal/ Dinshaw’s / Arun)",
+  "Deluxe Ice Cream (Havmor/ Baskin Robin / Natural’s)",
+  "Fried Ice Cream",
+  "Flavour Kulfi",
+  "Matka Kulfi",
+  "Cutting Kulfi",
+  "Doughnut Kulfi",
+  "Glorious Special Fruit Kulfi",
+  "Turkey Ice Cream",
+  "Stone Ice Cream"
+],
+
+
+      
       "Cuisines in Veg.": ["North Indian", "South Indian", "Chinese Veg"],
       "Cuisines in Non Veg.": ["Mughlai", "Tandoori Chicken", "Fish Curry"],
-      "Assorted Indian Chutney": ["Mint Chutney", "Imli Chutney", "Coconut Chutney"],
-      "Desert": ["Gulab Jamun", "Rasgulla", "Ice Cream"],
-      "Bakery": ["Brownies", "Cupcakes", "Pastries"],
-      "Pan": ["Meetha Pan", "Sada Pan"]
+      
+     
     };
 
     document.querySelectorAll('.menu-buttons button').forEach(button => {
-      button.addEventListener('click', () => {
-        const category = button.innerText;
+  button.addEventListener('click', () => {
+    const labelToCategory = {
+      "Soup (Veg.)": "Soup",
+      "Soup (Non-Veg)": "Soup (Non-Veg)"
+    };
+    const category = labelToCategory[button.innerText] || button.innerText;
         const itemList = menuItemsData[category] || [];
         const menuTitle = document.getElementById('menu-category-title');
         const menuList = document.getElementById('menu-items-list');
         const itemSection = document.getElementById('menu-items');
 
         menuTitle.textContent = category;
-        menuList.innerHTML = itemList.map(item => `
-  <label style="display: flex; align-items: center; gap: 0.5rem; background: white; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-size: 1rem; color: #444;">
-    <input type="checkbox" name="menu-item" value="${item}" style="transform: scale(1.2);">
-    <span>${item}</span>
-  </label>`).join('');
+        if (category === "Plate Counter") {
+  const vegItems = menuItemsData["Plate Counter"].filter(item => !item.toLowerCase().includes("chicken") && !item.toLowerCase().includes("egg") && !item.toLowerCase().includes("prawn") && !item.toLowerCase().includes("crab") && !item.toLowerCase().includes("seafood"));
+  const nonVegItems = menuItemsData["Plate Counter"].filter(item => !vegItems.includes(item));
+
+  menuList.innerHTML =
+  `<div style="width: 100%; text-align: center; margin: 1rem 0;">
+     <h3 style="color:#8a5c16; font-size: 1.6rem;">🥗 Veg Plate Counter</h3>
+   </div>` +
+  vegItems.map(itemHTML).join('') +
+  `<div style="width: 100%; text-align: center; margin: 2rem 0 1rem;">
+     <h3 style="color:#8a5c16; font-size: 1.6rem;">🍗 Non-Veg Plate Counter</h3>
+   </div>` +
+  nonVegItems.map(itemHTML).join('');
+} else if (category === "Rice & Pulao") {
+  const vegItems = menuItemsData["Rice & Pulao (Veg)"] || [];
+  const nonVegItems = menuItemsData["Rice & Pulao (Non-Veg)"] || [];
+
+  menuList.innerHTML =
+    `<h3 style="width:100%; text-align:center; margin:1rem 0; color:#8a5c16;">🥦 Veg Rice & Pulao</h3>` +
+    vegItems.map(itemHTML).join('') +
+    `<h3 style="width:100%; text-align:center; margin:1.5rem 0 1rem; color:#8a5c16;">🍗 Non-Veg Rice & Pulao</h3>` +
+    nonVegItems.map(itemHTML).join('');
+} else if (category === "Noodles") {
+  const vegItems = menuItemsData["Noodles (Veg)"] || [];
+  const nonVegItems = menuItemsData["Noodles (Non-Veg)"] || [];
+  menuList.innerHTML =
+    `<h3 style='width:100%; text-align:center; margin:1rem 0; color:#8a5c16;'>🥦 Veg Noodles</h3>` +
+    vegItems.map(itemHTML).join('') +
+    `<h3 style='width:100%; text-align:center; margin:1.5rem 0 1rem; color:#8a5c16;'>🍗 Non-Veg Noodles</h3>` +
+    nonVegItems.map(itemHTML).join('');
+} else {
+  menuList.innerHTML = itemList.map(itemHTML).join('');
+}
+
+function itemHTML(item) {
+  return `
+    <label style="display: flex; align-items: center; gap: 0.5rem; background: white; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-size: 1rem; color: #444;">
+      <input type="checkbox" name="menu-item" value="${item}" style="transform: scale(1.2);">
+      <span>${item}</span>
+    </label>`;
+}
         itemSection.style.display = 'block';
         itemSection.scrollIntoView({ behavior: 'smooth' });
       });
@@ -630,41 +1307,13 @@ document.getElementById('quote-form').addEventListener('submit', function(e) {
   }
 
   const selected = Array.from(selectedItems).join(', ');
+  const text = `Name: ${name}%0aContact: ${contact}%0aEmail: ${email}%0aPlate Count: ${plate}%0aEvent Date: ${date}%0aMessage: ${message}%0aSelected Items: ${selected}`;
 
-  const doc = new jsPDF();
-  doc.setFontSize(16);
-  doc.text("Golden Flames - Quote Summary", 20, 20);
-  doc.setFontSize(12);
-  doc.text(`Name: ${name}`, 20, 35);
-  doc.text(`Contact: ${contact}`, 20, 45);
-  doc.text(`Email: ${email}`, 20, 55);
-  doc.text(`Plate Count: ${plate}`, 20, 65);
-  doc.text(`Event Date: ${date}`, 20, 75);
-  doc.text(`Message: ${message}`, 20, 85);
-  doc.text("Selected Menu Items:", 20, 100);
-
-  let y = 110;
-  selectedItems.forEach(item => {
-    doc.text(`• ${item}`, 25, y);
-    y += 8;
-  });
-
-  const pdfData = doc.output("datauristring");
-
-  alert('Attempting to send...');
-emailjs.send("service_7d1s41r", "template_6l6f5is", {
-    to_email: "prasantengg@gmail.com",
-    from_name: name,
-    message: message,
-    attachment: pdfData
-  }).then(function(response) {
-    alert("Quote sent successfully via email!");
-  }, function(error) {
-    alert("Failed to send quote. Please try again.");
-    console.error(error);
-  });
+  window.open(`https://wa.me/917205087774?text=${text}`, '_blank');
 
   document.getElementById('quote-form-modal').style.display = 'none';
+  alert('Thank you! Your quote request has been sent. We will get back to you shortly.');
+
   document.getElementById('quote-form').reset();
   selectedItems.clear();
   document.querySelectorAll('input[name="menu-item"]').forEach(cb => cb.checked = false);
@@ -688,6 +1337,7 @@ document.querySelectorAll('.menu-buttons button').forEach(btn => {
     btn.style.transform = 'scale(1.0)';
   });
 });
+
 </script>
 </body>
 </html>
