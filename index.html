@@ -1390,6 +1390,57 @@ function updateSelectedItems() {
   });
 
   Object.entries(groupedItems).forEach(([category, items]) => {
+  const isPlateCounter = category === "Plate Counter";
+
+  if (isPlateCounter) {
+    const vegItems = items.filter(item => !/chicken|egg|prawn|crab|seafood/i.test(item));
+    const nonVegItems = items.filter(item => !vegItems.includes(item));
+
+    if (vegItems.length > 0) {
+      const vegTitle = document.createElement('h3');
+      vegTitle.textContent = "🥗 Plate Counter (Veg)";
+      vegTitle.style.marginTop = '1.5rem';
+      vegTitle.style.color = '#8a5c16';
+      vegTitle.style.textAlign = 'center';
+      selectedList.appendChild(vegTitle);
+
+      const vegList = document.createElement('ul');
+      vegList.style.listStyle = 'disc';
+      vegList.style.paddingLeft = '2rem';
+      vegList.style.marginBottom = '1rem';
+      vegList.style.fontSize = '1rem';
+      vegList.style.color = '#444';
+      vegItems.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        vegList.appendChild(li);
+      });
+      selectedList.appendChild(vegList);
+    }
+
+    if (nonVegItems.length > 0) {
+      const nonVegTitle = document.createElement('h3');
+      nonVegTitle.textContent = "🍗 Plate Counter (Non-Veg)";
+      nonVegTitle.style.marginTop = '1.5rem';
+      nonVegTitle.style.color = '#8a5c16';
+      nonVegTitle.style.textAlign = 'center';
+      selectedList.appendChild(nonVegTitle);
+
+      const nonVegList = document.createElement('ul');
+      nonVegList.style.listStyle = 'disc';
+      nonVegList.style.paddingLeft = '2rem';
+      nonVegList.style.marginBottom = '1rem';
+      nonVegList.style.fontSize = '1rem';
+      nonVegList.style.color = '#444';
+      nonVegItems.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        nonVegList.appendChild(li);
+      });
+      selectedList.appendChild(nonVegList);
+    }
+
+  } else {
     const catTitle = document.createElement('h3');
     catTitle.textContent = category;
     catTitle.style.marginTop = '1.5rem';
@@ -1397,7 +1448,7 @@ function updateSelectedItems() {
     catTitle.style.textAlign = 'center';
     selectedList.appendChild(catTitle);
 
-        const ul = document.createElement('ul');
+    const ul = document.createElement('ul');
     ul.style.listStyle = 'disc';
     ul.style.paddingLeft = '2rem';
     ul.style.marginBottom = '1rem';
@@ -1409,7 +1460,8 @@ function updateSelectedItems() {
       ul.appendChild(li);
     });
     selectedList.appendChild(ul);
-  });
+  }
+});
   const summarySection = document.getElementById('menu-summary');
   summarySection.style.display = selectedItems.size > 0 ? 'block' : 'none';
 }
