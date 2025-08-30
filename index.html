@@ -1,1584 +1,1517 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Golden Flames</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff8f2;
-      scroll-behavior: smooth;
-    }
-    header {
-      background: rgba(0, 0, 0, 0.4);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo img {
-      height: 50px;
-    }
-    .brand-text {
-      color: #c69736;
-      font-size: 1.4rem;
-      font-weight: bold;
-      text-shadow: 1px 1px 3px #000;
-    }
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-    }
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-    }
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      color: white;
-    }
-    .hero {
-      min-height: 100svh;
-      min-height: 100vh;
-      background-image: url('herobg.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      animation: zoomHero 20s ease-in-out infinite;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding-top: 100px;
-      text-align: center;
-      cursor: pointer;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1;
-    }
-    .hero-content {
-      z-index: 2;
-      color: white;
-      max-width: 900px;
-      padding: 1rem;
-      animation: fadeIn 1s ease forwards;
-    }
-    .hero-content h1 {
-      font-size: 2.8rem;
-      line-height: 1.5;
-    }
-    .hero-content h1 .highlight {
-      color: #d4af37;
-    }
-    .hero-content p {
-      font-size: 1.3rem;
-      color: #fefefe;
-      margin: 1rem 0;
-      line-height: 1.8;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .hero-buttons a {
-      padding: 0.8rem 1.2rem;
-      font-size: 1.1rem;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-    .btn-plan {
-      background: linear-gradient(to right, yellow, red);
-      color: #000;
-    }
-    .btn-view {
-      background-color: #800000;
-      color: #fff8f0;
-    }
-    .scroll-down {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 2rem;
-      color: white;
-      animation: bounce 2s infinite;
-      z-index: 2;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes zoomHero {
-      0%, 100% { background-size: 100%; }
-      50% { background-size: 110%; }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translate(-50%, 0); }
-      50% { transform: translate(-50%, 10px); }
-    }
-    .services-icon {
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-    .services-icon:hover {
-      transform: scale(1.2);
-      color: #d4af37;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Flames Catering - Premium Event Catering Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.service-card {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-.service-card.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: #fff8f2;
+        }
 
+        .hero-bg {
+          background-image: url('herobg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: zoomHero 20s ease-in-out infinite;
+        }
 
-    .menu-buttons button:hover {
-      background-color: #a9711a !important;
-      transform: scale(1.05);
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    footer {
-      background-color: #222;
-      color: #ccc;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    footer p {
-      margin: 0.5rem 0;
-      font-size: 0.95rem;
-    }
-    footer .socials i {
-      margin: 0 10px;
-      color: #ccc;
-      transition: color 0.3s ease;
-    }
-    footer .socials i:hover {
-      color: #d4af37;
-    }
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        padding: 1rem 0;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-      .hero-content p {
-        font-size: 1rem;
-      }
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  .golden-button {
-  background: linear-gradient(145deg, #a57c1b, #704c0e);
-  color: white;
-  padding: 0.8rem 1.2rem;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 6px;
-  box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.golden-button:hover {
-  background-color: #a9711a;
-  transform: scale(1.05);
-}
-@media (max-width: 600px) {
-  .menu-buttons {
-    flex-direction: row !important;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0 1rem;
-  }
+        @keyframes zoomHero {
+            0%, 100% { background-size: 100%; }
+            50% { background-size: 110%; }
+        }
 
-  .menu-buttons button {
-    flex: 1 1 auto;
-    padding: 0.6rem 1rem;
-    font-size: 0.95rem;
-    white-space: nowrap;
-  }
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, 10px); }
+        }
 
-  #menu-items-list label {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    padding: 1rem;
-    font-size: 0.95rem;
-  }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 1; }
+        }
 
-  #quote-form-modal > div {
-    width: 95% !important;
-    padding: 1.2rem !important;
-  }
+        .hero-content {
+            animation: fadeIn 1s ease forwards;
+        }
 
-  .hero-content h1 {
-    font-size: 2rem;
-  }
+        .scroll-down {
+            animation: bounce 2s infinite;
+        }
 
-  .hero-content p {
-    font-size: 1.5rem;
-  }
+        .golden-button {
+            background: linear-gradient(145deg, #a57c1b, #704c0e);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 6px;
+            box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 0.25rem;
+        }
 
-  footer {
-    font-size: 0.9rem;
-  }
-}
+        .golden-button:hover {
+            background-color: #a9711a;
+            transform: scale(1.05);
+            box-shadow: inset 0 1px 0 #fff1b8, 0 3px 8px rgba(0,0,0,0.4);
+        }
 
-@media (max-width: 768px) {
-  footer {
-    flex-direction: column !important;
-    text-align: center !important;
-  }
-  footer div {
-    width: 100% !important;
-  }
-}
+        .services-icon {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
 
-@keyframes headerFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+        .services-icon:hover {
+            transform: scale(1.2);
+            color: #d4af37;
+        }
 
-header.animate-header {
-  animation: headerFadeIn 1s ease-out forwards;
-}
+        .service-card {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
+        .service-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-#whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  font-size: 2.4rem;
-  padding: 0.8rem;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
-#whatsapp-float:hover {
-  transform: scale(1.1);
-}
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            font-size: 2.4rem;
+            padding: 0.8rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
 
-#whatsapp-float {
-  text-decoration: none;
-}
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            text-decoration: none;
+        }
 
-#whatsapp-float:hover {
-  text-decoration: none;
-}
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.6; }
-  100% { transform: scale(1); opacity: 1; }
-}
+        .pulse-animation {
+            animation: pulse 1.5s infinite;
+        }
 
-</style>
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 50;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            height: 3rem;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #c69736;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #fbbf24;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+            padding-top: 6rem;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 10;
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 64rem;
+            padding: 0 1rem;
+            z-index: 20;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, yellow, red);
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            font-weight: bold;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-secondary {
+            background: #800000;
+            color: #fff8f0;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            font-weight: bold;
+            border-radius: 0.375rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            padding: 4rem;
+            background: #fff4e6;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-height: 24rem;
+            object-fit: cover;
+            transition: opacity 0.4s ease;
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            text-align: justify;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #a0522d;
+        }
+
+        .about-text {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: #d4af37;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: #444;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 4rem;
+            text-align: center;
+            background: #fffaf0;
+        }
+
+        .services-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #8b4513;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 96rem;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            color: #c69736;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #a0522d;
+        }
+
+        .service-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 4rem;
+            text-align: center;
+            background: #fff8f0;
+        }
+
+        .menu-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 96rem;
+            margin: 0 auto 3rem;
+        }
+
+        .menu-feature {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .menu-feature h3 {
+            margin-bottom: 1rem;
+            color: #a0522d;
+        }
+
+        .menu-feature p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Menu Selection */
+        .menu-selection {
+            padding: 2rem;
+        }
+
+        .selection-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #8a5c16;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-items {
+            padding: 2rem;
+            background: #fffaf0;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-items-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #8a5c16;
+        }
+
+        .items-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 0.875rem;
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .menu-item input {
+            transform: scale(1.25);
+        }
+
+        .menu-item span {
+            color: #374151;
+        }
+
+        .category-title {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0;
+            color: #8a5c16;
+        }
+
+        /* Selected Items Summary */
+        .summary-section {
+            padding: 2rem;
+            background: #fff4e6;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .summary-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #8a5c16;
+        }
+
+        .summary-content {
+            max-width: 64rem;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .summary-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-category h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.5rem;
+            text-align: center;
+            color: #8a5c16;
+        }
+
+        .summary-category ul {
+            list-style-type: disc;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .summary-category li {
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+
+        .summary-buttons {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .btn-clear {
+            background: #6b7280;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            margin-right: 1rem;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-clear:hover {
+            background: #4b5563;
+        }
+
+        .btn-quote {
+            background: #8a5c16;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-quote:hover {
+            opacity: 0.9;
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            max-width: 28rem;
+            position: relative;
+            margin: 2rem 0;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #8a5c16;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #eab308;
+            box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.2);
+        }
+
+        .form-buttons {
+            text-align: center;
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 1rem;
+        }
+
+        .btn-back {
+            background: #9ca3af;
+            color: black;
+            padding: 0.5rem 1rem;
+            margin-right: 1rem;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: #6b7280;
+        }
+
+        .btn-submit {
+            background: #8a5c16;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            padding: 1rem;
+            background: #374151;
+            color: white;
+        }
+
+        .footer-contact {
+            flex: 1;
+            min-width: 200px;
+            text-align: left;
+        }
+
+        .footer-map {
+            flex: none;
+            text-align: center;
+        }
+
+        .footer-social {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .footer-social a {
+            color: white;
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+
+        .map-icon {
+            font-size: 2rem;
+            color: #ef4444;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .about-section,
+            .services-section,
+            .menu-section {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 4rem;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 1rem;
+            }
+
+            nav.mobile-open {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .about-section {
+                padding: 2rem 1rem;
+            }
+
+            .stats-container {
+                gap: 1rem;
+            }
+
+            .services-grid {
+                gap: 1rem;
+            }
+
+            .menu-features {
+                gap: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <header>
-  <div class="logo">
-    <img src="logo.png" alt="Logo">
-    <span class="brand-text">GOLDEN FLAMES</span>
-  </div>
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <div class="nav-links" id="navLinks">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#menu">Menu</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-  </div>
-</header>
-
-  <section id="home" class="hero" onclick="unlockScrollAndScroll()">
-  <div class="hero-content">
-    <h1><span class="highlight">Culinary Excellence</span> That Ignites Every Moment</h1>
-    <p>From intimate gatherings to grand celebrations, Golden Flames delivers extraordinary culinary experiences that transform your events into unforgettable memories.</p>
-    <div class="hero-buttons">
-      <a href="#select-menu" class="btn-plan">Start Planning Your Event →</a>
-
-      <a href="#services" class="btn-view">View Our Services</a>
-    </div>
-  </div>
-  <div class="scroll-down">↓</div>
-</section>
-
-  <!-- About Section -->
-  <section id="about" style="background-color: #fff4e6; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem; padding: 4rem 2rem;">
-    <div style="flex: 1; min-width: 300px; max-width: 350px;">
-      <img id="carousel-img" src="aboutus1.jpg" alt="About Carousel" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); max-height: 360px; transition: opacity 0.4s ease-in-out;"/>
-    </div>
-    <div style="flex: 1; min-width: 300px; max-width: 600px; text-align: justify;">
-      <h2 style="font-size: 2.4rem; color: #a0522d; margin-bottom: 1rem;">About Us</h2>
-      <p style="font-size: 1.3rem; line-height: 1.9; color: #333; margin-bottom: 3rem;">
-        At <strong>Golden Flames</strong>, we believe that every meal is an opportunity to celebrate. With over a decade of experience, our passionate team of <strong>15+ expert chefs</strong> has curated exceptional culinary experiences for more than <strong>500 events</strong>. Whether it's an intimate gathering or a grand celebration, we transform your vision into flavorful reality.
-      </p>
-      <div style="display: flex; justify-content: space-evenly; flex-wrap: wrap; margin-top: 2rem;">
-        <div style="text-align: center;">
-          <h3 style="font-size: 1.8rem; color: #d4af37;">500+</h3>
-          <p style="font-size: 1.1rem; font-weight: bold; color: #444;">Events</p>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Golden Flames Logo" class="logo" />
+            <span class="logo-text">GOLDEN FLAMES</span>
         </div>
-        <div style="text-align: center;">
-          <h3 style="font-size: 1.8rem; color: #d4af37;">15+</h3>
-          <p style="font-size: 1.1rem; font-weight: bold; color: #444;">Expert Chefs</p>
+        
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        
+        <nav id="nav-menu">
+            <a href="#home" onclick="closeMobileMenu()">Home</a>
+            <a href="#about" onclick="closeMobileMenu()">About</a>
+            <a href="#services" onclick="closeMobileMenu()">Services</a>
+            <a href="#menu" onclick="closeMobileMenu()">Menu</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span style="color: #d4af37;">Culinary Excellence</span> That Ignites Every Moment
+            </h1>
+            <p class="hero-subtitle">
+                From intimate gatherings to grand celebrations, Golden Flames delivers extraordinary culinary experiences that transform your events into unforgettable memories.
+            </p>
+            <div class="hero-buttons">
+                <a href="#select-menu" class="btn-primary">Start Planning Your Event →</a>
+                <a href="#services" class="btn-secondary">View Our Services</a>
+            </div>
         </div>
-        <div style="text-align: center;">
-          <h3 style="font-size: 1.8rem; color: #d4af37;">10+</h3>
-          <p style="font-size: 1.1rem; font-weight: bold; color: #444;">Years Experience</p>
+        <div class="scroll-down">↓</div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-image">
+            <img id="carousel-image" src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg" alt="About Carousel" />
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" style="background-color: #fffaf0; padding: 4rem 2rem; text-align: center;">
-    <h2 style="font-size: 2.4rem; color: #8b4513; margin-bottom: 2rem;">Our Services</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
-      <div class="service-card" style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-ring"></i></div>
-        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Wedding Catering</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">From traditional to contemporary, we create memorable wedding feasts tailored to your celebration.</p>
-      </div>
-      <div class="service-card" style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-building"></i></div>
-        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Corporate Events</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">Professional catering for meetings, conferences, and business functions with customized menus.</p>
-      </div>
-     <div class="service-card" style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-     <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;"><i class="fas fa-champagne-glasses"></i></div>
-        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Private Parties</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">Celebrate birthdays, anniversaries, and milestones with bespoke dishes and attentive service.</p>
-      </div>
-
-     <div class="service-card" style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;">
-          <i class="fas fa-leaf"></i>
+        <div class="about-content">
+            <h2 class="about-title">About Us</h2>
+            <p class="about-text">
+                At <strong>Golden Flames</strong>, we believe that every meal is an opportunity to celebrate. With over a decade of experience, our passionate team of <strong>15+ expert chefs</strong> has curated exceptional culinary experiences for more than <strong>500 events</strong>. Whether it's an intimate gathering or a grand celebration, we transform your vision into flavorful reality.
+            </p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3 class="stat-number">500+</h3>
+                    <p class="stat-label">Events</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">15+</h3>
+                    <p class="stat-label">Expert Chefs</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="stat-number">10+</h3>
+                    <p class="stat-label">Years Experience</p>
+                </div>
+            </div>
         </div>
-        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Pure Vegetarian</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">Delight in 100% vegetarian dishes crafted with traditional recipes and fresh ingredients for every event.</p>
-      </div>
-      <div class="service-card" style="flex: 1 1 250px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-        <div class="services-icon" style="font-size: 2.4rem; margin-bottom: 0.7rem; color: #c69736;">
-          <i class="fas fa-birthday-cake"></i>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <h2 class="services-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon services-icon">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <h3 class="service-title">Wedding Catering</h3>
+                <p class="service-desc">From traditional to contemporary, we create memorable wedding feasts tailored to your celebration.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon services-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 class="service-title">Corporate Events</h3>
+                <p class="service-desc">Professional catering for meetings, conferences, and business functions with customized menus.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon services-icon">
+                    <i class="fas fa-champagne-glasses"></i>
+                </div>
+                <h3 class="service-title">Private Parties</h3>
+                <p class="service-desc">Celebrate birthdays, anniversaries, and milestones with bespoke dishes and attentive service.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon services-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3 class="service-title">Pure Vegetarian</h3>
+                <p class="service-desc">Delight in 100% vegetarian dishes crafted with traditional recipes and fresh ingredients for every event.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon services-icon">
+                    <i class="fas fa-birthday-cake"></i>
+                </div>
+                <h3 class="service-title">Bakery Party</h3>
+                <p class="service-desc">Customized bakery celebrations featuring cakes, pastries, cookies, and more for birthdays and parties.</p>
+            </div>
         </div>
-        <h3 style="font-size: 1.4rem; color: #a0522d; margin-bottom: 1rem;">Bakery Party</h3>
-        <p style="color: #555; font-size: 1rem; line-height: 1.6;">Customized bakery celebrations featuring cakes, pastries, cookies, and more for birthdays and parties.</p>
+    </section>
 
-     </div>
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <h2 class="menu-title">
+            <span style="color: black;">Golden Flames</span>
+            <span style="color: #dc2626;">Signature</span>
+            <span style="color: black;">Menu</span>
+        </h2>
+        <div class="menu-features">
+            <div class="menu-feature">
+                <h3>Live Counters</h3>
+                <p>Interactive stations featuring chaat, dosa, pasta, and more — prepared fresh before your eyes.</p>
+            </div>
+            <div class="menu-feature">
+                <h3>Signature Main Course</h3>
+                <p>A curated selection of traditional Indian, Chinese, and fusion mains — from fragrant biryanis to rich curries and sizzling stir-fry dishes.</p>
+            </div>
+            <div class="menu-feature">
+                <h3>Exquisite Desserts</h3>
+                <p>Finish on a sweet note with handcrafted Indian desserts, international favorites, and delightful confections to please every palate.</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Menu Selection -->
+    <section id="select-menu" class="menu-selection">
+        <h2 class="selection-title">Select your items from menu</h2>
+        
+        <div class="menu-buttons" id="menu-buttons">
+            <!-- Menu buttons will be populated by JavaScript -->
+        </div>
+
+        <div id="menu-items" class="hidden">
+            <!-- Menu items will be populated by JavaScript -->
+        </div>
+
+        <div id="menu-summary" class="hidden">
+            <!-- Selected items summary will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Quote Form Modal -->
+    <div id="quote-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 class="modal-title">Request a Quote</h2>
+            <form id="quote-form">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact No *</label>
+                    <input type="tel" id="contact" name="contact" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="plate">Plate Count *</label>
+                    <input type="number" id="plate" name="plate" required />
+                </div>
+                <div class="form-group">
+                    <label for="date">Date of Event *</label>
+                    <input type="date" id="date" name="date" required />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="3"></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn-back" onclick="closeQuoteForm()">Back</button>
+                    <button type="submit" class="btn-submit">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </section>
 
-  <!-- Menu Section -->
-<section id="menu" style="background-color: #fff8f0; padding: 4rem 2rem; text-align: center;">
-  <h2 style="font-size: 2.4rem; margin-bottom: 2rem;"><span style="color: black;">Golden Flames</span> <span style="color: red;">Signature</span> <span style="color: black;">Menu</span></h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1200px; margin: 0 auto;">
-    <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #a0522d; margin-bottom: 1rem;">Live Counters</h3>
-      <p style="color: #555; font-size: 1rem; line-height: 1.6;">Interactive stations featuring chaat, dosa, pasta, and more — prepared fresh before your eyes.</p>
-    </div>
-    <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #a0522d; margin-bottom: 1rem;">Signature Main Course</h3>
-      <p style="color: #555; font-size: 1rem; line-height: 1.6;">A curated selection of traditional Indian, Chinese, and fusion mains — from fragrant biryanis to rich curries and sizzling stir-fry dishes.</p>
-    </div>
-    <div style="flex: 1 1 300px; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-      <h3 style="color: #a0522d; margin-bottom: 1rem;">Exquisite Desserts</h3>
-      <p style="color: #555; font-size: 1rem; line-height: 1.6;">Finish on a sweet note with handcrafted Indian desserts, international favorites, and delightful confections to please every palate.</p>
-    </div>
-  </div>
-</section>
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-contact">
+            <p><strong>Call us:</strong> +91 7008694597</p>
+            <p><strong>Email us:</strong> info@goldenflames.org</p>
+            <p><strong>Address:</strong><br />
+                Plot No- HIG 12/2, Panchashakha Nager,<br />
+                Near Siva Temple, Dumduma-751019
+            </p>
+        </div>
+        <div class="footer-map">
+            <a href="https://maps.app.goo.gl/gm7NhpWrDapZ9b4v8" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-map-marker-alt map-icon pulse-animation" title="Find us on Google Maps"></i>
+            </a>
+        </div>
+        <div class="footer-social">
+            <p>&copy; 2025 Golden Flames. All rights reserved.</p>
+            <p>
+                Follow us:
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </p>
+        </div>
+    </footer>
 
-<h2 id="select-menu" style="text-align: center; font-size: 2rem; color: #8a5c16; margin-top: 3rem; margin-bottom: 1rem;">
-  Select your items from menu
-</h2>
-
-
-<!-- Menu Buttons -->
-<div class="menu-buttons" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem;">
-  <button class="golden-button">Welcome Drink</button>
-  <button class="golden-button">Soup (Veg.)</button>
-  <button class="golden-button">Soup (Non-Veg)</button>
-  <button class="golden-button">Chat Counter</button>
-  <button class="golden-button">Plate Counter</button>
-  <button class="golden-button">Starters(Veg.)</button>
-  <button class="golden-button">Starter-Paneer</button>
-  <button class="golden-button">Starter-Mushroom</button>
-<button class="golden-button">Assorted Indian Chutney</button>
-  <button class="golden-button">Starter-Chicken</button>
-  <button class="golden-button">Starter-Fish</button>
-  <button class="golden-button">Starter-Prawn</button>
-  <button class="golden-button">Starter-Egg</button>
-  <button class="golden-button">Starter-Mutton</button>
-  <button class="golden-button">Rice & Pulao</button>
-  <button class="golden-button">Indian Breads & Chillas</button>
-  <button class="golden-button">Noodles</button>
-  <button class="golden-button">Dal</button>
-  <button class="golden-button">Paneer Recipes</button>
-  <button class="golden-button">Mushroom Recipes</button>
-  <button class="golden-button">Chicken Cuisines</button>
-  <button class="golden-button">Fish Flavor</button>
-  <button class="golden-button">Prawn & Crabs</button>
-  <button class="golden-button">Mutton Moreish</button>
-  <button class="golden-button">Egg Peng</button>
-
-<button class="golden-button">Ice Cream</button>
-<button class="golden-button">Desert</button>
-<button class="golden-button">Bakery</button>
-<button class="golden-button">Pan</button>
-
-</div>
-
-<section id="menu-items" style="background-color: #fffaf0; padding: 2rem; display: none;">
-    <h2 id="menu-category-title" style="text-align: center; font-size: 2rem; color: #8a5c16; margin-bottom: 1.5rem;"></h2>
-    <div id="menu-items-list" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;"></div>
-  </section>
-
-<!-- Selected Items Summary Section -->
-<section id="menu-summary" style="background-color: #fff4e6; padding: 2rem; display: none;">
-  <h2 style="text-align: center; font-size: 2rem; color: #8a5c16; margin-bottom: 1.5rem;">Your Selected Items</h2>
-  <ul id="selected-items-list" style="list-style: none; padding: 0; max-width: 800px; margin: 0 auto; text-align: left;"></ul>
-  <div style="text-align: center; margin-top: 2rem;">
-    <button id="clear-selection" style="background-color: #999; color: white; padding: 0.6rem 1.2rem; margin-right: 1rem; border: none; border-radius: 5px; cursor: pointer;">Clear All</button>
-    <button id="proceed-selection" style="background-color: #8a5c16; color: white; padding: 0.6rem 1.2rem; border: none; border-radius: 5px; cursor: pointer;">Get My Quote →</button>
-  </div>
-</section>
-
-<div style="height: 4rem;"></div>
-
-<footer id="contact" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:2rem; padding: 1rem; background:#222; color:#fff;">
-
-  <!-- 📞 Contact Info -->
-  <div style="flex: 1; min-width: 200px; text-align: left;">
-    <p><strong>Call us:</strong> +91 7008694597</p>
-    <p><strong>Email us:</strong> info@goldenflames.org</p>
-    <p><strong>Address:</strong><br>
-      Plot No- HIG 12/2, Panchashakha Nager,<br>
-      Near Siva Temple, Dumduma-751019
-    </p>
-  </div>
-
-  <!-- 📍 Location Icon -->
-  <div style="flex: 0; text-align: center;">
-    <a href=https://maps.app.goo.gl/gm7NhpWrDapZ9b4v8>
-      <i class="fas fa-map-marker-alt" style="
-        font-size: 2rem;
-        color: #ff4d4d;
-        animation: pulse 1.5s infinite;
-      " title="Find us on Google Maps"></i>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/917205087774" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
-  </div>
 
-  <!-- © Copyright -->
-  <div style="flex: 1; min-width: 200px; text-align: center;">
-    <p style="margin: 0;">&copy; 2025 Golden Flames. All rights reserved.</p>
-    <p style="margin: 0;">Follow us:
-      <a href="#" style="color:#fff; margin: 0 0.5rem;"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" style="color:#fff; margin: 0 0.5rem;"><i class="fab fa-instagram"></i></a>
-      <a href="#" style="color:#fff; margin: 0 0.5rem;"><i class="fab fa-twitter"></i></a>
-    </p>
-  </div>
-</footer>
+    <script>
+        // Menu data
+        const menuItemsData = {
+            "Welcome Drink": [
+                "Badam Shake", "Mango Shake", "Badam Milk", "Oreo Shake", "Fruit Shake", 
+                "Cold Coffee", "Soda Beverages", "Pudina Jaljeera", "Lassi", "Chhaas/Butter Milk",
+                "Pink Panther", "Strawberry Imperial", "Pineapple Surprise", "Mango Blossom",
+                "Apple Blossom", "Pineapple Blossom", "Virgin Mojito", "Mint Mojito", "Pinacolada",
+                "Jaljeera", "Mocktail", "Aam Panna", "Ginger Peach Soda", "Cucumber Cooler",
+                "Chilly Guava", "Watermelon Cooler", "Shikanji", "Wild Cat Cooler", "Pineapple Cobbler",
+                "Coffee Bar", "Tea Bar", "Kesar Tea", "Tea", "Coffee", "Hot Kesar Milk", "Hot Badam Milk",
+                "Orange Squash", "Orange Blossom", "Blue Heaven", "Falooda Sarbat", "Virgin Paloma",
+                "Fresh Juice Soda", "Green River", "Masala Cold Drinks", "Cucumber Grape",
+                "Spicy Watermelon Mint Aqua Fresh", "Pineapple Ginger Beer", "Raspberry Bee's Knees",
+                "Rooh Afza", "Rickey Tikki Tavi", "Tender Coconut Water", "Masala Chaach", "Nimbu Pani", "Thandai"
+            ],
+            "Soup (Veg.)": [
+                "Veg Clear Soup", "Veg Manchow Soup", "Veg Hot & Sour Soup", "Veg Lemon Coriander Soup",
+                "Veg Burnt Garlic Soup", "Veg Sweet Corn Soup", "Veg Seven Seas Soup", "Veg Thai Soup",
+                "Veg Singapore Soup", "Veg Noodle Soup", "Tomato Soup", "Cream of Tomato Soup",
+                "Cream of Mushroom Soup", "Cream of Broccoli Soup", "Cream of Vegetable Soup",
+                "Tomato Dhania Sorba", "Palak Sorba", "Spicy Tomato Soup", "Jhat-Pat Soup",
+                "Cantonese Soup", "Veg Lung Fung Soup"
+            ],
+            "Soup (Non-Veg)": [
+                "Chicken Clear Soup", "Cream of Chicken Soup", "Chicken Manchow Soup", "Slice Chicken Soup",
+                "Chicken Hot & Sour Soup", "Chicken Burnt Garlic Soup", "Chicken Sweet Corn Soup",
+                "Chicken Thai Soup", "Chicken Singapore Soup", "Chicken Wonton Soup", "Chicken Hot Pot Soup",
+                "Chicken Lung Fung Soup", "Murg Shorba", "Mutton Sorba", "Mutton Paya Soup",
+                "Seafood Soup", "Prawn Soup", "Crab Burnt Garlic Soup"
+            ],
+            "Chat Counter": [
+                "Basket Chat", "Papdi Chat", "Aloo Tikki Chat", "Khasta Kachori Chat", "Dahi Samosa Chat",
+                "Raj Kachori Chat", "Dahi Samosa Chole Chat", "Dahi Tikki Chole Chat", "Palak Chat",
+                "Ragada Chat", "Dahi Valla", "Barbecue Potato Chat", "Matar Chat", "Dahi Vada & Aloo Dum",
+                "Dhokla", "Pao Bhaji", "Chhole Bature", "Panipuri (imli water/pudina water/dahi garlic water/dahi)",
+                "Sev Puri", "Dahi Sev Puri"
+            ],
+            "Plate Counter": [
+                "Green Salad", "Dahi Bada", "Stuffed Dahi Bada", "Papad (fried/roasted)", "Coin Papad",
+                "Rasi Papad", "Special Papad", "Pickle", "Assorted Pickle", "Masala Papad", "Rainbow Salad",
+                "Corn Salad", "Russian Salad", "Classic Macaroni Salad", "Italian Chopped Salad",
+                "Chinese Cabbage Sesame Salad", "Greek Salad", "Crispy Noodle Salad", "Pasta Salad",
+                "Sprout Salad", "Mexican Salad", "Fruit Salad", "Veg Peanut Sesame Salad", "Pindi Chana Salad",
+                "Veg Caesar Salad", "Pineapple Cucumber Salad", "Barbecue Potato Salad", "Thai Salad",
+                "Sprouted Beans", "Pindi Chole Salad", "Lachha Salad", "Spicy South Indian Salad",
+                "Indian Lentil Salad", "Chicken Russian Salad", "Chicken Caesar Salad", "Chicken Greek Salad", 
+                "Egg Salad", "Non-Veg Mexican Salad", "Chicken Thai Salad", "Seafood Salad", "Prawn Thai Salad", "Crab Thai Salad"
+            ],
+            "Starters(Veg.)": [
+                "Veg Cutlet", "Veg Seasoning Pakoda", "Veg Manchurian", "Veg Gold Coin", "Veg Cheese Ball",
+                "Veg Nuggets", "Veg Hara Bhara Kebab", "Veg Dahi Kebab", "Veg Cheese Cigars", "Veg Spring Roll",
+                "Veg Lollypop", "Veg Shaslik", "Veg Sheekh Kebab", "Veg Tangri Kebab", "Veg Cheese Poppers",
+                "Veg Mexican Roll", "Veg Dragon Roll", "Veg Sandwich", "Veg Grilled Sandwich", "Veg Pasta (Red Sauce)",
+                "Veg Pasta (White Sauce)", "Veg 65", "Tandoori Vegetable", "Veg Popcorn", "Steam Corn",
+                "Corn Chat (boiled)", "Crispy Corn", "Crispy Corn Salt & Pepper", "Corn Cheese Nuggets",
+                "Corn Cutlet", "Corn Cheese Cigar", "Crispy Baby Corn", "Crispy Chilly Baby Corn",
+                "Baby Corn Salt & Pepper", "Baby Corn Lollypop", "Tandoori Baby Corn", "Sanghai Baby Corn",
+                "Golden Fried Baby Corn", "Gobi Pakoda", "Gobi Manchurian", "Tandoori Gobi", "Malai Broccoli",
+                "Onion Ring", "Tandoori Broccoli", "Tandoori Pineapple"
+            ],
+            "Starter-Paneer": [
+                "Paneer Tikka", "Paneer Malai Tikka", "Paneer Hariyali Tikka", "Paneer Achari Tikka",
+                "Paneer Afgani Tikka", "Paneer Kali Mirch", "Paneer Papdi Kebab", "Paneer Lollipop",
+                "Paneer 65", "Paneer Tilwala", "Paneer Singapori Stick", "Paneer Saslik", "Paneer Pakoda",
+                "Paneer Cheese Ball", "Paneer Stick", "Paneer Manchurian Dry", "Paneer Popcorn",
+                "Paneer Nuggets", "Paneer Chilly Ciggarsh", "Paneer Fritters", "Paneer Salt & Pepper",
+                "Paneer Tawa", "Paneer Chilly", "Paneer Schezwan Stick", "Paneer Schezwan Finger",
+                "Paneer Finger", "Paneer Hot Pan", "Paneer Papad Fritters", "Paneer Satey", "Paneer Cutlet",
+                "Paneer Crispy Cheese Byte", "Paneer Amritsari", "Paneer Barley", "Paneer Cocktail",
+                "Paneer Palak Byte", "Paneer Thread", "Paneer Crunchy", "Paneer Sweet and Sour",
+                "Paneer Bhapa", "Paneer Chilly Bomb", "Paneer Shwarma Wrap", "Paneer Gold Coin",
+                "Paneer Lemon Honey", "Paneer Dragon", "Paneer Chatpata", "Paneer Potli", "Paneer Dahi Kebab"
+            ],
+            "Starter-Mushroom": [
+                "Mushroom Duplex", "Mushroom Coliwada", "Mushroom 65", "Mushroom Salt & Pepper",
+                "Mushroom Cutlet", "Mushroom Manchurian", "Mushroom Steer Fry", "Mushroom Pakoda",
+                "Mushroom Kurkure", "Tandoori Mushroom", "Stuffed Mushroom", "Cheese Stuffed Mushroom",
+                "Garlic Mushroom", "Cheese Garlic Mushroom", "Creamy Garlic Mushroom", "Chilly Mushroom",
+                "Chilly Garlic Mushroom", "Stuffed Dhaniya & Pepper Mushroom"
+            ],
+            "Assorted Indian Chutney": [
+                "Mix Raita", "Aloo Raita", "Boondi Raita", "Pineapple Raita", "Tomato Khajur Khatta",
+                "Ambula Rai", "Dahi Baigan", "Ou Khatta", "Pineapple Khatta", "Mix Fruit Khatta",
+                "Mango Khatta", "Pineapple Jelly", "Mix-Fruit Jelly", "Mango Jelly", "Peanut Chutney",
+                "Mint Chutney", "Baingan Dolma"
+            ],
+            "Starter-Chicken": [
+                "Chicken Tikka", "Chicken Malai Tikka", "Chicken Hariyali Tikka", "Chicken Pahadi Tikka",
+                "Chicken Reshmi Tikka", "Chicken Makhmali Tikka", "Chicken Cheesy Tikka", "Chicken Afgani Tikka",
+                "Chicken Rasuni Tikka", "Chicken Kasturi Tikka", "Chicken Tandoori", "Chicken Tangri",
+                "Chicken Kathi Kebab", "Chicken Grilled", "Chicken Galauti Kebab", "Chicken Stick Kebab",
+                "Chicken BBQ", "Chicken Sami Kebab", "Chicken Gillafi Kebab", "Chicken Pakoda", "Chicken 65",
+                "Chicken Lollipop", "Chicken Drums of Heaven", "Chicken Majestic", "Lemon Honey Chicken",
+                "Lemon Chicken", "Chicken Drumstick", "Chicken Satey", "Crispy Chicken", "Crispy Chicken Wings",
+                "Chicken Salt & Pepper", "Chicken Dragon", "Chicken Chilly", "Chicken Popcorn",
+                "Chicken Cheese Ball", "Garlic Chicken", "Smokey Chicken", "Honey Glazed Chicken",
+                "Crunchy Fried Chicken", "Chicken Manchurian Dry", "Chicken Sweet & Sour", "Garlic Sesame Chicken",
+                "Star Fried Chilly Chicken", "Chicken Nuggets", "Chicken Wings", "Chicken Meat Cutlet",
+                "Chicken Masala Ball", "Chicken Cram Fry"
+            ],
+            "Starter-Fish": [
+                "Fish Finger", "Peripei Fish Finger", "Fish Cutlet", "Fish Salt & Pepper", "Fish Dragon",
+                "Chilly Fish", "Fish Cheese Ball", "Fish Pakoda", "Fish Kabiraji", "Ajwaini Fish",
+                "Fish Colliwada", "Fish Amritshari", "Tandoori Fish (Basa/Jalanga/Vekti)", "Tandoori Pomfret",
+                "Pomfret Tawa Fry", "Pomfret Fry", "Fish Patudi"
+            ],
+            "Starter-Prawn": [
+                "Prawn Gold Coin", "Golden Fried Prawn", "Barley Prawn", "Prawn Salt & Pepper", "Mustard Prawn",
+                "Garlic Prawn", "Chilly Garlic Prawn", "Chilly Prawn", "Shrimp Cocktail", "Tawa Prawn",
+                "Prawn Cutlet", "Chilly Honey Prawn", "Prawn Steer Fry", "Prawn Pakoda", "Grilled Prawn",
+                "Grilled Prawn with Oyster Sauce", "Prawn Tikka", "Prawn Ajwani", "Prawn Hariyali", "Prawn Patrapoda"
+            ],
+            "Starter-Egg": [
+                "Egg Pakoda", "Egg Chop", "Egg Scotch", "Egg Devil", "Egg 65", "Egg Omelet", "Boiled Egg", "Live Egg Counter"
+            ],
+            "Starter-Mutton": [
+                "Mutton Chop", "Mutton Chap", "Mutton Sheekh Kebab", "Mutton Galouti Kebab", "Mutton Tawa Fry",
+                "Mutton 65", "Mutton Liver Fry", "Mutton Meat Ball", "Mutton Pakoda", "Mutton Shami Kebab",
+                "Mutton Pathri Kebab", "Mutton Kalmi Kebab", "Mutton Raan", "Bamboo Mutton"
+            ],
+            "Rice & Pulao": [
+                "Steam Rice", "Steam Rice (long grain)", "Jeera Rice", "Lemon Rice", "Ghee Rice", "Tamarind Rice",
+                "Curd Rice", "Peas Rice", "Butter Corn Rice", "Onion Fried Rice", "Chilly Garlic Fried Rice",
+                "Schezwan Fried Rice", "Mix Veg Fried Rice", "Peas Pulao", "Veg Pulao", "Kaju Pulao",
+                "Tomato Pulao", "Navaratna Pulao", "Kashmiri Pulao", "Dry Nuts Pulao", "Jafrani Pulao",
+                "Saffron Pulao", "Veg Fried Rice", "Veg Biriyani", "Paneer Biriyani", "Mix Veg Biriyani",
+                "Kanika", "Khichdi", "Pulihora", "Mint Rice", "Coconut Rice", "Jayrani Pulao",
+                "Egg Fried Rice", "Chicken Fried Rice", "Prawn Fried Rice", "Egg Chicken Fried Rice",
+                "Mix Non-veg Fried Rice", "Chicken Pulao", "Mutton Pulao", "Egg Biriyani", "Chicken Biriyani",
+                "Mutton Biriyani", "Prawn Biriyani"
+            ],
+            "Indian Breads & Chillas": [
+                "Tawa Roti", "Phulka", "Missi Roti", "Makai Ka Roti", "Rumali Roti", "Tandoor Roti",
+                "Paratha", "Masala Paratha", "Aloo Paratha", "Paneer Paratha", "Muli Paratha", "Laccha Paratha",
+                "Puri", "Masala Puri", "Methi Puri", "Palak Puri", "Pudina Puri", "Naan", "Masala Naan",
+                "Butter Naan", "Garlic Naan", "Pudina Naan", "Chilly Cheese Naan", "Stuffed Naan",
+                "Kashmiri Naan", "Baby Naan", "Rajasthani Naan", "Kulcha", "Masala Kulcha", "Chur Chur Naan",
+                "Butter Garlic Kulcha", "Moong Dal Chilla", "Besan Chilla"
+            ],
+            "Noodles": [
+                "Veg Noodles", "Veg Hakka Noodles", "Chilli Garlic Noodles", "Schezwan Noodles", "Mix Veg Noodles",
+                "Egg Noodles", "Chicken Noodles", "Prawn Garlic Noodles", "Mix Hakka Noodles", "Mix Schezwan Noodles",
+                "Pan Fried Noodles", "Hong Kong Noodles", "American Chopsuey", "Chinese Chopsuey"
+            ],
+            "Dal": [
+                "Yellow Dal", "Yellow Dal Fry", "Black Dal", "Mix Dal Tadka", "Dal Butter Fry", "Sahi Butter Dal",
+                "Dal Maharani", "Dal Makhani", "Palak Dal", "Rajma Dal", "Moong Dal", "Dal Panch Rangi",
+                "Dal Panch Kula", "Punjabi Dal", "Gujarati Dal", "Dal Bukhara", "Mitha Dal", "Makhani Moong Dal",
+                "Sambar", "Charu", "Rasam", "Dalma", "Amti Dal"
+            ],
+            "Paneer Recipes": [
+                "Mutter Paneer", "Paneer Butter Masala", "Paneer Dopyaza", "Paneer Kadai", "Paneer Punjabi",
+                "Paneer Tikka Butter Masala", "Paneer Hyderabadi", "Paneer Lababdar", "Paneer Rijhuala",
+                "Paneer Darbar", "Paneer Takatak", "Paneer Chatpati", "Paneer Pasinda", "Paneer Korma",
+                "Paneer Kofta", "Paneer 65", "Paneer Jhalfrezi", "Sahi Paneer", "Paneer Mughlai", "Paneer Latpat",
+                "Paneer Makhani", "Chilly Paneer", "Garlic Paneer", "Paneer Manchurian", "Paneer Palak",
+                "Paneer Kali Mirch", "Paneer Bhurji", "Paneer Tawa Masala", "Methi Paneer", "Achari Paneer",
+                "Paneer Kolhapuri", "Paneer Handi", "Schezwan Paneer", "Stir Fried Paneer", "Paneer Lacha Masala"
+            ],
+            "Mushroom Recipes": [
+                "Mushroom Mustard", "Mushroom Masala", "Mushroom Rai", "Mushroom Dopiaza", "Mushroom Kadai",
+                "Mushroom Mutter", "Mushroom Chettinad", "Mushroom 65", "Mushroom Hyderabadi", "Mushroom Punjabi",
+                "Mushroom Capsicum", "Mushroom Takatak", "Mushroom Chilly", "Mushroom Garlic", "Mushroom Lababdar",
+                "Mushroom Rijhiala"
+            ],
+            "Chicken Cuisines": [
+                "Chicken Kassa", "Desi Chicken Kassa/Masala", "Chicken Butter Masala", "Chicken Tikka Butter Masala",
+                "Chicken Punjabi", "Chicken Amritsari Masala", "Chicken Hyderabadi", "Chicken Kerala Roast",
+                "Chicken Chettinad", "Tangy Spicy Kadhai Chicken", "Dahi Chicken", "Mustard Chicken",
+                "Chicken Khubani Masala", "Chicken Lababdar", "Chicken Rezala", "Methi Murg", "Murg Malaiwala",
+                "Chicken Dopyaza", "Chicken Bhunaa Masala", "Hariyaali Chicken", "Chicken Makhani",
+                "Bengali Chicken Curry with Potato", "Chicken Korma", "Chicken Vindaloo", "Palak Chicken",
+                "Chicken Kolhapuri", "Achari Chicken", "Chicken Bharta", "Chicken Mughlai", "Chilly Chicken",
+                "Lemon Chicken", "Chicken Manchurian", "Schezwan Chicken", "Andhra Chilli Chicken",
+                "Lemon & Honey Chicken", "Sweet & Sour Chicken", "Diced Chicken In Black Bean Sauce",
+                "Stir Fried Chilly Chicken", "Ginger Garlic Chicken", "Chinese Chicken with Broccoli",
+                "Garlic Chicken", "Dragon Chicken", "Sesame Chicken", "Chicken Kadai Masala", "Chicken 65",
+                "Chicken Tangdi Masala", "Chicken Shish Taouk", "Soy Glazed Chicken", "Dukkah Crusted Chicken",
+                "Tawa Chicken Kassa", "Murg Kali Mirch", "Murg Sahi Korma"
+            ],
+            "Fish Flavor": [
+                "Fish Masala", "Fish Kalia", "Fish Besara", "Fish Kadhaai", "Fish Dopyaza", "Tawa Fish",
+                "Dahi Fish", "Amritsari Fish", "Mughlai Fish", "Salmon Curry", "Goan Fish Curry",
+                "Indian Fish Curry with Coconut Milk", "Chilly Fish", "Lemon Honey Fish", "Andhra Fish Curry",
+                "Hariyaali Machi", "Paturi Maach", "Bhapa Maach", "Fish Patrani", "Garlic Fish",
+                "Chuna Fish Curry", "Masala Fried Fish"
+            ],
+            "Prawn & Crabs": [
+                "Prawn Curry", "Prawn Masala", "Prawn Malai Curry", "Prawn Dopyaza", "Prawn Kadhaai",
+                "Prawn Lababdar", "Prawn Butter Masala", "Prawn Gungun", "Prawn Kaju Masala", "Chilly Prawn",
+                "Garlic Prawn", "Mustard Prawn", "Crab Masala", "Mustard Crab", "Coconut Crab",
+                "Kankada Kassa", "Tandoori Crab"
+            ],
+            "Mutton Moreish": [
+                "Mutton Home Style", "Mutton Curry Home Style with Potato", "Mutton Rogan Josh", "Mutton Kassa",
+                "Rajasthani Lal Maas", "Mutton Ghee Roast", "Kerala Style Mutton Pepper", "Mutton Vindaloo",
+                "Mutton Chaap", "Bhunaa Gosht", "Nihari Gosht", "Dhaba Mutton", "Mutton Rasa", "Mutton Banjara",
+                "Bengali Style Mangsher Jhol", "Paya Curry", "Mutton Handi", "Mutton Rezala", "Mutton Aloo Korma",
+                "Achari Mutton", "Mutton Mughlai", "Grilled Mutton Chops", "Caribbean Grilled Mutton"
+            ],
+            "Egg Peng": [
+                "Egg Curry", "Egg Curry Bengali Style with Potatoes", "Egg Masala", "Egg Korma", "Egg Bhurji",
+                "Egg Kassa", "Egg Omelet Curry Bengali Style", "Egg Omelet", "Egg Pepper Masala",
+                "Spicy Butter Masala Egg", "Live Egg Counter"
+            ],
+            "Ice Cream": [
+                "Premium Ice Cream (Amul/Vadilal/Dinshaw's/Arun)", "Deluxe Ice Cream (Havmor/Baskin Robin/Natural's)",
+                "Fried Ice Cream", "Flavour Kulfi", "Matka Kulfi", "Cutting Kulfi", "Doughnut Kulfi",
+                "Glorious Special Fruit Kulfi", "Turkey Ice Cream", "Stone Ice Cream"
+            ],
+            "Desert": [
+                "Gulab Jamun", "Kala Jamun", "Rasgolla", "Gur Rasgolla", "Sugar Free Rasgolla", "Baked Rasgolla",
+                "Kaju Stuffed Rasgolla", "Kada Rasgolla", "Rajbhog", "Chhena Jhilli", "Rasabali", "Chhena Malpua",
+                "Malpua", "Kaju Barfi", "Hot Jalebi", "Pineapple Jalebi", "Banana Jalebi", "Flavoured Jalebi",
+                "Emriti", "Sahi Tukda", "Kalakand", "Balu Shahi", "Malai Chum Chum", "Sita Bhog", "Rice Kheeri",
+                "Dry Fruit Kheeri", "South Indian Style Kheeri", "Rabdi", "Lachha Rabdi", "Chhena Payas",
+                "Litchi Rabdi", "Fruit Rabdi", "Dryfruit Rabdi", "Rasmalai", "Kheer Sagar", "Sitabhog Payas",
+                "Gajar Halwa", "Moong Dal Halwa", "Suji Halwa", "Sweet Curd", "Baked Yogurt", "Badam Halwa",
+                "Khua Barfi", "Dry Sweet Variety", "Pudding", "Caramel Pudding", "Chocolate Pudding", "Fruit Custard"
+            ],
+            "Bakery": [
+                "Mini Pizza", "Mini Pastry", "Brownie", "Cup Cake", "Cheese Cake", "Muffins", "Tarts",
+                "Mousse", "Donuts", "Apple Pie"
+            ],
+            "Pan": [
+                "Meetha Pan", "Banarasi Pan", "Sada Pan", "Fire Pan", "Chocolate Pan", "Ice Pan"
+            ]
+        };
 
+        const menuButtons = [
+            "Welcome Drink", "Soup (Veg.)", "Soup (Non-Veg)", "Chat Counter", "Plate Counter",
+            "Starters(Veg.)", "Starter-Paneer", "Starter-Mushroom", "Assorted Indian Chutney",
+            "Starter-Chicken", "Starter-Fish", "Starter-Prawn", "Starter-Egg", "Starter-Mutton",
+            "Rice & Pulao", "Indian Breads & Chillas", "Noodles", "Dal", "Paneer Recipes",
+            "Mushroom Recipes", "Chicken Cuisines", "Fish Flavor", "Prawn & Crabs", "Mutton Moreish",
+            "Egg Peng", "Ice Cream", "Desert", "Bakery", "Pan"
+        ];
 
+        // Global state
+        let selectedCategory = '';
+        let selectedItems = new Set();
+        let currentImageIndex = 0;
 
-<!-- Quote Form Modal -->
-<div id="quote-form-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;">
-  <div style="background:#fff; padding:2rem; border-radius:8px; width:90%; max-width:500px; position:relative;">
-    <h2 style="text-align:center; color:#8a5c16; margin-bottom:1rem;">Request a Quote</h2>
-    <form id="quote-form">
-      <div style="margin-bottom:1rem;">
-        <label for="name">Name *</label>
-        <input type="text" id="name" name="name" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="contact">Contact No *</label>
-        <input type="tel" id="contact" name="contact" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="plate">Plate Count *</label>
-        <input type="number" id="plate" name="plate" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
-      </div>
-      <div style="margin-bottom:1rem;">
-        <label for="date">Date of Event *</label>
-        <input type="date" id="date" name="date" required style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;">
-      </div>
-      <div style="margin-bottom:1.5rem;">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;"></textarea>
-      </div>
-      <div style="text-align:center;">
-        <button type="button" onclick="document.getElementById('quote-form-modal').style.display='none'" style="background:#ccc; color:#000; padding:0.5rem 1rem; margin-right:1rem; border:none; border-radius:4px;">Back</button>
-        <button type="submit" style="background:#8a5c16; color:#fff; padding:0.5rem 1.5rem; border:none; border-radius:4px;">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
+        const images = [
+            'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg',
+            'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg',
+            'https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg'
+        ];
 
-  <script>
-    function toggleMenu() {
-  const nav = document.getElementById('navLinks');
-  nav.classList.toggle('active');
-  document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : 'auto';
-}
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCarousel();
+            initializeMenuButtons();
+            initializeScrollAnimations();
+            initializeFormHandlers();
+        });
 
-    function unlockScrollAndScroll() {
-      document.documentElement.classList.remove('lock-scroll');
-      document.body.classList.remove('lock-scroll');
-      const aboutSection = document.querySelector('#about');
-      if (aboutSection) {
-        aboutSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-
-    const images = ['aboutus1.jpg', 'aboutus2.jpg', 'aboutus3.jpg'];
-    let index = 0;
-    const carouselImg = document.getElementById('carousel-img');
-    if (carouselImg) {
-      setInterval(() => {
-        index = (index + 1) % images.length;
-        carouselImg.style.opacity = 0;
-        setTimeout(() => {
-          carouselImg.src = images[index];
-          carouselImg.style.opacity = 1;
-        }, 400);
-      }, 6000);
-    }
-  
-    const menuItemsData = {
-  "Fish Flavor": [
-    "Fish Masala",
-    "Fish Kalia",
-    "Fish Besara",
-    "Fish Kadhaai",
-    "Fish Dopyaza",
-    "Tawa Fish",
-    "Dahi Fish",
-    "Amritsari Fish",
-    "Mughlai Fish",
-    "Salmon Curry",
-    "Goan Fish Curry",
-    "Indian Fish Curry with Coconut Milk",
-    "Chilly Fish",
-    "Lemon Honey Fish",
-    "Andhra Fish Curry",
-    "Hariyaali Machi",
-    "Paturi Maach",
-    "Bhapa Maach",
-    "Fish Patrani",
-    "Garlic Fish",
-    "Chuna Fish Curry",
-    "Masala Fried Fish"
-
-  ],
-  "Chicken Cuisines": ["Chicken Kassa","Desi Chicken Kassa/ Masala",
-"Chicken Butter Masala","Chicken Tikka Butter Masala","Chicken Punjabi",
-"Chicken Amritsari Masala","Chicken Hyderabadi","Chicken Kerala Roast",
-"Chicken Chettinad","Tangy Spicy Kadhai Chicken","Dahi Chicken","Mustard Chicken",
-"Chicken Khubani Masala","Chicken Lababdar","Chicken Rezala","Methi Murg",
-"Murg Malaiwala","Chicken Dopyaza","Chicken Bhunaa Masala","Hariyaali Chicken",
-"Chicken Makhani","Bengali Chicken Curry with Potato.","Chicken Korma",
-"Chicken Vindaloo","Palak Chicken","Chicken Kolhapuri","Achari Chicken",
-"Chicken Bharta","Chicken Mughlai","Chilly Chicken","Lemon Chicken",
-"Chicken Manchurian","Schezwan Chicken","Andhra Chilli Chicken",
-"Lemon & Honey Chicken","Sweet & Sour Chicken","Diced Chicken In Black Bean Sauce",
-"Stir Fried Chilly Chicken","Ginger Garlic Chicken","Chinese Chicken with Bracolli",
-"Garlic Chicken","Dragon Chicken","Sesame Chicken","Chicken Kadai Masala","Chicken 65",
-"Chicken Tangdi Masala","Chicken Shish Taouk","Soy Glazed Chicken",
-"Dukkah Crusted Chicken","Tawa Chicken Kassa","Murg Kali Mirch","Murg Sahi Korma"
-],
-
-
-
-  "Mushroom Recipes": [
-    "Mushroom Mustard",
-    "Mushroom Masala",
-    "Mushroom Rai",
-    "Mushroom Dopiaza",
-    "Mushroom Kadai",
-    "Mushroom Mutter",
-    "Mushroom Chettinad",
-    "Mushroom 65",
-    "Mushroom Hyderabadi",
-    "Mushroom Punjabi",
-    "Mushroom Capsicum",
-    "Mushroom Takatak",
-    "Mushroom Chilly",
-    "Mushroom Garlic",
-    "Mushroom Lababdar",
-    "Mushroom Rijhiala"
-  ],
-  "Paneer Recipes": ["Mutter Paneer","Paneer Butter Masala",
-"Paneer Dopyaza","Paneer Kadai","Paneer Punjabi","Paneer Tikka Butter Masala",
-"Paneer Hyderabadi","Paneer Lababdar","Paneer Rijhuala","Paneer Darbar",
-"Paneer Takatak","Paneer Chatpati","Paneer Pasinda","Paneer Korma","Paneer Kofta",
-"Paneer 65","Paneer Jhalfrezi","Sahi Paneer","Paneer Mughlai","Paneer Latpat",
-"Paneer Makhani","Chilly Paneer","Garlic Paneer","Paneer Manchurian","Paneer Palak",
-"Paneer Kali Mirch","Paneer Bhurji","Paneer Tawa Masala","Methi Paneer","Achari Paneer",
-"Paneer Kolhapuri","Paneer Handi","Schezwan Paneer","Stir Fried Paneer",
-"Paneer Lacha Masala"
-],
-
-
-  "Dal": [
-    "Yellow Dal",
-    "Yellow Dal Fry",
-    "Black Dal",
-    "Mix Dal Tadka",
-    "Dal Butter Fry",
-    "Sahi Butter Dal",
-    "Dal Maharani",
-    "Dal Makhani",
-    "Palak Dal",
-    "Rajma Dal",
-    "Moong Dal",
-    "Dal Panch Rangi",
-    "Dal Panch Kula",
-    "Punjabi Dal",
-    "Gujrati Dal",
-    "Dal Bukhara",
-    "Mitha Dal",
-    "Makhani Moong Dal",
-    "Sambar",
-    "Charu",
-    "Rasam",
-    "Dalma",
-    "Amti Dal"
-
-  ],
-  "Noodles (Veg)": [
-    "Veg Noodles",
-    "Veg Hakka Noodles",
-    "Chilli Garlic Noodles",
-    "Schezwan Noodles",
-    "Mix Veg Noodles"
-  ],
-  "Noodles (Non-Veg)": [
-    "Egg Noodles",
-    "Chicken Noodles",
-    "Prawn Garlic Noodles",
-    "Mix Hakka Noodles",
-     "Mix Schezwan Noodles",
-    "Pan Fried Noodles",
-    "Hong Kong Noodles",
-    "American Chopsuey",
-    "Chinese Chopsuey"
-  ],
-  "Indian Breads & Chillas": [
-    "Tawa Roti",
-    "Phulka",
-    "Missi Roti",
-    "Makai Ka Roti",
-    "Rumali Roti",
-    "Tandoor Roti",
-    "Paratha",
-    "Masala Paratha",
-    "Aloo Paratha",
-    "Paneer Paratha",
-    "Muli Paratha",
-    "Laccha Paratha",
-    "Puri",
-    "Masala Puri",
-    "Methi Puri",
-    "Palak Puri",
-    "Pudina Puri",
-    "Naan",
-    "Masala Naan",
-    "Butter Nan",
-    "Garlic Naan",
-    "Pudina Naan",
-    "Chilly Cheese Naan",
-    "Stuffed Naan",
-    "Kashmiri Naan",
-    "Baby Naan",
-    "Rajasthani Nan",
-    "Kulcha",
-    "Masala Kulcha",
-    "Chur Chur Naan",
-    "Butter Garlic Kulcha",
-    "Moog Dal Chilla",
-    "Besan Chilla"  
-  ],
-
-  "Soup (Non-Veg)": [
-    "Chicken Clear Soup",
-    "Cream of Chicken Soup",
-    "Chicken Man chow Soup",
-    "Slice Chicken Soup",
-    "Chicken Hot & Sour Soup",
-    "Chicken Burnt Garlic Soup",
-    "Chicken Sweet Corn Soup",
-    "Chicken Thai Soup",
-    "Chicken Singapore Soup",
-    "Chicken Wonton Soup",
-    "Chicken Hot Pot Soup",
-    "Chicken Lung Fung Soup",
-    "Murg Shorba",
-    "Mutton Sorba",
-    "Mutton Paya Soup",
-    "Seafood Soup",
-    "Prawn Soup",
-    "Crab Burnt Garlic Soup"
-  ],
-      "Welcome Drink": ["Badam Shake","Mango Shake","Badam Milk","Oreo Shake",
-     "Fruit Shake","Cold Coffee","Soda Beverages","Pudina Jaljeera","Lassi",
-"Chhaas/Butter Milk","Pink Panther","Strawberry Imperial","Pineapple Surprise",
-"Mango Blossom","Apple Blossom","Pineapple Blossom","Virgin Mojito",
-"Mint Mojito","Pinacolada","Jaljeera","Soda beverages","Mocktail","Aam Panna",
-"Ginger Peach Soda","Cucumber Cooler","Chilly Guava","Watermelon Cooler","Shikanji",
-"Wild Cat Cooler","Pineapple Cobbler","Coffee Bar","Tea Bar","Kesar Tea","Tea","Coffee",
-"Hot Kesar Milk","Hot Badam Milk","Orange Squash","Orange Blossom","Blue Heaven",
-"Falooda Sarbat","Virgin Paloma","Fresh Juice Soda","Green River","Masala Cold Drinks",
-"Cucumber Grape","Spicy Watermelon Mint Aqua Fresh","Pineapple Ginger Beer",
-"Raspberry Bee's Knees","Rooh Afza","Rickey Tikki Tavi","Tender Coconut Water",
-"Masala Chaach","Nimbu Pani","Thandai",
-],
-
-
-
-      "Soup": [
-  // Veg Soups
-  "Veg Clear Soup",
-  "Veg Manchow Soup",
-  "Veg Hot & Sour Soup",
-  "Veg Lemon Coriander Soup",
-  "Veg Burnt Garlic Soup",
-  "Veg Sweet Corn Soup",
-  "Veg Seven Seas Soup",
-  "Veg Thai Soup",
-  "Veg Singapore Soup",
-  "Veg Noodle Soup",
-  "Tomato Soup",
-  "Cream of Tomato Soup",
-  "Cream of Mushroom Soup",
-  "Cream of Broccoli Soup",
-  "Cream of Vegetable Soup",
-  "Tomato Dhania Sorba",
-  "Palak Sorba",
-  "Spicy Tomato Soup",
-  "Jhat-Pat Soup",
-  "Cantonese Soup",
-  "Veg Lung Fung Soup"
-],
-
-
-      "Chat Counter": [
-  "Basket Chat",
-  "Papdi Chat",
-  "Aloo Tikki Chat",
-  "Khasta Kachori Chat",
-  "Dahi Samosa Chat",
-  "Raj Kachori Chat",
-  "Dahi Samosa Chole Chat",
-  "Dahi Tikki Chole Chat",
-  "Palak Chat",
-  "Ragada Chat",
-  "Dahi Valla",
-  "Barbecue Potato Chat",
-  "Matar Chat",
-  "Dahi Vada & Aloo Dum",
-  "Dhokla",
-  "Pao Bhaji",
-  "Chhole Bature",
-  "Panipuri ( imli water / pudina water/ dahi garlic water/ dahi)",
-  "Sev Puri",
-  "Dahi Sev Puri"
-],
-      "Plate Counter": [
-  // Veg Items
-  "Green Salad",
-  "Dahi Bada",
-  "Stuffed Dahi Bada",
-  "Papad( fried/ roasted)",
-   "Coin Papad",
-  "Rasi Papad",
-  "Special Papad",
-  "Pickle",
-  "Assorted Pickle",
-  "Masala Papad",
-  "Rainbow Salad",
-  "Corn Salad",
-  "Russian Salad",
-  "Classic Macaroni Salad",
-  "Italian Chopped Salad",
-  "Chinese Cabbage Sesame Salad",
-  "Greek Salad",
-  "Crispy Noodle Salad",
-  "Pasta Salad",
-  "Sprout Salad",
-  "Mexican Salad",
-  "Fruit Salad",
-  "Veg Peanut Sesame Salad",
-  "Pindi Chana Salad",
-  "Veg Caesar Salad",
-  "Pineapple Cucumber Salad",
-  "Barbecue Potato Salad",
-  "Thai Salad",
-  "Sprouted Beans",
-  "Pindi Chole Salad",
-  "Lachha Salad",
-  "Spicy South Indian Salad",
-  "Indian Lentil Salad",
- 
-
-  // Non-Veg Items
-  "Chicken Russian Salad",
-  "Chicken Caesar Salad",
-  "Chicken Greek Salad",
-  "Egg Salad",
-  "Non-Veg Mexican Salad",
-  "Chicken Thai Salad",
-  "Seafood Salad",
-  "Prawn Thai Salad",
-  "Crab Thai Salad"
-],
-      "Starters(Veg.)": [
-    "Veg Cutlet",
-    "Veg Seasoning Pakoda",
-    "Veg Manchurian",
-    "Veg Gold Coin",
-    "Veg Cheese Ball",
-    "Veg Nuggets",
-    "Veg Hara Bhara Kebab",
-    "Veg Dahi Kebab",
-    "Veg Cheese Cigars",
-    "Veg Spring Roll",
-    "Veg Lollypop",
-    "Veg Shaslik",
-    "Veg Sheekh Kebab",
-    "Veg Tangri Kebab",
-    "Veg Cheese Poppers",
-    "Veg Mexican Roll",
-    "Veg Dragon Roll",
-    "Veg Sandwich",
-    "Veg Grilled Sandwich",
-    "Veg Pasta ( Red Sauce)",
-    "Veg Pasta ( White Sauce)",
-    "Veg 65",
-    "Tandoori Vegetable",
-    "Veg Popcorn",
-    "Steam Corn",
-    "Corn Chat ( boiled)",
-    "Crispy Corn",
-    "Crispy Corn Salt & Pepper",
-    "Corn Cheese Nuggets",
-    "Corn Cutlet",
-    "Corn Cheese Cigar",
-    "Crispy Baby Corn",
-    "Crispy Chilly Baby Corn",
-    "Baby Corn Salt & Pepper",
-    "Baby Corn Lollypop",
-    "Tandoori Baby Corn",
-    "Sanghai Baby Corn",
-    "Golden Fried Baby Corn",
-    "Gobi Pakoda",
-    "Gobi Manchurian",
-    "Tandoori Gobi",
-    "Malai Broccoli",
-    "Onion Ring",
-    "Tandoori Broccoli",
-    "Tandoori Pineapple"   
-  ],
-      "Starters(Non Veg.)": [],
-  "Starter-Chicken": [
-    "Chicken Tikka",
-    "Chicken Malai Tikka",
-    "Chicken Hariyali Tikka",
-    "Chicken Pahadi Tikka",
-    "Chicken Reshmi Tikka",
-    "Chicken Makhmali Tikka",
-    "Chicken Cheesy Tikka",
-    "Chicken Afgani Tikka",
-    "Chicken Rasuni Tikka",
-    "Chicken Kasturi Tikka",
-    "Chicken Tandoori",
-    "Chicken Tangri",
-    "Chicken Kathi Kebab",
-    "Chicken Grilled",
-    "Chicken Galauti Kebab",
-    "Chicken Stick Kebab",
-    "Chicken BBQ",
-    "Chicken Sami Kebab",
-    "Chicken Gillafi Kebab",
-    "Chicken Pakoda",
-    "Chicken 65",
-    "Chicken Lollipop",
-    "Chicken Drums of Heaven",
-    "Chicken Majestic",
-    "Lemon Honey Chicken",
-    "Lemon Chicken",
-    "Chicken Drumstick",
-    "Chicken Satey",
-    "Crispy Chicken",
-    "Crispy Chicken Wings",
-    "Chicken Salt & Pepper",
-    "Chicken Dragon",
-    "Chicken Chilly",
-    "Chicken Popcorn",
-    "Chicken Cheese Ball",
-    "Garlic Chicken",
-    "Smokey Chicken",
-    "Honey Glazed Chicken",
-    "Crunchy Fried Chicken",
-    "Chicken Manchurian Dry",
-    "Chicken Sweet & Sour",
-    "Garlic Sesame Chicken",
-    "Star Fried Chilly Chicken",
-    "Chicken Nuggets",
-    "Chicken Wings",
-    "Chicken Meat Cutlet",
-    "Chicken Masala Ball",
-    "Chicken Cram Fry"  
-  ],
-
-  "Starter-Fish": [
-    "Fish Finger",
-    "Peripei Fish Finger",
-    "Fish Cutlet",
-    "Fish Salt & Pepper",
-    "Fish Dragon",
-    "Chilly Fish",
-    "Fish Cheese Ball",
-    "Fish Pakoda",
-    "Fish Kabiraji",
-    "Ajwaini Fish",
-    "Fish Colliwada",
-    "Fish Amritshari",
-    "Tandoori Fish (Basa / Jalanga / Vekti)",
-    "Tandoori Pomfret",
-    "Pomfret Tawa Fry",
-    "Pomfret Fry",
-    "Fish Patudi"
-  ],
-  "Starter-Prawn": [
-    "Prawn Gold Coin",
-    "Golden Fried Prawn",
-    "Barley Prawn",
-    "Prawn Salt & Pepper",
-    "Mustard Prawn",
-    "Garlic Prawn",
-    "Chilly Garlic Prawn",
-    "Chilly Prawn",
-    "Srimp Cocktail",
-    "Tawa Prawn",
-    "Prawn Cutlet",
-    "Chilly Honey Prawn",
-    "Prawn Streer Fry",
-    "Prawn Pakoda",
-    "Grilled Prawn",
-    "Grilled Prawn with Oyster Sause",
-    "Prawn Tikka",
-    "Prawn Ajwani",
-    "Prawn Hariyali",
-    "Prawn Patrapoda"
-  ],
-  "Starter-Egg": [
-    "Egg Pakoda",
-    "Egg Chop",
-    "Egg Scotch",
-    "Egg Devil",
-    "Egg 65",
-    "Egg Omlet",
-    "Boiled Egg",
-    "Live Egg Counter"
-  ],
-  "Starter-Mutton": [
-    "Mutton Chop",
-    "Mutton Chap",
-    "Mutton Sheekh Kebab",
-    "Mutton Galouti Kebab",
-     "Mutton Tawa Fry",
-    "Mutton 65",
-    "Mutton Liver Fry",
-    "Mutton Meat Ball",
-    "Mutton Pakoda",
-    "Mutton Shami Kebab",
-    "Mutton Pathri Kebab",
-    "Mutton Kalmi Kebab",
-    "Mutton Raan",
-    "Bamboo Mutton"
-  ],
-  "Starter-Paneer": ["Paneer Tikka","Paneer Malai Tikka","Paneer Hariyali Tikka",
-"Paneer Achari Tikka","Paneer Afgani Tikka","Paneer Kali Mirch","Paneer papdi Kebab",
-"Paneer Lollipop","Paneer 65","Paneer Tilwala","Paneer Singapori Stick","Paneer Saslik",
-"Paneer Pakoda","Paneer Cheese Ball","Paneer Stick","Paneer Manchurian Dry",
-"Paneer Popcorn","Paneer Nuggets","Paneer Chilly Ciggarsh","Paneer Fritters",
-"Paneer Salt & Pepper","Paneer Tawa","Paneer Chilly","Paneer Schezwan Stick",
-"Paneer Schezwan finger","Paneer Finger","Paneer Hot Pan","Paneer Papad Fritters",
-"Paneer Satey","Paneer Cutlet","Paneer Crispy Cheese Byte","Paneer Amritsari",
-"Paneer Barley","Paneer Cocktail","Paneer Palak Byte","Paneer Thread","Paneer Crunchy",
-"Paneer Sweet and Sour","Paneer bhapa","Paneer Chilly Bomb","Paneer Shwarma Wrap",
-"Paneer Gold Coin","Paneer Lemon Honey","Paneer Dragon","Paneer Chatpata","Paneer Potli",
-"Paneer Dahi Kebab"
-],
-
-
-  "Starter-Mushroom": [
-    "Mushroom Duplex",
-    "Mushroom Coliwada",
-    "Mushroom 65",
-    "Mushroom Salt & Pepper",
-    "Mushroom Cutlet",
-    "Mushroom Manchurian",
-    "Mushroom Steer Fry",
-    "Mushroom Pakoda",
-    "Mushroom Kurkure",
-    "Tandoori Mushroom",
-    "Stuffed Mushroom",
-    "Cheese Stuffed Mushroom",
-    "Garlic Mushroom",
-    "Cheese Garlic Mushroom",
-    "Creamy Garlic Mushroom",
-    "Chilly Mushroom",
-    "Chilly Garlic Mushroom",
-    "Stuffed Dhaniya & Pepper Mushroom"
-  ],
-      "Rice & Pulao (Veg)": [
-    "Steam Rice",
-    "Steam Rice ( long grain)",
-    "Jeera Rice",
-    "Lemon Rice",
-    "Ghee Rice",
-     "Tamarind Rice",
-    "Curd Rice",
-    "Peas Rice",
-    "Butter Corn Rice",
-    "Onion Fried Rice",
-    "Chilly Garlic Fried Rice",
-    "Schezwan Fried Rice",
-    "Mix Veg Fried Rice",
-    "Peas Pulao",
-    "Veg Pulao",
-    "Kaju Pulao",
-    "Tomato Pulao",
-    "Navaratna Pulao",
-    "Kashmiri Pulao",
-    "Dry Nuts Pulao",
-    "Jafrani Pulao",
-    "Saffron Pulao",
-    "Veg Fried Rice",
-    "Veg Biriyani",
-    "Paneer Biriyani",
-    "Mix Veg Biriyani",
-    "Kanika",
-    "Khichdi",
-    "Pulihora",
-    "Mint Rice",
-    "Coconut Rice",
-    "Jayrani Pulao",
-    "Kaju Pulao",
-    "Tamarind Rice"
-  
-  ],
-  "Rice & Pulao (Non-Veg)": [
-    "Egg Fried Rice",
-    "Chicken Fried Rice",
-    "Prawn Fried Rice",
-    "Egg Chicken Fried Rice",
-    "Mix Non-veg Fried Rice",
-    "Chicken Pulao",
-    "Mutton Pulao",
-    "Egg Biriyani",
-    "Chicken Biriyani",
-    "Mutton Biriyani",
-    "Prawn Biriyani"
-  ],
-
-
-"Prawn & Crabs": [
-  "Prawn Curry",
-  "Prawn Masala",
-  "Prawn Malai Curry",
-  "Prawn Dopyaza",
-  "Prawn Kadhaai",
-  "Prawn Lababdar",
-  "Prawn Butter Masala",
-  "Prawn Gungun",
-  "Prawn Kaju Masala",
-  "Chilly Prawn",
-  "Garlic Prawn",
-  "Mustard Prawn",
-  "Crab Masala",
-  "Mustard Crab",
-  "Coconut Crab",
-  "Kankada Kassa",
-  "Tandoori Crab"
-],
-
-
-"Mutton Moreish": [
-  "Mutton Home Style",
-  "Mutton Curry Home Style with Potato",
-  "Mutton Rogan Josh",
-  "Mutton Kassa",
-  "Rajasthani Lal Maas",
-  "Mutton Ghee Roast",
-  "Kerala Style Mutton Pepper",
-  "Mutton Vindaloo",
-  "Mutton Chaap",
-  "Bhunaa Gosht",
-  "Nihari Gosht",
-  "Dhaba Mutton",
-  "Mutton Rasa",
-  "Mutton Banjara",
-  "Bengali Style Mangsher Jhol",
-  "Paya Curry",
-  "Mutton Handi",
-  "Mutton Rezala",
-  "Mutton Aloo Korma",
-  "Achari Mutton",
-  "Mutton Mughlai",
-  "Grilled Mutton Chops",
-  "Caribbean Grilled Mutton"
-  
-],
-
-"Egg Peng": [
-  "Egg Curry",
-  "Egg Curry Bengali Style with Potatoes",
-  "Egg Masala",
-  "Egg Korma",
-  "Egg Bhurji",
-  "Egg Kassa",
-  "Egg Omlet Curry Bengali Style",
-  "Egg Omlet",
-  "Egg Pepper Masala",
-  "Spicy Butter Masala Egg",
-  "Live Egg Counter"
-],
-
-"Assorted Indian Chutney": [
-  "Mix Raita",
-  "Aloo Raita",
-  "Boondi Raita",
-  "Pineapple Raita",
-  "Tomato Khajur Khatta",
-  "Ambula Rai",
-  "Dahi Baigan",
-  "Ou Khatta",
-  "Pineapple Khatta",
-  "Mix Fruit Khatta",
-  "Mango Khatta",
-  "Pineapple Jelly",
-  "Mix-Fruit Jelly",
-  "Mango Jelly",
-  "Peanut Chutney",
-  "Mint Chutney",
-  "Baingan Dolma"
-  
-],
-"Desert": [
-   "Gulab Jamun",
-  "Kala Jamun",
-  "Rasgolla",
-  "Gur Rasgolla",
-  "Suger Free Rasgolla",
-  "Baked Rasgolla",
-  "Kaju Stuffed Rasgolla",
-  "Kada Rasgolla",
-  "Rajbhog",
-  "Chhena Jhilli",
-  "Rasabali",
-  "Chhena Malpua",
-  "Malpua",
-  "Kaju Barfi",
-  "Hot Jalebi",
-  "Pineapple Jalebi",
-  "Banana Jalebi",
-  "Flavoured Jalebi",
-  "Emriti",
-  "Sahi Tukda",
-  "Kalakand",
-  "Balu Shahi",
-  "Malai Chum Chum",
-  "Sita Bhog",
-  "Rice Kheeri",
-  "Dry Fruit Kheeri",
-  "South Indian Style Kheeri",
-  "Rabdi",
-  "Lachha Rabdi",
-  "Chhena Payas",
-  "Litchi Rabdi",
-  "Fruit Rabdi",
-  "Dryfruit Rabidi",
-  "Rasmalai",
-  "Kheer Sagar",
-  "Sitabhog Payas",
-  "Gajar Halwa",
-  "Moong Dal Halwa",
-  "Suji Halwa",
-  "Sweet Curd",
-  "Baked Yogurt",
-  "Badam Halwa",
-  "Khua Barfi",
-  "Dry Sweet Variety",
-  "Pudding",
-  "Caramel Pudding",
-  "Chocolate Pudding",
-  "Fruit Custard"
-  
-],
-"Bakery": [
-    "Mini Pizza",
-    "Mini Pastry",
-    "Brownie",
-    "Cup Cake",
-    "Cheese Cake",
-    "Muffins",
-    "Tarts",
-    "Mousse",
-    "Donuts",
-    "Apple Pie"
-  
-],
-"Pan": [
-  "Meetha Pan",
-  "Banarasi Pan",
-  "Sada Pan",
-  "Fire Pan",
-  "Chocolate Pan",
-  "Ice Pan",
- 
-],
-
-"Ice Cream": [
-   "Premium Ice Cream (Amul / Vadilal / Dinshaw’s / Arun)",
-  "Deluxe Ice Cream (Havmor / Baskin Robin / Natural’s)",
-  "Fried Ice Cream",
-  "Flavour Kulfi",
-  "Matka Kulfi",
-  "Cutting Kulfi",
-  "Doughnut Kulfi",
-  "Glorious Special Fruit Kulfi",
-  "Turkey Ice Cream",
-  "Stone Ice Cream"
-  
-],
-
-
-      
-      "Cuisines in Veg.": ["North Indian", "South Indian", "Chinese Veg"],
-      "Cuisines in Non Veg.": ["Mughlai", "Tandoori Chicken", "Fish Curry"],
-      
-     
-    };
-
-    document.querySelectorAll('.menu-buttons button').forEach(button => {
-  button.addEventListener('click', () => {
-    const labelToCategory = {
-      "Soup (Veg.)": "Soup",
-      "Soup (Non-Veg)": "Soup (Non-Veg)"
-    };
-    const category = labelToCategory[button.innerText] || button.innerText;
-        const itemList = menuItemsData[category] || [];
-        const menuTitle = document.getElementById('menu-category-title');
-        const menuList = document.getElementById('menu-items-list');
-        const itemSection = document.getElementById('menu-items');
-
-        menuTitle.textContent = category;
-        if (category === "Plate Counter") {
-  const vegItems = menuItemsData["Plate Counter"].filter(item => !item.toLowerCase().includes("chicken") && !item.toLowerCase().includes("egg") && !item.toLowerCase().includes("prawn") && !item.toLowerCase().includes("crab") && !item.toLowerCase().includes("seafood"));
-  const nonVegItems = menuItemsData["Plate Counter"].filter(item => !vegItems.includes(item));
-
-  menuList.innerHTML =
-  `<div style="width: 100%; text-align: center; margin: 1rem 0;">
-     <h3 style="color:#8a5c16; font-size: 1.6rem;">🥗 Veg Plate Counter</h3>
-   </div>` +
-  vegItems.map(itemHTML).join('') +
-  `<div style="width: 100%; text-align: center; margin: 2rem 0 1rem;">
-     <h3 style="color:#8a5c16; font-size: 1.6rem;">🍗 Non-Veg Plate Counter</h3>
-   </div>` +
-  nonVegItems.map(itemHTML).join('');
-} else if (category === "Rice & Pulao") {
-  const vegItems = menuItemsData["Rice & Pulao (Veg)"] || [];
-  const nonVegItems = menuItemsData["Rice & Pulao (Non-Veg)"] || [];
-
-  menuList.innerHTML =
-    `<h3 style="width:100%; text-align:center; margin:1rem 0; color:#8a5c16;">🥦 Veg Rice & Pulao</h3>` +
-    vegItems.map(itemHTML).join('') +
-    `<h3 style="width:100%; text-align:center; margin:1.5rem 0 1rem; color:#8a5c16;">🍗 Non-Veg Rice & Pulao</h3>` +
-    nonVegItems.map(itemHTML).join('');
-} else if (category === "Noodles") {
-  const vegItems = menuItemsData["Noodles (Veg)"] || [];
-  const nonVegItems = menuItemsData["Noodles (Non-Veg)"] || [];
-  menuList.innerHTML =
-    `<h3 style='width:100%; text-align:center; margin:1rem 0; color:#8a5c16;'>🥦 Veg Noodles</h3>` +
-    vegItems.map(itemHTML).join('') +
-    `<h3 style='width:100%; text-align:center; margin:1.5rem 0 1rem; color:#8a5c16;'>🍗 Non-Veg Noodles</h3>` +
-    nonVegItems.map(itemHTML).join('');
-} else {
-  menuList.innerHTML = itemList.map(itemHTML).join('');
-}
-
-function itemHTML(item) {
-  return `
-    <label style="display: flex; align-items: center; gap: 0.5rem; background: white; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-size: 1rem; color: #444;">
-      <input type="checkbox" name="menu-item" value="${item}" style="transform: scale(1.2);">
-      <span>${item}</span>
-    </label>`;
-}
-        itemSection.style.display = 'block';
-        itemSection.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  const selectedItems = new Set();
-
-function updateSelectedItems() {
-  const selectedList = document.getElementById('selected-items-list');
-  const checkboxes = document.querySelectorAll('#menu-items-list input[type="checkbox"]');
-  checkboxes.forEach(cb => {
-    if (cb.checked) {
-      selectedItems.add(cb.value);
-    } else {
-      selectedItems.delete(cb.value);
-    }
-  });
-  selectedList.innerHTML = '';
-  const groupedItems = {};
-  selectedItems.forEach(item => {
-    for (const [category, items] of Object.entries(menuItemsData)) {
-      if (items.includes(item)) {
-        if (!groupedItems[category]) groupedItems[category] = [];
-        groupedItems[category].push(item);
-        break;
-      }
-    }
-  });
-
-  Object.entries(groupedItems).forEach(([category, items]) => {
-  const isPlateCounter = category === "Plate Counter";
-
-  if (isPlateCounter) {
-    const vegItems = items.filter(item => !/chicken|egg|prawn|crab|seafood/i.test(item));
-    const nonVegItems = items.filter(item => !vegItems.includes(item));
-
-    if (vegItems.length > 0) {
-      const vegTitle = document.createElement('h3');
-      vegTitle.textContent = "Plate Counter (Veg)";
-      vegTitle.style.marginTop = '1.5rem';
-      vegTitle.style.color = '#8a5c16';
-      vegTitle.style.textAlign = 'center';
-      selectedList.appendChild(vegTitle);
-
-      const vegList = document.createElement('ul');
-      vegList.style.listStyle = 'disc';
-      vegList.style.paddingLeft = '2rem';
-      vegList.style.marginBottom = '1rem';
-      vegList.style.fontSize = '1rem';
-      vegList.style.color = '#444';
-      vegItems.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        vegList.appendChild(li);
-      });
-      selectedList.appendChild(vegList);
-    }
-
-    if (nonVegItems.length > 0) {
-      const nonVegTitle = document.createElement('h3');
-      nonVegTitle.textContent = "Plate Counter (Non-Veg)";
-      nonVegTitle.style.marginTop = '1.5rem';
-      nonVegTitle.style.color = '#8a5c16';
-      nonVegTitle.style.textAlign = 'center';
-      selectedList.appendChild(nonVegTitle);
-
-      const nonVegList = document.createElement('ul');
-      nonVegList.style.listStyle = 'disc';
-      nonVegList.style.paddingLeft = '2rem';
-      nonVegList.style.marginBottom = '1rem';
-      nonVegList.style.fontSize = '1rem';
-      nonVegList.style.color = '#444';
-      nonVegItems.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        nonVegList.appendChild(li);
-      });
-      selectedList.appendChild(nonVegList);
-    }
-
-  } else {
-    const catTitle = document.createElement('h3');
-    catTitle.textContent = category;
-    catTitle.style.marginTop = '1.5rem';
-    catTitle.style.color = '#8a5c16';
-    catTitle.style.textAlign = 'center';
-    selectedList.appendChild(catTitle);
-
-    const ul = document.createElement('ul');
-    ul.style.listStyle = 'disc';
-    ul.style.paddingLeft = '2rem';
-    ul.style.marginBottom = '1rem';
-    ul.style.fontSize = '1rem';
-    ul.style.color = '#444';
-    items.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      ul.appendChild(li);
-    });
-    selectedList.appendChild(ul);
-  }
-});
-  const summarySection = document.getElementById('menu-summary');
-  summarySection.style.display = selectedItems.size > 0 ? 'block' : 'none';
-}
-
-document.addEventListener('change', function (e) {
-  if (e.target.name === 'menu-item') {
-    updateSelectedItems();
-  }
-});
-
-document.getElementById('clear-selection').addEventListener('click', () => {
-  selectedItems.clear();
-  document.querySelectorAll('input[name="menu-item"]').forEach(cb => cb.checked = false);
-  updateSelectedItems();
-});
-
-document.getElementById('proceed-selection').addEventListener('click', () => {
-  if (selectedItems.size > 0) {
-    document.getElementById('quote-form-modal').style.display = 'flex';
-  } else {
-    alert('Please select at least one item to get a quote.');
-  }
-});
-document.getElementById('quote-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const name = document.getElementById('name').value.trim();
-  const contact = document.getElementById('contact').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const plate = document.getElementById('plate').value.trim();
-  const date = document.getElementById('date').value.trim();
-  const message = document.getElementById('message').value.trim();
-
-  if (!name || !contact || !email || !plate || !date) {
-    alert('Please fill all required fields.');
-    return;
-  }
-
-  const selected = Array.from(selectedItems).join(', ');
-  const text = `Name: ${name}%0aContact: ${contact}%0aEmail: ${email}%0aPlate Count: ${plate}%0aEvent Date: ${date}%0aMessage: ${message}%0aSelected Items: ${selected}`;
-
-  window.open(`https://wa.me/917205087774?text=${text}`, '_blank');
-
-  document.getElementById('quote-form-modal').style.display = 'none';
-  alert('Thank you! Your quote request has been sent. We will get back to you shortly.');
-
-  document.getElementById('quote-form').reset();
-  selectedItems.clear();
-  document.querySelectorAll('input[name="menu-item"]').forEach(cb => cb.checked = false);
-  updateSelectedItems();
-});
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById('navLinks').classList.remove('active');
-    document.body.style.overflow = 'auto';
-  });
-});
-
-document.querySelectorAll('.menu-buttons button').forEach(btn => {
-  btn.addEventListener('mouseover', () => {
-    btn.style.boxShadow = 'inset 0 1px 0 #fff1b8, 0 3px 8px rgba(0,0,0,0.4)';
-    btn.style.transform = 'scale(1.05)';
-  });
-  btn.addEventListener('mouseout', () => {
-    btn.style.boxShadow = 'inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3)';
-    btn.style.transform = 'scale(1.0)';
-  });
-});
-
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const serviceCards = document.querySelectorAll(".service-card");
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate");
-          observer.unobserve(entry.target); // Only animate once
+        function initializeCarousel() {
+            setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                const carouselImage = document.getElementById('carousel-image');
+                if (carouselImage) {
+                    carouselImage.src = images[currentImageIndex];
+                }
+            }, 6000);
         }
-      });
-    }, { threshold: 0.3 });
 
-    serviceCards.forEach(card => observer.observe(card));
-  });
-</script>
+        function initializeMenuButtons() {
+            const buttonsContainer = document.getElementById('menu-buttons');
+            buttonsContainer.innerHTML = menuButtons.map(button => 
+                `<button class="golden-button" onclick="handleCategoryClick('${button}')">${button}</button>`
+            ).join('');
+        }
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector("header");
-  header.classList.add("animate-header");
-});
-</script>
+        function initializeScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-<a href="https://wa.me/917205087774" target="_blank" id="whatsapp-float" aria-label="Chat on WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const cards = entry.target.querySelectorAll('.service-card');
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('animate');
+                            }, index * 150);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
 
+            const servicesSection = document.getElementById('services');
+            if (servicesSection) {
+                observer.observe(servicesSection);
+            }
+        }
+
+        function initializeFormHandlers() {
+            const form = document.getElementById('quote-form');
+            form.addEventListener('submit', handleFormSubmit);
+        }
+
+        function toggleMobileMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('mobile-open');
+        }
+
+        function closeMobileMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.remove('mobile-open');
+        }
+
+        function handleCategoryClick(category) {
+            selectedCategory = category;
+            renderMenuItems();
+            document.getElementById('menu-items').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderMenuItems() {
+            const menuItemsContainer = document.getElementById('menu-items');
+            const categoryItems = menuItemsData[selectedCategory] || [];
+
+            menuItemsContainer.innerHTML = `
+                <h2 class="menu-items-title">${selectedCategory}</h2>
+                <div class="items-grid" id="items-grid"></div>
+            `;
+
+            const itemsGrid = document.getElementById('items-grid');
+
+            if (selectedCategory === "Plate Counter") {
+                const vegItems = categoryItems.filter(item => 
+                    !/chicken|egg|prawn|crab|seafood/i.test(item)
+                );
+                const nonVegItems = categoryItems.filter(item => 
+                    /chicken|egg|prawn|crab|seafood/i.test(item)
+                );
+
+                itemsGrid.innerHTML = `
+                    <div class="category-title">🥗 Veg Plate Counter</div>
+                    ${vegItems.map(item => createMenuItemHTML(item)).join('')}
+                    <div class="category-title">🍗 Non-Veg Plate Counter</div>
+                    ${nonVegItems.map(item => createMenuItemHTML(item)).join('')}
+                `;
+            } else if (selectedCategory === "Rice & Pulao") {
+                const vegItems = categoryItems.filter(item => 
+                    !/egg|chicken|prawn|mutton|biriyani/i.test(item) || /veg|paneer/i.test(item)
+                );
+                const nonVegItems = categoryItems.filter(item => 
+                    /egg|chicken|prawn|mutton|biriyani/i.test(item) && !/veg|paneer/i.test(item)
+                );
+
+                itemsGrid.innerHTML = `
+                    <div class="category-title">🥦 Veg Rice & Pulao</div>
+                    ${vegItems.map(item => createMenuItemHTML(item)).join('')}
+                    <div class="category-title">🍗 Non-Veg Rice & Pulao</div>
+                    ${nonVegItems.map(item => createMenuItemHTML(item)).join('')}
+                `;
+            } else if (selectedCategory === "Noodles") {
+                const vegItems = categoryItems.filter(item => !/egg|chicken|prawn/i.test(item));
+                const nonVegItems = categoryItems.filter(item => /egg|chicken|prawn/i.test(item));
+
+                itemsGrid.innerHTML = `
+                    <div class="category-title">🥦 Veg Noodles</div>
+                    ${vegItems.map(item => createMenuItemHTML(item)).join('')}
+                    <div class="category-title">🍗 Non-Veg Noodles</div>
+                    ${nonVegItems.map(item => createMenuItemHTML(item)).join('')}
+                `;
+            } else {
+                itemsGrid.innerHTML = categoryItems.map(item => createMenuItemHTML(item)).join('');
+            }
+
+            menuItemsContainer.classList.remove('hidden');
+            updateSummary();
+        }
+
+        function createMenuItemHTML(item) {
+            const isChecked = selectedItems.has(item);
+            return `
+                <label class="menu-item">
+                    <input type="checkbox" value="${item}" ${isChecked ? 'checked' : ''} onchange="handleItemChange('${item}', this.checked)" />
+                    <span>${item}</span>
+                </label>
+            `;
+        }
+
+        function handleItemChange(item, checked) {
+            if (checked) {
+                selectedItems.add(item);
+            } else {
+                selectedItems.delete(item);
+            }
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const summaryContainer = document.getElementById('menu-summary');
+            
+            if (selectedItems.size === 0) {
+                summaryContainer.classList.add('hidden');
+                return;
+            }
+
+            const grouped = {};
+            selectedItems.forEach(item => {
+                for (const [category, items] of Object.entries(menuItemsData)) {
+                    if (items.includes(item)) {
+                        if (!grouped[category]) grouped[category] = [];
+                        grouped[category].push(item);
+                        break;
+                    }
+                }
+            });
+
+            let summaryHTML = `
+                <div class="summary-section">
+                    <h2 class="summary-title">Selected Items (${selectedItems.size})</h2>
+                    <div class="summary-content">
+            `;
+
+            Object.entries(grouped).forEach(([category, items]) => {
+                if (category === "Plate Counter") {
+                    const vegItems = items.filter(item => !/chicken|egg|prawn|crab|seafood/i.test(item));
+                    const nonVegItems = items.filter(item => !vegItems.includes(item));
+
+                    if (vegItems.length > 0) {
+                        summaryHTML += `
+                            <div class="summary-category">
+                                <h3>Plate Counter (Veg)</h3>
+                                <ul>
+                                    ${vegItems.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `;
+                    }
+                    if (nonVegItems.length > 0) {
+                        summaryHTML += `
+                            <div class="summary-category">
+                                <h3>Plate Counter (Non-Veg)</h3>
+                                <ul>
+                                    ${nonVegItems.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `;
+                    }
+                } else {
+                    summaryHTML += `
+                        <div class="summary-category">
+                            <h3>${category}</h3>
+                            <ul>
+                                ${items.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+            });
+
+            summaryHTML += `
+                    </div>
+                    <div class="summary-buttons">
+                        <button class="btn-clear" onclick="clearSelection()">Clear All</button>
+                        <button class="btn-quote" onclick="showQuoteForm()">Get Quote</button>
+                    </div>
+                </div>
+            `;
+
+            summaryContainer.innerHTML = summaryHTML;
+            summaryContainer.classList.remove('hidden');
+        }
+
+        function clearSelection() {
+            selectedItems.clear();
+            updateSummary();
+            if (selectedCategory) {
+                renderMenuItems();
+            }
+        }
+
+        function showQuoteForm() {
+            if (selectedItems.size === 0) {
+                alert('Please select items from the menu first.');
+                return;
+            }
+            document.getElementById('quote-modal').classList.remove('hidden');
+        }
+
+        function closeQuoteForm() {
+            document.getElementById('quote-modal').classList.add('hidden');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const contact = document.getElementById('contact').value;
+            const email = document.getElementById('email').value;
+            const plate = document.getElementById('plate').value;
+            const date = document.getElementById('date').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !contact || !email || !plate || !date) {
+                alert('Please fill all required fields.');
+                return;
+            }
+
+            if (selectedItems.size === 0) {
+                alert('Please select items from the menu before submitting the form.');
+                return;
+            }
+
+            const selected = Array.from(selectedItems).join(', ');
+            const text = `Name: ${name}%0aContact: ${contact}%0aEmail: ${email}%0aPlate Count: ${plate}%0aEvent Date: ${date}%0aMessage: ${message}%0aSelected Items: ${selected}`;
+
+            const win = window.open(`https://wa.me/917205087774?text=${text}`, '_blank');
+            if (!win) {
+                alert("Please allow popups to send the WhatsApp message.");
+                return;
+            }
+
+            closeQuoteForm();
+            alert('Thank you! Your quote request has been sent. We will get back to you shortly.');
+
+            // Reset form and selections
+            document.getElementById('quote-form').reset();
+            selectedItems.clear();
+            updateSummary();
+        }
+    </script>
 </body>
 </html>
