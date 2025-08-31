@@ -3,97 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Flames Catering - Premium Event Catering Services</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Golden Flames - Premium Catering Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            background: #fff8f2;
-        }
-
         .hero-bg {
-          background-image: url('herobg.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            animation: zoomHero 20s ease-in-out infinite;
-        }
+    background-image: url('./herobg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    animation: zoomHero 20s ease-in-out infinite;
+}
 
+        
         @keyframes zoomHero {
             0%, 100% { background-size: 100%; }
             50% { background-size: 110%; }
         }
-
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
+        
         @keyframes bounce {
             0%, 100% { transform: translate(-50%, 0); }
             50% { transform: translate(-50%, 10px); }
         }
-
+        
         @keyframes pulse {
             0% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.2); opacity: 0.6; }
             100% { transform: scale(1); opacity: 1; }
         }
-
+        
         .hero-content {
             animation: fadeIn 1s ease forwards;
         }
-
+        
         .scroll-down {
             animation: bounce 2s infinite;
         }
-
+        
         .golden-button {
             background: linear-gradient(145deg, #a57c1b, #704c0e);
             color: white;
-            padding: 0.5rem 0.8rem;
-            font-size: 0.95rem;
+            padding: 0.8rem 1.2rem;
+            font-size: 1.1rem;
             border: none;
             border-radius: 6px;
             box-shadow: inset 0 1px 0 #d4af37, 0 2px 6px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
             cursor: pointer;
-            margin: 1px;
         }
-
+        
         .golden-button:hover {
             background-color: #a9711a;
             transform: scale(1.05);
             box-shadow: inset 0 1px 0 #fff1b8, 0 3px 8px rgba(0,0,0,0.4);
         }
-
+        
         .services-icon {
             transition: transform 0.3s ease, color 0.3s ease;
         }
-
+        
         .services-icon:hover {
             transform: scale(1.2);
             color: #d4af37;
         }
-
-        .service-card {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .service-card.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -111,899 +89,351 @@
             transition: transform 0.3s ease;
             text-decoration: none;
         }
-
+        
         .whatsapp-float:hover {
             transform: scale(1.1);
             text-decoration: none;
         }
-
+        
         .pulse-animation {
             animation: pulse 1.5s infinite;
         }
         
+        /* Scroll Animations */
+        .slide-in-bottom {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-bottom.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
         .slide-in-left {
-          opacity: 0;
-          transform: translateX(-100px);
-          transition: all 0.8s ease-out;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
         
         .slide-in-right {
-          opacity: 0;
-          transform: translateX(100px);
-          transition: all 0.8s ease-out;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
         }
         
-        .slide-in-up {
-          opacity: 0;
-          transform: translateY(50px);
-          transition: all 0.8s ease-out;
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
         
-        .slide-in-visible {
-          opacity: 1;
-          transform: translate(0, 0);
-        }
-
-        /* Header Styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 50;
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo {
-            height: 3rem;
-            border-radius: 50%;
-        }
-
-        .logo-text {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #c69736;
-            text-shadow: 1px 1px 3px #000;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        nav {
-            display: flex;
-            gap: 1rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #fbbf24;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            text-align: center;
-            padding-top: 6rem;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 10;
-        }
-
-        .hero-content {
-            color: white;
-            max-width: 64rem;
-            padding: 0 1rem;
-            z-index: 20;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            line-height: 1.3;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .btn-primary {
-            background: linear-gradient(to right, yellow, red);
-            color: #000;
-            padding: 0.75rem 1.5rem;
-            font-size: 1.125rem;
-            font-weight: bold;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-secondary {
-            background: #800000;
-            color: #fff8f0;
-            padding: 0.75rem 1.5rem;
-            font-size: 1.125rem;
-            font-weight: bold;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: translateY(-2px);
-        }
-
-        /* About Section */
-        .about-section {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            padding: 4rem;
-            background: #fff4e6;
-        }
-
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            max-width: 350px;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            max-height: 24rem;
-            object-fit: cover;
-            transition: opacity 0.4s ease;
-        }
-
-        .about-content {
-            flex: 1;
-            min-width: 300px;
-            max-width: 600px;
-            text-align: justify;
-        }
-
-        .about-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #a0522d;
-        }
-
-        .about-text {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            color: #d4af37;
-        }
-
-        .stat-label {
-            font-size: 1.125rem;
-            font-weight: bold;
-            color: #444;
-        }
-
-        /* Services Section */
-        .services-section {
-            padding: 4rem;
-            text-align: center;
-            background: #fffaf0;
-        }
-
-        .services-title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #8b4513;
-        }
-
-        .services-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 96rem;
-            margin: 0 auto;
-        }
-
         .service-card {
-            flex: 1;
-            min-width: 250px;
-            background: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
         }
-
-        .service-card:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.75rem;
-            color: #c69736;
-        }
-
-        .service-title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: #a0522d;
-        }
-
-        .service-desc {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Menu Section */
-        .menu-section {
-            padding: 4rem;
-            text-align: center;
-            background: #fff8f0;
-        }
-
-        .menu-title {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .menu-features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 96rem;
-            margin: 0 auto 3rem;
-        }
-
-        .menu-feature {
-            flex: 1;
-            min-width: 300px;
-            background: white;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .menu-feature h3 {
-            margin-bottom: 1rem;
-            color: #a0522d;
-        }
-
-        .menu-feature p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Menu Selection */
-        .menu-selection {
-            padding: 2rem;
-        }
-
-        .selection-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #8a5c16;
-        }
-
-        .menu-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .menu-items {
-            padding: 2rem;
-            background: #fffaf0;
-            border-radius: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .menu-items-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #8a5c16;
-        }
-
-        .items-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .menu-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            font-size: 0.875rem;
-            transition: box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .menu-item:hover {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-
-        .menu-item input {
-            transform: scale(1.25);
-        }
-
-        .menu-item span {
-            color: #374151;
-        }
-
-        .category-title {
-            text-align: center;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 1.5rem 0;
-            color: #8a5c16;
-        }
-
-        /* Selected Items Summary */
-        .summary-section {
-            padding: 2rem;
-            background: #fff4e6;
-            border-radius: 0.5rem;
-            margin: 2rem 0;
-        }
-
-        .summary-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #8a5c16;
-        }
-
-        .summary-content {
-            max-width: 64rem;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .summary-category {
-            margin-bottom: 1.5rem;
-        }
-
-        .summary-category h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin: 1.5rem 0 0.5rem;
-            text-align: center;
-            color: #8a5c16;
-        }
-
-        .summary-category ul {
-            list-style-type: disc;
-            padding-left: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .summary-category li {
-            color: #666;
-            margin-bottom: 0.25rem;
-        }
-
-        .summary-buttons {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .btn-clear {
-            background: #6b7280;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            margin-right: 1rem;
-            border: none;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-clear:hover {
-            background: #4b5563;
-        }
-
-        .btn-quote {
-            background: #8a5c16;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .btn-quote:hover {
-            opacity: 0.9;
-        }
-
-        /* Modal Styles */
-        .modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 50;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            width: 100%;
-            max-width: 28rem;
-            position: relative;
-            margin: 2rem 0;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .modal-title {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: #8a5c16;
-            font-size: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #d1d5db;
-            border-radius: 0.375rem;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #eab308;
-            box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.2);
-        }
-
-        .form-buttons {
-            text-align: center;
-            position: sticky;
-            bottom: 0;
-            background: white;
-            padding-top: 1rem;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 1rem;
-        }
-
-        .btn-back {
-            background: #9ca3af;
-            color: black;
-            padding: 0.5rem 1rem;
-            margin-right: 1rem;
-            border: none;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-back:hover {
-            background: #6b7280;
-        }
-
-        .btn-submit {
-            background: #8a5c16;
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border: none;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .btn-submit:hover {
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        footer {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-            padding: 1rem;
-            background: #374151;
-            color: white;
-        }
-
-        .footer-contact {
-            flex: 1;
-            min-width: 200px;
-            text-align: left;
-        }
-
-        .footer-map {
-            flex: none;
-            text-align: center;
-        }
-
-        .footer-social {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-        }
-
-        .footer-social a {
-            color: white;
-            margin: 0 0.5rem;
-            text-decoration: none;
-        }
-
-        .map-icon {
-            font-size: 2rem;
-            color: #ef4444;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.125rem;
-            }
-            
-            .about-section,
-            .services-section,
-            .menu-section {
-                padding: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            nav {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 4rem;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.9);
-                padding: 1rem;
-            }
-
-            nav.mobile-open {
-                display: flex;
-            }
-
-            .hero-title {
-                font-size: 1.75rem;
-            }
-
-            .about-section {
-                padding: 2rem 1rem;
-            }
-
-            .stats-container {
-                gap: 1rem;
-            }
-
-            .services-grid {
-                gap: 1rem;
-            }
-
-            .menu-features {
-                gap: 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        .hidden {
-            display: none;
+        
+        .service-card.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
     </style>
 </head>
-<body>
+<body style="background: #fff8f2;">
+
     <!-- Header -->
-    <header>
-        <div class="logo-container">
-            <img src="logo.png" alt="Golden Flames Logo" class="logo" />
-            <span class="logo-text">GOLDEN FLAMES</span>
+    <header class="fixed top-0 left-0 w-full p-4 flex justify-between items-center z-50" 
+            style="background: rgba(0, 0, 0, 0.4);">
+        <div class="flex items-center gap-2">
+            <img src="./logo.png" alt="Golden Flames Logo" class="h-12 rounded-full" onerror="this.style.display='none'">
+
+            <span class="text-xl font-bold" style="color: #c69736; text-shadow: 1px 1px 3px #000;">
+                GOLDEN FLAMES
+            </span>
         </div>
         
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        <button class="lg:hidden text-white text-2xl bg-transparent border-none" onclick="toggleMobileMenu()">
+            ☰
+        </button>
         
-        <nav id="nav-menu">
-            <a href="#home" onclick="closeMobileMenu()">Home</a>
-            <a href="#about" onclick="closeMobileMenu()">About</a>
-            <a href="#services" onclick="closeMobileMenu()">Services</a>
-            <a href="#menu" onclick="closeMobileMenu()">Menu</a>
-            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+        <nav id="mobile-nav" class="hidden lg:flex flex-col lg:flex-row gap-4 absolute lg:relative top-16 lg:top-0 left-0 lg:left-auto w-full lg:w-auto p-4 lg:p-0"
+             style="background: rgba(0, 0, 0, 0.9);">
+            <a href="#home" class="text-white px-4 py-2 hover:text-yellow-300 transition-colors" onclick="closeMobileMenu()">Home</a>
+            <a href="#about" class="text-white px-4 py-2 hover:text-yellow-300 transition-colors" onclick="closeMobileMenu()">About</a>
+            <a href="#services" class="text-white px-4 py-2 hover:text-yellow-300 transition-colors" onclick="closeMobileMenu()">Services</a>
+            <a href="#menu" class="text-white px-4 py-2 hover:text-yellow-300 transition-colors" onclick="closeMobileMenu()">Menu</a>
+            <a href="#contact" class="text-white px-4 py-2 hover:text-yellow-300 transition-colors" onclick="closeMobileMenu()">Contact</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-bg hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">
+    <section id="home" class="hero-bg min-h-screen flex flex-col justify-center items-center relative text-center pt-24">
+        <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+        <div class="hero-content text-white max-w-4xl px-4 z-20">
+            <h1 class="text-3xl lg:text-5xl leading-relaxed mb-6">
                 <span style="color: #d4af37;">Culinary Excellence</span> That Ignites Every Moment
             </h1>
-            <p class="hero-subtitle">
+            <p class="text-lg lg:text-xl mb-8 leading-relaxed">
                 From intimate gatherings to grand celebrations, Golden Flames delivers extraordinary culinary experiences that transform your events into unforgettable memories.
             </p>
-            <div class="hero-buttons">
-                <a href="#select-menu" class="btn-primary">Start Planning Your Event →</a>
-                <a href="#services" class="btn-secondary">View Our Services</a>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#select-menu" class="px-6 py-3 text-lg font-bold rounded no-underline"
+                   style="background: linear-gradient(to right, yellow, red); color: #000;">
+                    Start Planning Your Event →
+                </a>
+                <a href="#services" class="px-6 py-3 text-lg font-bold rounded no-underline"
+                   style="background: #800000; color: #fff8f0;">
+                    View Our Services
+                </a>
             </div>
         </div>
-        <div class="scroll-down">↓</div>
+        <div class="scroll-down absolute bottom-5 left-1/2 transform -translate-x-1/2 text-white text-3xl z-20">
+            ↓
+        </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="about-image slide-in-left">
-            <img id="carousel-image" src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg" alt="About Carousel" />
+    <section id="about" class="slide-in-bottom flex flex-wrap items-center justify-center gap-8 p-16" 
+             style="background: #fff4e6;">
+        <div class="flex-1 min-w-[300px] max-w-[350px]">
+            <img id="carousel-image" 
+                 src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg" 
+                 alt="About Carousel" 
+                 class="w-full h-auto rounded-lg shadow-lg max-h-96 object-cover transition-opacity duration-400">
         </div>
-        <div class="about-content slide-in-right">
-            <h2 class="about-title">About Us</h2>
-            <p class="about-text">
+        <div class="flex-1 min-w-[300px] max-w-[600px] text-justify">
+            <h2 class="text-4xl mb-4" style="color: #a0522d;">About Us</h2>
+            <p class="text-xl leading-relaxed mb-12" style="color: #333;">
                 At <strong>Golden Flames</strong>, we believe that every meal is an opportunity to celebrate. With over a decade of experience, our passionate team of <strong>15+ expert chefs</strong> has curated exceptional culinary experiences for more than <strong>500 events</strong>. Whether it's an intimate gathering or a grand celebration, we transform your vision into flavorful reality.
             </p>
-            <div class="stats-container">
-                <div class="stat-item">
-                    <h3 class="stat-number">500+</h3>
-                    <p class="stat-label">Events</p>
+            <div class="flex justify-evenly flex-wrap mt-8">
+                <div class="text-center">
+                    <h3 class="text-3xl" style="color: #d4af37;">500+</h3>
+                    <p class="text-lg font-bold" style="color: #444;">Events</p>
                 </div>
-                <div class="stat-item">
-                    <h3 class="stat-number">15+</h3>
-                    <p class="stat-label">Expert Chefs</p>
+                <div class="text-center">
+                    <h3 class="text-3xl" style="color: #d4af37;">15+</h3>
+                    <p class="text-lg font-bold" style="color: #444;">Expert Chefs</p>
                 </div>
-                <div class="stat-item">
-                    <h3 class="stat-number">10+</h3>
-                    <p class="stat-label">Years Experience</p>
+                <div class="text-center">
+                    <h3 class="text-3xl" style="color: #d4af37;">10+</h3>
+                    <p class="text-lg font-bold" style="color: #444;">Years Experience</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <h2 class="services-title slide-in-up">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card slide-in-up">
-                <div class="service-icon services-icon">
-                    <i class="fas fa-ring"></i>
-                </div>
-                <h3 class="service-title">Wedding Catering</h3>
-                <p class="service-desc">From traditional to contemporary, we create memorable wedding feasts tailored to your celebration.</p>
-            </div>
-            <div class="service-card slide-in-up">
-                <div class="service-icon services-icon">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3 class="service-title">Corporate Events</h3>
-                <p class="service-desc">Professional catering for meetings, conferences, and business functions with customized menus.</p>
-            </div>
-            <div class="service-card slide-in-up">
-                <div class="service-icon services-icon">
-                    <i class="fas fa-champagne-glasses"></i>
-                </div>
-                <h3 class="service-title">Private Parties</h3>
-                <p class="service-desc">Celebrate birthdays, anniversaries, and milestones with bespoke dishes and attentive service.</p>
-            </div>
-            <div class="service-card slide-in-up">
-                <div class="service-icon services-icon">
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h3 class="service-title">Pure Vegetarian</h3>
-                <p class="service-desc">Delight in 100% vegetarian dishes crafted with traditional recipes and fresh ingredients for every event.</p>
-            </div>
-            <div class="service-card slide-in-up">
-                <div class="service-icon services-icon">
-                    <i class="fas fa-birthday-cake"></i>
-                </div>
-                <h3 class="service-title">Bakery Party</h3>
-                <p class="service-desc">Customized bakery celebrations featuring cakes, pastries, cookies, and more for birthdays and parties.</p>
-            </div>
-        </div>
-    </section>
+   <!-- Services Section -->
+<section id="services" class="slide-in-bottom p-16 text-center" style="background: #fffaf0;">
+  <h2 class="text-4xl mb-8" style="color: #8b4513;">Our Services</h2>
+  <div class="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
+
+    <!-- Wedding Catering -->
+    <div class="service-card flex-1 min-w-[250px] bg-white p-8 rounded-lg shadow-lg">
+      <div class="services-icon text-4xl mb-3" style="color: #c69736;">
+        <i class="fa-solid fa-ring"></i>
+      </div>
+      <h3 class="text-xl mb-4" style="color: #a0522d;">Wedding Catering</h3>
+      <p class="text-gray-600 leading-relaxed">From traditional to contemporary, we create memorable wedding feasts tailored to your celebration.</p>
+    </div>
+
+    <!-- Corporate Events -->
+    <div class="service-card flex-1 min-w-[250px] bg-white p-8 rounded-lg shadow-lg">
+      <div class="services-icon text-4xl mb-3" style="color: #c69736;">
+        <i class="fa-solid fa-building"></i>
+      </div>
+      <h3 class="text-xl mb-4" style="color: #a0522d;">Corporate Events</h3>
+      <p class="text-gray-600 leading-relaxed">Professional catering for meetings, conferences, and business functions with customized menus.</p>
+    </div>
+
+    <!-- Private Parties -->
+    <div class="service-card flex-1 min-w-[250px] bg-white p-8 rounded-lg shadow-lg">
+      <div class="services-icon text-4xl mb-3" style="color: #c69736;">
+        <i class="fa-solid fa-champagne-glasses"></i>
+      </div>
+      <h3 class="text-xl mb-4" style="color: #a0522d;">Private Parties</h3>
+      <p class="text-gray-600 leading-relaxed">Celebrate birthdays, anniversaries, and milestones with bespoke dishes and attentive service.</p>
+    </div>
+
+    <!-- Pure Vegetarian -->
+    <div class="service-card flex-1 min-w-[250px] bg-white p-8 rounded-lg shadow-lg">
+      <div class="services-icon text-4xl mb-3" style="color: #c69736;">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+      <h3 class="text-xl mb-4" style="color: #a0522d;">Pure Vegetarian</h3>
+      <p class="text-gray-600 leading-relaxed">Delight in 100% vegetarian dishes crafted with traditional recipes and fresh ingredients for every event.</p>
+    </div>
+
+    <!-- Bakery Party -->
+    <div class="service-card flex-1 min-w-[250px] bg-white p-8 rounded-lg shadow-lg">
+      <div class="services-icon text-4xl mb-3" style="color: #c69736;">
+        <i class="fa-solid fa-birthday-cake"></i>
+      </div>
+      <h3 class="text-xl mb-4" style="color: #a0522d;">Bakery Party</h3>
+      <p class="text-gray-600 leading-relaxed">Customized bakery celebrations featuring cakes, pastries, cookies, and more for birthdays and parties.</p>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Menu Section -->
-    <section id="menu" class="menu-section">
-        <h2 class="menu-title slide-in-up">
-            <span style="color: black;">Golden Flames</span>
-            <span style="color: #dc2626;">Signature</span>
-            <span style="color: black;">Menu</span>
+    <section id="menu" class="slide-in-bottom p-16 text-center" style="background: #fff8f0;">
+        <h2 class="text-4xl mb-8">
+            <span class="text-black">Golden Flames</span>
+            <span class="text-red-600">Signature</span>
+            <span class="text-black">Menu</span>
         </h2>
-        <div class="menu-features">
-            <div class="menu-feature slide-in-left">
-                <h3>Live Counters</h3>
-                <p>Interactive stations featuring chaat, dosa, pasta, and more — prepared fresh before your eyes.</p>
+        <div class="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto mb-12">
+            <div class="slide-in-right flex-1 min-w-[300px] bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="mb-4" style="color: #a0522d;">Live Counters</h3>
+                <p class="text-gray-600 leading-relaxed">Interactive stations featuring chaat, dosa, pasta, and more — prepared fresh before your eyes.</p>
             </div>
-            <div class="menu-feature slide-in-up">
-                <h3>Signature Main Course</h3>
-                <p>A curated selection of traditional Indian, Chinese, and fusion mains — from fragrant biryanis to rich curries and sizzling stir-fry dishes.</p>
+            <div class="slide-in-right flex-1 min-w-[300px] bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="mb-4" style="color: #a0522d;">Signature Main Course</h3>
+                <p class="text-gray-600 leading-relaxed">A curated selection of traditional Indian, Chinese, and fusion mains — from fragrant biryanis to rich curries and sizzling stir-fry dishes.</p>
             </div>
-            <div class="menu-feature slide-in-right">
-                <h3>Exquisite Desserts</h3>
-                <p>Finish on a sweet note with handcrafted Indian desserts, international favorites, and delightful confections to please every palate.</p>
+            <div class="slide-in-right flex-1 min-w-[300px] bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="mb-4" style="color: #a0522d;">Exquisite Desserts</h3>
+                <p class="text-gray-600 leading-relaxed">Finish on a sweet note with handcrafted Indian desserts, international favorites, and delightful confections to please every palate.</p>
             </div>
         </div>
     </section>
 
     <!-- Menu Selection -->
-    <section id="select-menu" class="menu-selection">
-        <h2 class="selection-title">Select your items from menu</h2>
+    <section id="select-menu" class="p-8">
+        <h2 class="text-center text-3xl mb-8" style="color: #8a5c16;">
+            Select your items from menu
+        </h2>
         
-        <div class="menu-buttons" id="menu-buttons">
-            <!-- Menu buttons will be populated by JavaScript -->
+        <!-- Menu Buttons -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8" id="menu-buttons">
+            <!-- Menu buttons will be generated by JavaScript -->
         </div>
 
-        <div id="menu-items" class="hidden">
-            <!-- Menu items will be populated by JavaScript -->
+        <!-- Menu Items Display -->
+        <div id="menu-items" class="hidden p-8" style="background: #fffaf0;">
+            <h2 id="category-title" class="text-center text-3xl mb-6" style="color: #8a5c16;"></h2>
+            <div id="items-container" class="flex flex-wrap gap-4 justify-center"></div>
         </div>
 
-        <div id="menu-summary" class="hidden">
-            <!-- Selected items summary will be populated by JavaScript -->
+        <!-- Selected Items Summary -->
+        <div id="menu-summary" class="hidden p-8" style="background: #fff4e6;">
+            <h2 class="text-center text-3xl mb-6" style="color: #8a5c16;">
+                Your Selected Items
+            </h2>
+            <div id="selected-items-list" class="max-w-4xl mx-auto text-left"></div>
+            <div class="text-center mt-8">
+                <button onclick="clearSelection()" 
+                        class="bg-gray-500 text-white px-6 py-3 mr-4 rounded cursor-pointer hover:bg-gray-600 transition-colors">
+                    Clear All
+                </button>
+                <button onclick="showQuoteForm()" 
+                        class="px-6 py-3 rounded cursor-pointer text-white hover:opacity-90 transition-opacity"
+                        style="background: #8a5c16;">
+                    Get My Quote →
+                </button>
+            </div>
         </div>
     </section>
 
     <!-- Quote Form Modal -->
-    <div id="quote-modal" class="modal hidden">
-        <div class="modal-content">
-            <h2 class="modal-title">Request a Quote</h2>
+    <div id="quote-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center p-4 overflow-y-auto">
+        <div class="bg-white p-6 rounded-lg w-full max-w-md relative my-8 max-h-[90vh] overflow-y-auto">
+            <h2 class="text-center mb-6" style="color: #8a5c16;">Request a Quote</h2>
             <form id="quote-form">
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required />
+                <div class="mb-4">
+                    <label for="name" class="block mb-2">Name *</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500">
                 </div>
-                <div class="form-group">
-                    <label for="contact">Contact No *</label>
-                    <input type="tel" id="contact" name="contact" required />
+                <div class="mb-4">
+                    <label for="contact" class="block mb-2">Contact No *</label>
+                    <input type="tel" id="contact" name="contact" required 
+                           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500">
                 </div>
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required />
+                <div class="mb-4">
+                    <label for="email" class="block mb-2">Email *</label>
+                    <input type="email" id="email" name="email" required 
+                           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500">
                 </div>
-                <div class="form-group">
-                    <label for="plate">Plate Count *</label>
-                    <input type="number" id="plate" name="plate" required />
+                <div class="mb-4">
+                    <label for="plate" class="block mb-2">Plate Count *</label>
+                    <input type="number" id="plate" name="plate" required 
+                           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500">
                 </div>
-                <div class="form-group">
-                    <label for="date">Date of Event *</label>
-                    <input type="date" id="date" name="date" required />
+                <div class="mb-4">
+                    <label for="date" class="block mb-2">Date of Event *</label>
+                    <input type="date" id="date" name="date" required 
+                           class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500">
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="3"></textarea>
+                <div class="mb-6">
+                    <label for="message" class="block mb-2">Message</label>
+                    <textarea id="message" name="message" rows="3"
+                              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
                 </div>
-                <div class="form-buttons">
-                    <button type="button" class="btn-back" onclick="closeQuoteForm()">Back</button>
-                    <button type="submit" class="btn-submit">Submit</button>
+                <div class="text-center sticky bottom-0 bg-white pt-4 border-t border-gray-200">
+                    <button type="button" onclick="hideQuoteForm()"
+                            class="bg-gray-400 text-black px-4 py-2 mr-4 rounded border-none cursor-pointer hover:bg-gray-500 transition-colors">
+                        Back
+                    </button>
+                    <button type="submit"
+                            class="text-white px-6 py-2 rounded border-none cursor-pointer hover:opacity-90 transition-opacity"
+                            style="background: #8a5c16;">
+                        Submit
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-contact">
+    <footer id="contact" class="flex flex-wrap justify-between items-center gap-8 p-4 bg-gray-800 text-white">
+        <div class="flex-1 min-w-[200px] text-left">
             <p><strong>Call us:</strong> +91 7008694597</p>
             <p><strong>Email us:</strong> info@goldenflames.org</p>
-            <p><strong>Address:</strong><br />
-                Plot No- HIG 12/2, Panchashakha Nager,<br />
+            <p><strong>Address:</strong><br>
+                Plot No- HIG 12/2, Panchashakha Nager,<br>
                 Near Siva Temple, Dumduma-751019
             </p>
         </div>
-        <div class="footer-map">
+        <div class="flex-none text-center">
             <a href="https://maps.app.goo.gl/gm7NhpWrDapZ9b4v8" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-map-marker-alt map-icon pulse-animation" title="Find us on Google Maps"></i>
-            </a>
+  <span class="text-3xl text-red-500 pulse-animation" title="Find us on Google Maps">
+    <i class="fa-solid fa-location-dot"></i>
+  </span>
+</a>
+
         </div>
-        <div class="footer-social">
-            <p>&copy; 2025 Golden Flames. All rights reserved.</p>
+        <div class="flex-1 min-w-[200px] text-center">
+            <p class="mb-2">&copy; 2025 Golden Flames. All rights reserved.</p>
             <p>
-                Follow us:
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                 Follow us:
+    <a href="#" class="text-white mx-2" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a href="#" class="text-white mx-2" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+    <a href="#" class="text-white mx-2" aria-label="Twitter">
+  <i class="fa-brands fa-twitter"></i>
+</a>
             </p>
         </div>
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/917205087774" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+   <a href="https://wa.me/917205087774" target="_blank" rel="noopener noreferrer"
+   class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
 
     <script>
         // Menu data
@@ -1244,43 +674,27 @@
             "Egg Peng", "Ice Cream", "Desert", "Bakery", "Pan"
         ];
 
-        // Global state
-        let selectedCategory = '';
         let selectedItems = new Set();
+        let selectedCategory = '';
+        let mobileMenuOpen = false;
         let currentImageIndex = 0;
 
+        // Image carousel
         const images = [
             'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg',
             'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg',
             'https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg'
         ];
 
-        // Initialize the page
+        // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
-            initializeCarousel();
-            initializeMenuButtons();
-            initializeScrollAnimations();
-            initializeFormHandlers();
+            generateMenuButtons();
+            startImageCarousel();
+            initScrollAnimations();
         });
 
-        function initializeCarousel() {
-            setInterval(() => {
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-                const carouselImage = document.getElementById('carousel-image');
-                if (carouselImage) {
-                    carouselImage.src = images[currentImageIndex];
-                }
-            }, 6000);
-        }
-
-        function initializeMenuButtons() {
-            const buttonsContainer = document.getElementById('menu-buttons');
-            buttonsContainer.innerHTML = menuButtons.map(button => 
-                `<button class="golden-button" onclick="handleCategoryClick('${button}')">${button}</button>`
-            ).join('');
-        }
-
-        function initializeScrollAnimations() {
+        // Scroll animations
+        function initScrollAnimations() {
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -1289,67 +703,76 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('slide-in-visible');
+                        entry.target.classList.add('visible');
                     }
                 });
             }, observerOptions);
 
-            // Observe all elements with slide-in classes
-            const slideElements = document.querySelectorAll('.slide-in-left, .slide-in-right, .slide-in-up');
-            slideElements.forEach(el => observer.observe(el));
+            // Observe all animated elements
+            const animatedElements = document.querySelectorAll('.slide-in-bottom, .slide-in-left, .slide-in-right, .service-card');
+            animatedElements.forEach(el => observer.observe(el));
+        }
 
-            // Original service card animation
-            const serviceObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const cards = entry.target.querySelectorAll('.service-card');
-                        cards.forEach((card, index) => {
-                            setTimeout(() => {
-                                card.classList.add('animate');
-                            }, index * 150);
-                        });
-                        serviceObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
-
-            const servicesSection = document.getElementById('services');
-            if (servicesSection) {
-                serviceObserver.observe(servicesSection);
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            mobileMenuOpen = !mobileMenuOpen;
+            const nav = document.getElementById('mobile-nav');
+            if (mobileMenuOpen) {
+                nav.classList.remove('hidden');
+                nav.classList.add('flex');
+            } else {
+                nav.classList.add('hidden');
+                nav.classList.remove('flex');
             }
         }
 
-        function initializeFormHandlers() {
-            const form = document.getElementById('quote-form');
-            form.addEventListener('submit', handleFormSubmit);
-        }
-
-        function toggleMobileMenu() {
-            const nav = document.getElementById('nav-menu');
-            nav.classList.toggle('mobile-open');
-        }
-
         function closeMobileMenu() {
-            const nav = document.getElementById('nav-menu');
-            nav.classList.remove('mobile-open');
+            mobileMenuOpen = false;
+            const nav = document.getElementById('mobile-nav');
+            nav.classList.add('hidden');
+            nav.classList.remove('flex');
         }
 
+        // Image carousel
+        function startImageCarousel() {
+            setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                const img = document.getElementById('carousel-image');
+                if (img) {
+                    img.src = images[currentImageIndex];
+                }
+            }, 6000);
+        }
+
+        // Generate menu buttons
+        function generateMenuButtons() {
+            const container = document.getElementById('menu-buttons');
+            container.innerHTML = '';
+            
+            menuButtons.forEach(button => {
+                const btn = document.createElement('button');
+                btn.className = 'golden-button';
+                btn.textContent = button;
+                btn.onclick = () => handleCategoryClick(button);
+                container.appendChild(btn);
+            });
+        }
+
+        // Handle category selection
         function handleCategoryClick(category) {
             selectedCategory = category;
+            document.getElementById('category-title').textContent = category;
             renderMenuItems();
+            document.getElementById('menu-items').classList.remove('hidden');
             document.getElementById('menu-items').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Render menu items
         function renderMenuItems() {
-            const menuItemsContainer = document.getElementById('menu-items');
+            const container = document.getElementById('items-container');
+            container.innerHTML = '';
+            
             const categoryItems = menuItemsData[selectedCategory] || [];
-
-            menuItemsContainer.innerHTML = `
-                <h2 class="menu-items-title">${selectedCategory}</h2>
-                <div class="items-grid" id="items-grid"></div>
-            `;
-
-            const itemsGrid = document.getElementById('items-grid');
 
             if (selectedCategory === "Plate Counter") {
                 const vegItems = categoryItems.filter(item => 
@@ -1359,12 +782,27 @@
                     /chicken|egg|prawn|crab|seafood/i.test(item)
                 );
 
-                itemsGrid.innerHTML = `
-                    <div class="category-title">🥗 Veg Plate Counter</div>
-                    ${vegItems.map(item => createMenuItemHTML(item)).join('')}
-                    <div class="category-title">🍗 Non-Veg Plate Counter</div>
-                    ${nonVegItems.map(item => createMenuItemHTML(item)).join('')}
-                `;
+                if (vegItems.length > 0) {
+                    const vegTitle = document.createElement('div');
+                    vegTitle.className = 'w-full text-center my-4';
+                    vegTitle.innerHTML = '<h3 class="text-xl font-semibold" style="color: #8a5c16;">🥗 Veg Plate Counter</h3>';
+                    container.appendChild(vegTitle);
+                    
+                    vegItems.forEach(item => {
+                        container.appendChild(createMenuItemCheckbox(item));
+                    });
+                }
+
+                if (nonVegItems.length > 0) {
+                    const nonVegTitle = document.createElement('div');
+                    nonVegTitle.className = 'w-full text-center my-4';
+                    nonVegTitle.innerHTML = '<h3 class="text-xl font-semibold" style="color: #8a5c16;">🍗 Non-Veg Plate Counter</h3>';
+                    container.appendChild(nonVegTitle);
+                    
+                    nonVegItems.forEach(item => {
+                        container.appendChild(createMenuItemCheckbox(item));
+                    });
+                }
             } else if (selectedCategory === "Rice & Pulao") {
                 const vegItems = categoryItems.filter(item => 
                     !/egg|chicken|prawn|mutton|biriyani/i.test(item) || /veg|paneer/i.test(item)
@@ -1373,58 +811,109 @@
                     /egg|chicken|prawn|mutton|biriyani/i.test(item) && !/veg|paneer/i.test(item)
                 );
 
-                itemsGrid.innerHTML = `
-                    <div class="category-title">🥦 Veg Rice & Pulao</div>
-                    ${vegItems.map(item => createMenuItemHTML(item)).join('')}
-                    <div class="category-title">🍗 Non-Veg Rice & Pulao</div>
-                    ${nonVegItems.map(item => createMenuItemHTML(item)).join('')}
-                `;
+                if (vegItems.length > 0) {
+                    const vegTitle = document.createElement('div');
+                    vegTitle.className = 'w-full text-center my-4';
+                    vegTitle.innerHTML = '<h3 class="text-xl font-semibold" style="color: #8a5c16;">🥦 Veg Rice & Pulao</h3>';
+                    container.appendChild(vegTitle);
+                    
+                    vegItems.forEach(item => {
+                        container.appendChild(createMenuItemCheckbox(item));
+                    });
+                }
+
+                if (nonVegItems.length > 0) {
+                    const nonVegTitle = document.createElement('div');
+                    nonVegTitle.className = 'w-full text-center my-4';
+                    nonVegTitle.innerHTML = '<h3 class="text-xl font-semibold" style="color: #8a5c16;">🍗 Non-Veg Rice & Pulao</h3>';
+                    container.appendChild(nonVegTitle);
+                    
+                    nonVegItems.forEach(item => {
+                        container.appendChild(createMenuItemCheckbox(item));
+                    });
+                }
             } else if (selectedCategory === "Noodles") {
                 const vegItems = categoryItems.filter(item => !/egg|chicken|prawn/i.test(item));
                 const nonVegItems = categoryItems.filter(item => /egg|chicken|prawn/i.test(item));
 
-                itemsGrid.innerHTML = `
-                    <div class="category-title">🥦 Veg Noodles</div>
-                    ${vegItems.map(item => createMenuItemHTML(item)).join('')}
-                    <div class="category-title">🍗 Non-Veg Noodles</div>
-                    ${nonVegItems.map(item => createMenuItemHTML(item)).join('')}
-                `;
+                if (vegItems.length > 0) {
+                    const vegTitle = document.createElement('div');
+                    vegTitle.className = 'w-full text-center my-4';
+                    vegTitle.innerHTML = '<h3 class="text-xl font-semibold" style="color: #8a5c16;">🥦 Veg Noodles</h3>';
+                    container.appendChild(vegTitle);
+                    
+                    vegItems.forEach(item => {
+                        container.appendChild(createMenuItemCheckbox(item));
+                    });
+                }
+
+                if (nonVegItems.length > 0) {
+                    const nonVegTitle = document.createElement('div');
+                    nonVegTitle.className = 'w-full text-center my-4';
+                    nonVegTitle.innerHTML = '<h3 class="text-xl font-semibold" style="color: #8a5c16;">🍗 Non-Veg Noodles</h3>';
+                    container.appendChild(nonVegTitle);
+                    
+                    nonVegItems.forEach(item => {
+                        container.appendChild(createMenuItemCheckbox(item));
+                    });
+                }
             } else {
-                itemsGrid.innerHTML = categoryItems.map(item => createMenuItemHTML(item)).join('');
+                categoryItems.forEach(item => {
+                    container.appendChild(createMenuItemCheckbox(item));
+                });
             }
-
-            menuItemsContainer.classList.remove('hidden');
-            updateSummary();
         }
 
-        function createMenuItemHTML(item) {
-            const isChecked = selectedItems.has(item);
-            return `
-                <label class="menu-item">
-                    <input type="checkbox" value="${item}" ${isChecked ? 'checked' : ''} onchange="handleItemChange('${item}', this.checked)" />
-                    <span>${item}</span>
-                </label>
-            `;
+        // Create menu item checkbox
+        function createMenuItemCheckbox(item) {
+            const label = document.createElement('label');
+            label.className = 'flex items-center gap-2 bg-white p-4 rounded-lg shadow-md text-sm hover:shadow-lg transition-shadow cursor-pointer';
+            
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.value = item;
+            checkbox.checked = selectedItems.has(item);
+            checkbox.className = 'transform scale-125';
+            checkbox.onchange = (e) => handleItemChange(item, e.target.checked);
+            
+            const span = document.createElement('span');
+            span.className = 'text-gray-700';
+            span.textContent = item;
+            
+            label.appendChild(checkbox);
+            label.appendChild(span);
+            
+            return label;
         }
 
+        // Handle item selection
         function handleItemChange(item, checked) {
             if (checked) {
                 selectedItems.add(item);
             } else {
                 selectedItems.delete(item);
             }
-            updateSummary();
+            updateSelectedItemsDisplay();
         }
 
-        function updateSummary() {
-            const summaryContainer = document.getElementById('menu-summary');
-            
-            if (selectedItems.size === 0) {
-                summaryContainer.classList.add('hidden');
-                return;
+        // Update selected items display
+        function updateSelectedItemsDisplay() {
+            const summary = document.getElementById('menu-summary');
+            if (selectedItems.size > 0) {
+                summary.classList.remove('hidden');
+                renderSelectedItems();
+            } else {
+                summary.classList.add('hidden');
             }
+        }
 
+        // Render selected items
+        function renderSelectedItems() {
+            const container = document.getElementById('selected-items-list');
+            container.innerHTML = '';
+            
             const grouped = {};
+            
             selectedItems.forEach(item => {
                 for (const [category, items] of Object.entries(menuItemsData)) {
                     if (items.includes(item)) {
@@ -1435,119 +924,114 @@
                 }
             });
 
-            let summaryHTML = `
-                <div class="summary-section">
-                    <h2 class="summary-title">Selected Items (${selectedItems.size})</h2>
-                    <div class="summary-content">
-            `;
-
             Object.entries(grouped).forEach(([category, items]) => {
                 if (category === "Plate Counter") {
                     const vegItems = items.filter(item => !/chicken|egg|prawn|crab|seafood/i.test(item));
                     const nonVegItems = items.filter(item => !vegItems.includes(item));
 
                     if (vegItems.length > 0) {
-                        summaryHTML += `
-                            <div class="summary-category">
-                                <h3>Plate Counter (Veg)</h3>
-                                <ul>
-                                    ${vegItems.map(item => `<li>${item}</li>`).join('')}
-                                </ul>
-                            </div>
+                        const vegSection = document.createElement('div');
+                        vegSection.innerHTML = `
+                            <h3 class="text-lg font-semibold mt-6 mb-2 text-center" style="color: #8a5c16;">
+                                Plate Counter (Veg)
+                            </h3>
+                            <ul class="list-disc pl-8 mb-4">
+                                ${vegItems.map(item => `<li class="text-gray-600 mb-1">${item}</li>`).join('')}
+                            </ul>
                         `;
+                        container.appendChild(vegSection);
                     }
+
                     if (nonVegItems.length > 0) {
-                        summaryHTML += `
-                            <div class="summary-category">
-                                <h3>Plate Counter (Non-Veg)</h3>
-                                <ul>
-                                    ${nonVegItems.map(item => `<li>${item}</li>`).join('')}
-                                </ul>
-                            </div>
+                        const nonVegSection = document.createElement('div');
+                        nonVegSection.innerHTML = `
+                            <h3 class="text-lg font-semibold mt-6 mb-2 text-center" style="color: #8a5c16;">
+                                Plate Counter (Non-Veg)
+                            </h3>
+                            <ul class="list-disc pl-8 mb-4">
+                                ${nonVegItems.map(item => `<li class="text-gray-600 mb-1">${item}</li>`).join('')}
+                            </ul>
                         `;
+                        container.appendChild(nonVegSection);
                     }
                 } else {
-                    summaryHTML += `
-                        <div class="summary-category">
-                            <h3>${category}</h3>
-                            <ul>
-                                ${items.map(item => `<li>${item}</li>`).join('')}
-                            </ul>
-                        </div>
+                    const section = document.createElement('div');
+                    section.innerHTML = `
+                        <h3 class="text-lg font-semibold mt-6 mb-2 text-center" style="color: #8a5c16;">
+                            ${category}
+                        </h3>
+                        <ul class="list-disc pl-8 mb-4">
+                            ${items.map(item => `<li class="text-gray-600 mb-1">${item}</li>`).join('')}
+                        </ul>
                     `;
+                    container.appendChild(section);
                 }
             });
-
-            summaryHTML += `
-                    </div>
-                    <div class="summary-buttons">
-                        <button class="btn-clear" onclick="clearSelection()">Clear All</button>
-                        <button class="btn-quote" onclick="showQuoteForm()">Get Quote</button>
-                    </div>
-                </div>
-            `;
-
-            summaryContainer.innerHTML = summaryHTML;
-            summaryContainer.classList.remove('hidden');
         }
 
+        // Clear selection
         function clearSelection() {
             selectedItems.clear();
-            updateSummary();
-            if (selectedCategory) {
-                renderMenuItems();
-            }
+            updateSelectedItemsDisplay();
+            // Update all checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = false;
+            });
         }
 
+        // Quote form functions
         function showQuoteForm() {
             if (selectedItems.size === 0) {
-                alert('Please select items from the menu first.');
+                alert('Please select items from the menu before requesting a quote.');
                 return;
             }
             document.getElementById('quote-modal').classList.remove('hidden');
         }
 
-        function closeQuoteForm() {
+        function hideQuoteForm() {
             document.getElementById('quote-modal').classList.add('hidden');
         }
 
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const contact = document.getElementById('contact').value;
-            const email = document.getElementById('email').value;
-            const plate = document.getElementById('plate').value;
-            const date = document.getElementById('date').value;
-            const message = document.getElementById('message').value;
+        // Handle form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('quote-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(e.target);
+                const name = formData.get('name');
+                const contact = formData.get('contact');
+                const email = formData.get('email');
+                const plate = formData.get('plate');
+                const date = formData.get('date');
+                const message = formData.get('message') || '';
 
-            if (!name || !contact || !email || !plate || !date) {
-                alert('Please fill all required fields.');
-                return;
-            }
+                if (!name || !contact || !email || !plate || !date) {
+                    alert('Please fill all required fields.');
+                    return;
+                }
 
-            if (selectedItems.size === 0) {
-                alert('Please select items from the menu before submitting the form.');
-                return;
-            }
+                if (selectedItems.size === 0) {
+                    alert('Please select items from the menu before submitting the form.');
+                    return;
+                }
 
-            const selected = Array.from(selectedItems).join(', ');
-            const text = `Name: ${name}%0aContact: ${contact}%0aEmail: ${email}%0aPlate Count: ${plate}%0aEvent Date: ${date}%0aMessage: ${message}%0aSelected Items: ${selected}`;
+                const selected = Array.from(selectedItems).join(', ');
+                const text = `Name: ${name}%0aContact: ${contact}%0aEmail: ${email}%0aPlate Count: ${plate}%0aEvent Date: ${date}%0aMessage: ${message}%0aSelected Items: ${selected}`;
 
-            const win = window.open(`https://wa.me/917205087774?text=${text}`, '_blank');
-            if (!win) {
-                alert("Please allow popups to send the WhatsApp message.");
-                return;
-            }
+                const win = window.open(`https://wa.me/917205087774?text=${text}`, '_blank');
+                if (!win) {
+                    alert("Please allow popups to send the WhatsApp message.");
+                    return;
+                }
 
-            closeQuoteForm();
-            alert('Thank you! Your quote request has been sent. We will get back to you shortly.');
+                hideQuoteForm();
+                alert('Thank you! Your quote request has been sent. We will get back to you shortly.');
 
-            // Reset form and selections
-            document.getElementById('quote-form').reset();
-            selectedItems.clear();
-            updateSummary();
-        }
+                // Reset form and selections
+                e.target.reset();
+                clearSelection();
+            });
+        });
     </script>
 </body>
 </html>
